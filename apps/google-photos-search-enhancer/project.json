@@ -1,0 +1,6 @@
+{
+  "root": "apps/google-photos-search-enhancer",
+  "sourceRoot": "apps/google-photos-search-enhancer/src",
+  "projectType": "application",
+  "tags": []
+}
