@@ -60,6 +60,5 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.19"
-  },
-  "homepage": "https://ceruleanw.github.io/google-photos-search-enhancer"
+  }
 }

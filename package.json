@@ -1,12 +1,13 @@
 {
   "name": "asher-workspace",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
     "start:gpse": "nx serve google-photos-search-enhancer",
     "build": "nx build",
-    "build:gpse": "nx build google-photos-search-enhancer",
+    "build:gpse": "nx build google-photos-search-enhancer --prod",
+    "run:gpse": "nx run google-photos-search-enhancer:build",
     "test": "nx test"
   },
   "private": true,
@@ -21,7 +22,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.3",
     "@mui/material": "^5.4.4",
-    "@nrwl/next": "13.8.1",
+    "@nrwl/next": "^13.8.1",
     "@reduxjs/toolkit": "^1.5.0",
     "autoprefixer": "^10.4.2",
     "axios": "^0.21.1",
