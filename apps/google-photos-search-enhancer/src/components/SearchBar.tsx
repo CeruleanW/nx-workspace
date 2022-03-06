@@ -2,24 +2,32 @@ import React, { useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles, alpha } from '@material-ui/core/styles';
-import { Button, Grid } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { searchForItems } from '../features/client-storage';
 import { useAccess } from './Context/AccessContext';
 import { useFeedbackUpdate } from './Context/FeedbackContext';
 import { useDispatch } from 'react-redux';
 import { requestMediaItemsByIds } from '../features/media-items';
 import { setDisplayedPhotos } from '@/providers/redux/photosSlice';
+import styled from 'styled-components';
+
+const InputContainer = styled.div`
+  margin-bottom: 0.5rem;
+  @media (min-width: 382px) {
+    margin-bottom: 0;
+  }
+`;
+
 
 const useStyles = makeStyles((theme) => ({
   search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
+    // borderRadius: theme.shape.borderRadius,
+    // backgroundColor: alpha(theme.palette.common.white, 0.15),
+    // '&:hover': {
+    //   backgroundColor: alpha(theme.palette.common.white, 0.25),
+    // },
+    // marginRight: theme.spacing(2),
+    // marginLeft: 0,
     // width: '100%',
     // marginBottom: theme.spacing(1),
     [theme.breakpoints.up('md')]: {
@@ -117,7 +125,7 @@ export default function SearchBar() {
 
   return (
     <>
-      <Grid className={classes.search} item xs={9}>
+      <InputContainer className={`min-w-fit max-w-full relative space-y-2 bg-slate-100/20 hover:bg-slate-100/30 rounded mr-2`}>
         <div className={classes.searchIcon}>
           <SearchIcon />
         </div>
@@ -127,17 +135,18 @@ export default function SearchBar() {
             root: classes.inputRoot,
             input: classes.inputInput,
           }}
+          className={''}
           inputProps={{ 'aria-label': 'search' }}
           onChange={handleKeywordChange}
           onKeyUp={handleSearchKeyUp}
           autoFocus={true}
         />
-      </Grid>
-      <Grid item>
+      </InputContainer>
+      <div className={'flex items-center'}>
         <Button variant='contained' onClick={handleClick} disabled={!isLogined}>
           Search
         </Button>
-      </Grid>
+      </div>
     </>
   );
 }

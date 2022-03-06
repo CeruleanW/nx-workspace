@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar } from './AppBar';
+import { AppBar } from './NavBar/AppBar';
 import PhotosContainer from './Photos';
 import { UpdateLocalDataBackDrop } from './UpdateLocalDataBackDrop';
 import { Box, LinearProgress } from '@material-ui/core/';
