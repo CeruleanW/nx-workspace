@@ -1,6 +1,6 @@
 import React from 'react';
 import { Snackbar } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
+import MuiAlert from '@mui/material/Alert';
 import { SnackbarMessage } from '@/providers/types';
 
 export function UpdateResultSnackbar({

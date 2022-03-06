@@ -1,7 +1,5 @@
-import { Grid } from '@material-ui/core';
 import MUIAppBar from '@material-ui/core/AppBar';
 import { useTheme } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useEffect, useState } from 'react';
 import { checkNotFirstVisit, getTimeStamp } from '../../features/client-storage';
