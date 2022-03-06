@@ -6,7 +6,7 @@
     "start": "nx serve",
     "start:gpse": "nx serve google-photos-search-enhancer",
     "build": "nx build",
-    "build:gpse": "nx build google-photos-search-enhancer --prod",
+    "build:gpse": "nx build google-photos-search-enhancer",
     "run:gpse": "nx run google-photos-search-enhancer:build",
     "test": "nx test"
   },
