@@ -1,0 +1,304 @@
+---
+# This file contains all the public personal data (some data may be more public than other data)
+# Serves as a single source of output
+# My other services should query personal data from here
+
+names:
+  legal-name: Yi Yang
+  preferred-name: &first Asher
+  first-name: *first
+  last-name: Yang
+  full-name: Asher Yang
+  displayed-name: Asher Yang
+links:
+  github: &github https://github.com/ceruleanw
+  portfolio: &portfolio https://ashery.space/
+  blogs:
+    - english-blog: https://asheryang.medium.com/
+    - chinese-blog: https://ceruleanw.github.io/blog/
+    - wordpress: https://asheryang.epizy.com/wordpress/
+  twitter: &twitter https://twitter.com/yi_xpress/
+  linkedin: &linkedin https://www.linkedin.com/in/yiyang-tech/
+self-link: https://personal-data-asher.herokuapp.com/static/personal-data.yaml #the link to this file
+projects:
+  - name: Plant Light Meter (working title)
+    intro: A mobile app measures and displays the light intensity to help you find the right location for your indoor plants
+    related-techs: 
+      - React Native 
+      - Java (Android)
+      - MongoDB Realm
+      - Agile (Scrum)
+      - Highcharts
+    repo: https://github.com/CeruleanW/plant-light-meter
+    features:
+        - keypoint: Mobile Development
+          description: "Applied the Agile (Scrum) methodology in the project of building a mobile Minimal Viable Product from scratch. To deliver the features of enabling users to get light intensity readings, store the records for multiple locations, and display in charts, learned and combined technologies as React Native, MongoDB Realm, Highcharts and Android native module in Java"
+  - name: Google Photos Search Enhancer
+    intro: A SPA to enable Google Photos users to search phrases more than general keywords in the descriptions and filenames. Supports fuzzy search
+    repo: https://github.com/CeruleanW/google-photos-search-enhancer
+    demo: https://ceruleanw.github.io/google-photos-search-enhancer
+    features:
+      - keypoint: Single-Page Application Development
+        description: "Initiated and built a web application enabling Google Photos users to search phrases more than general keywords in the descriptions and filenames and display matched results, using Fuse.js to achieve fuzzy search. The program consumes RESTful APIs of Google Photos after authentication."
+  - name: Landing Page - EXP | CON
+    intro: "A responsive landing page rich with graphic effects and animations"
+    repo: https://github.com/CeruleanW/landing-page-example
+    demo: https://landing-page-example.vercel.app/
+    features:
+      - keypoint: Responsive design & Graphic effects
+        description: To implement the visual animation effects and a fullyresponsive layout in a efficient way, used CSS libraries as styled components, TailwindCSS, and used curtain.js, a WebGL javascript library, to creat a displacement effect on carousel transitions.
+    illustrations: 
+      - "https://github.com/CeruleanW/large-static-files/raw/master/piJYPfO%20-%20Imgur.gif"
+      - "https://i.imgur.com/HsXYYhw.gif" 
+      - "https://media.githubusercontent.com/media/CeruleanW/large-static-files/master/exp-demo-3.gif"
+  - name: Idea Dropper
+    intro: A web app for putting your ideas in boxes and draw them randomly
+    repo: https://github.com/CeruleanW/idea-dropper
+    techs: 
+      - React.js
+      - styled-components
+      - MongoDB
+      - Next.js
+      - TailwindCSS
+      - Redux
+      - TypeScript
+      - Jest
+    features:
+      - keypoint: A fully functional web app implemented by MERN stack
+        description: N/A
+  - name: &cew Church Education Website
+    intro: A content-mangaed site for the Sunday school of Zion Alliance Church
+    repo: https://github.com/CeruleanW/church-eduction-website
+    features:
+      - keypoint: Optimization
+        description: In order to achieve seperation of duties, the content data is migarated to npoint, a lightweight JSON storage service which has an editor interface, so that other members can update content without touching the code. The front end will request data from its REST API in an AJAX way
+      - keypoint: UI Design & communication
+        description: "Communicated with my church members to define the requirements for a responsive website with course & news posts and a overview page. Drew a sketch for confirming the UI design, and implemented using React.js, React Router, Styled components and Material UI. The result was regarded as “Great!” by other members."
+  - name: Secured Web System
+    intro: A minimal role-based access control system in Java
+    features:
+      - keypoint: Java & Security
+        description: Led four team members to build a role-based access control system in Java, using Java Servlet, Apache Tomcat, XML to satisfy the requirement of disallowing unauthorized accesses to protected resources. It was achieved by combing session management, Tomcat filter, and serving protected images in Image I/O
+linkedin:
+  headline: "Web & Mobile developer skilled in JavaScript, Java and MERN stack | @Kaidu.ai"
+  aboutme: >-
+    Hi there! I am a Web & Mobile developer who likes solving problems by working hard. 
+    Recently graduated from York University with a degree, I am carrying my passion for delivering innovative and useful products in Software Development. My background in both Information Technology and Marketing allows me to have a unique perspective when developing code for the end-user, while also enabling me to be a supportive and collaborative team member.
+
+    Shortlist of skills:
+    -----------------------------
+    Front end: JavaScript/TypeScript, React.js, React Native, Redux, CSS (Sass, styled-components, TailwindCSS), HTML5;
+    Back end: Node.js, NestJS, Java;
+    Database: MongoDB, SQL;
+    Other: Git, Unit testing, UML, Agile
+
+    Through my coursework at York University in Information Technology and self-learning, I am also equipped with a solid understanding of data structure, object-oriented programming, algorithms, relational database and system design.
+    You can check out some of my work @ https://ashery.space/
+    Are you looking for a competent, highly motivated developer? Let's have a chat. You may find me at yyang.techie@gmail.com or by DM here."
+technical-skills:
+  resume-list: &resume-tech-skills
+    - React.js
+    - React Native
+    - Redux
+    - JavaScript(ES6+)
+    - TypeScript
+    - Git
+    - CSS3
+    - Styled components
+    - Sass
+    - HTML5
+    - Unit Testing
+    - Agile Methodology (Scrum)
+    - Node.js
+    - Express.js
+    - Linux
+    - RESTful API
+    - Next.js
+    - Java (8+)
+    - MongoDB
+    - PostgreSQL
+    - SQL
+    - Python
+  front-end: &front-end-skills
+    - React.js
+    - React Native
+    - JavaScript(ES6+)
+    - TypeScript
+    - Redux
+    - CSS3
+    - HTML5
+    - Styled components
+    - Sass
+    - Canvas
+    - Webpack
+    - Babel
+    - Material UI
+  back-end: &back-end-skills
+    - Node.js
+    - NestJS
+    - Java (8+)
+    - SQL
+    - Docker
+    - PostgreSQL
+    - MongoDB
+    - Express.js
+    - Python
+    - Tomcat
+  general: &general-skills
+    - Git
+    - RESTful API
+    - Jira
+    - Agile Methodology (Scrum)
+    - Unit Testing (Jest, JUnit)
+    - E2E Testing (Appium, WebDriverIO)
+    - Bash
+    - UML
+    - Object-Oriented Programming
+    - Waterfall Methodology
+    - Next.js
+    - JSON/XML
+  additional-list: &additional-tech-list
+    - Figma
+    - MATLAB
+    - R
+    - Bizagi Modeler (BPMN)
+    - Adobe PhotoShop
+    - Adobe Premiere Pro
+    - Microsoft Office (Excel, PowerPoint, Word)
+resume:
+  phone-numer: &phone "+1(416)8937473"
+  title: &title Web & Mobile Developer
+  email: &work-email yyang.techie@gmail.com
+  links: &resume-links
+    portfolio: *portfolio
+    github: *github
+    linkedin: *linkedin
+    twitter: *twitter
+    files-link:
+      google-drive: https://drive.google.com/file/d/1kVG2EiIYVW2Bm7j7DMw_6BxSm8fpwrRL/view?usp=sharing
+  location: &location Toronto, Ontario, Canada
+  summary: 
+    version:
+      short: Software developer with experience in design and implement Web & Mobile products in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java. Always learning along the way. 
+  experience: &general-experience
+    - job-title: Software Developer
+      company: 
+        company-name: Kaidu.ai
+        company-location: Toronto, Canada
+      time:
+        from: 05/2021
+        to: 02/2022
+      features: 
+        - keypoint: Mobile Development
+          description: "Built a mobile app from scratch using React Native with integrated Android native module in Java to provide a smooth and efficient user flow for configuring and updating IoT devices"
+        - keypoint: Back-end Development
+          description: "Built and deployed Node.js based data pipeline to save cloud resource consumption and add APIs in the NestJS server to enable comminication between the Front-end dashboard and IoT devices"
+        - keypoint: Data Visualization
+          description: "Rebuilt the heatmap page with a WebGL-based visualization tool to provide a more detailed and informative heatmap graph"
+    - job-title: Software Developer (contract)
+      company:
+        company-name: &name-alias An early-stage startup
+        company-location: Toronto, Canada
+      time: 
+        from: 02/2021
+        to: 03/2021
+      features:
+        - keypoint: Mobile Development
+          description: "Applied Agile (Scrum) methodology to build a mobile app helping users find a location with the right light intensity for their indoor planting. Using built-in light ambient sensor to capture data and display all history data in the charts via Highcharts and MongoDB Realm"
+    - job-title: Web Content Writer
+      company:
+        company-name: NiceNIC.net
+        company-introduction: A web service company that provides website builder tools (like wix.com)
+        company-location: Zhuhai, China
+      time: 
+        from: 03/2016
+        to: 09/2016
+      features:
+        - keypoint: Written communication
+          description: "Wrote various web content, including social media posts, user guides, to proclaim features and benefits to the targeted audience, attracted 30,000+ page views in two weeks"
+    - job-title: Marketing Coordinator
+      company:
+        company-name: Guangzhou President Enterprises Corp
+        company-introduction: A branch of Uni-President China - a consumer packaged goods conglomerate in Asia
+        company-location: Guangzhou, China
+      time: 
+        from: 11/2013
+        to: 09/2015
+      features:
+        - keypoint: Project Management
+          description: "Simultaneously handling various tasks in marketing plans such as crafting and presenting plans, communicating with designers and suppliers, analyzing collected data, to ensure merchandising events are held timely and appropriately"
+        - keypoint: Task Optimization
+          description: "created customized Pivot Tables in Excel for tracing daily data of merchandising events, which reduced 40% of task time and greatly improved data inconsistency"
+  side-projects:
+    - title: Google Photos Search Enhancer
+      features:
+        - keypoint: Web application development
+          description: "Initiated and built a web application enabling Google Photos users to search phrases more than general keywords in the descriptions and filenames and display matched results, using Fuse.js to achieve fuzzy search. The program consumes RESTful APIs of Google Photos after authentication."
+      demo: https://ceruleanw.github.io/google-photos-search-enhancer/
+      repo: https://github.com/CeruleanW/google-photos-search-enhancer
+    - title: Church Eduction Website
+      features:
+        - keypoint: Responsive design
+          description: "Communicated with my church members to define the requirements for a responsive website with course & news posts and a overview page. Drew a sketch for confirming the UI design, and implemented using React.js, React Router, Styled components and Material UI. The result was regarded as “Great!” by other members."
+      demo: https://cew.onrender.com
+      repo: https://github.com/CeruleanW/church-eduction-website
+  education: 
+    - major: Information Technology
+      degree: Honours degree
+      organization: York University
+      from: 09/2018
+      to: 02/2021
+      location: Toronto, Canada
+      gpa: 3.85/4.0
+      statements:
+        - keypoint: Academic
+          description: "Dean’s Circle of Scholars: average overall GPA of 8.38/9.0 & International Excellence Scholarship"
+      school-projects:
+        features:
+          - keypoint: Content Searching
+            description: In the project of building a search engine for a batch of compressed HTML documents, explained and recommended the Okapi BM25 ranking algorithm to the team, implemented data preprocessing and formatting functions. The program can return relevant results in the required format for a query in 0.5 seconds on average in a clear object-oriented architecture, which led to an A of this course.
+          - keypoint: Secured Web System
+            description: Led four team members to create a role-based access control system in Java, using Java Servlet, Apache Tomcat, XML to satisfy the requirement that disallowing unauthorized accesses to protected resources.
+          - keypoint: User Interface & Experience
+            description: Collaborated with 4 team members to develop a high-fidelity UI prototype for a car-sharing web system in HTML & JavaScript and finished a usability test. Identified users and defined use case descriptions and interaction tasks. The well-structured report got the professor’s comment as “Good job!”
+          - keypoint: Object-Oriented Design & Documenting
+            description: To design a hotel reservation web system providing alternative suggestions, led two team members to deliver a well-modelled system design applied Object-Oriented Design in UML. Implemented a Layered System architecture style, satisfying all the given functional requirements.
+    - major: Advertising
+      degree: Honours degree
+      organization: South China University of Technology
+      from: 09/2008
+      to: 07/2012
+      location: Guangzhou, China
+  languages: #level: 1-Beginner, 2-Intermediate, 3-Advanced, 4-Proficient, 5-Native
+    - name: English
+      level: 4
+    - name: Chinese (Mandarin & Cantonese)
+      level: 5
+  skills: &resume-skills
+    frontEnd: *front-end-skills
+    backEnd: *back-end-skills
+    general: *general-skills
+    additional: *additional-tech-list
+resume-versions:
+  - version: front-end
+    summary:
+  - version: back-end
+    summary: Software developer at Safetrack Inc.
+    side-projects: 
+    skills: 
+    experience: 
+  - version: chinese
+    phone-numer: *phone
+    title: Web 与 移动应用开发者
+    email: *work-email
+    links: *resume-links
+    location: *location
+    summary: Web 与 移动应用开发工程师，熟练掌握JavaScript/TypeScript, React.js, React Native, Java, 
+    experience:
+      - job-title: 软件开发实习
+      - job-title: 软件开发(合同)
+      - job-title: 文案编辑
+      - job-title: 行销管理师
+    side-projects:
+      - Google Photos Search Enhancer
+    displayed-name: 杨溢

@@ -1,0 +1,20 @@
+{
+  "name": "asher-yang-public",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "repository": "https://git.heroku.com/email-service-cerulean.git",
+  "author": "Asher Yang",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node": "^14.16.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "webpack": "^5.24.1"
+  }
+}

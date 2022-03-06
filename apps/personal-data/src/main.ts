@@ -1,18 +1,25 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
-import * as express from 'express';
-
+'use strict';
+const cors = require('cors');
+const express = require('express');
+const path = require('path');
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to personal-data!' });
+let port = process.env.PORT as any;
+if (port == null || port == '') {
+  port = 8000;
+}
+app.use(cors());
+
+//Simple test
+app.get('/', (req, res) => {
+  // console.log(req);
+  console.log(req.body);
+  res.send("This is Asher's API");
 });
 
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+//Static files
+app.use('/static', express.static(path.join(__dirname, 'assets')));
+
+app.listen(port, () => {
+  console.log(`Listening at port: ${port}`);
 });
-server.on('error', console.error);
