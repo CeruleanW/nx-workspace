@@ -1,4 +1,4 @@
-import {getAllKeysOfLocalMediaItems, } from '../client-storage';
+import {getAllKeysOfLocalMediaItems } from '../client-storage';
 
 export const foo = 'foo';
 

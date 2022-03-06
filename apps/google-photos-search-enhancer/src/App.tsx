@@ -1,4 +1,3 @@
-import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AccessProvider from './components/Context/AccessContext';
 import FeedbackProvider from './components/Context/FeedbackContext';
