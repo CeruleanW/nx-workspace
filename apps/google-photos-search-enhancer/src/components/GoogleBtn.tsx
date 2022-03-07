@@ -46,10 +46,12 @@ export default function GoogleBtn(props) {
   };
 
   const handleLoginFailure = (response) => {
+    console.error(response);
     alert('Failed to log in');
   };
 
   const handleLogoutFailure = (response) => {
+    console.error(response);
     alert('Failed to log out');
   };
 

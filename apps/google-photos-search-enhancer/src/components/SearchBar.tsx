@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import { makeStyles, alpha } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { searchForItems } from '../features/client-storage';
 import { useAccess } from './Context/AccessContext';

@@ -1,6 +1,4 @@
 import MUIAppBar from '@material-ui/core/AppBar';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useEffect, useState } from 'react';
 import { checkNotFirstVisit, getTimeStamp } from '../../features/client-storage';
 import { RandomBtn } from '../../features/random/components/RandomBtn';
@@ -12,12 +10,6 @@ import { Title } from '../Title';
 
 export function AppBar({ onOpenDrawer, ...optionals }) {
   // Styles
-  const theme = useTheme();
-  let justifyStyle;
-  useMediaQuery(theme.breakpoints.up('md'))
-    ? (justifyStyle = 'flex-end')
-    : (justifyStyle = 'center');
-
   // States
   const [lastUpdateTime, setLastUpdateTime] = useState('');
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
