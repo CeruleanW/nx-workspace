@@ -10,9 +10,9 @@ import { useFeedbackUpdate } from './Context/FeedbackContext';
 
 const oauth2 = {
   clientID: credentials.web.client_id,
-  projectId: 'search-chinese-1595873063241',
-  authUri: 'https://accounts.google.com/o/oauth2/auth',
-  tokenUri: 'https://oauth2.googleapis.com/token',
+  projectId: credentials.web.project_id,
+  authUri: credentials.web.auth_uri,
+  tokenUri: credentials.web.token_uri,
   scopes: [
     'https://www.googleapis.com/auth/photoslibrary',
     'https://www.googleapis.com/auth/photoslibrary.readonly',
@@ -89,7 +89,7 @@ export default function GoogleBtn(props) {
   };
 
   return (
-    <React.Fragment>
+    <>
       {isLogined ? (
         <GoogleLogout
           clientId={oauth2.clientID}
@@ -127,6 +127,6 @@ export default function GoogleBtn(props) {
           )}
         />
       )}
-    </React.Fragment>
+    </>
   );
 }

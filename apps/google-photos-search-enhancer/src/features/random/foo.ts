@@ -3,7 +3,7 @@ import {getAllKeysOfLocalMediaItems } from '../client-storage';
 export const foo = 'foo';
 
 
-export async function getRandomKeys(n: number = 10) {
+export async function getRandomKeys(n: number = 10): Promise<IDBValidKey[]> {
   const keys = await getAllKeysOfLocalMediaItems();
   const randomKeys = [];
   for (let i = 0; i < n; i++) {

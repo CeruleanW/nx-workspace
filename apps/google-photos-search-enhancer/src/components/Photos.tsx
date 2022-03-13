@@ -39,7 +39,7 @@ export const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PhotosContainer(props) {
-  const { list } = props;
+  const { list, ...rest } = props;
 
   // Style
   const classes = useStyles();
@@ -62,7 +62,7 @@ export default function PhotosContainer(props) {
     <div className={classes.root}>
       {loadingPhotos ? (
         <Grid container spacing={1}>
-          {displayedPhotos.map((photoItem) => (
+          {displayedPhotos?.map((photoItem, index) => (
             <Grid
               item
               xs={12}
@@ -70,7 +70,7 @@ export default function PhotosContainer(props) {
               md={4}
               lg={3}
               xl={2}
-              key={photoItem?.baseUrl}
+              key={`$photo-skeleton-${index}`}
             >
               <Skeleton variant='rectangular' height={300} />
             </Grid>

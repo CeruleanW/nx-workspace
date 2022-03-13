@@ -77,8 +77,8 @@
       ],
       "id": "0c6d7ee9-fbca-477f-8f0d-2f1eb50963f0",
       "type": "Personal Project",
-      "live": "https://ceruleanw.github.io/google-photos-search-enhancer/",
-      "repo": "https://github.com/CeruleanW/google-photos-search-enhancer",
+      "live": "https://google-photos-search-enhancer.netlify.app/",
+      "repo": "https://github.com/CeruleanW/nx-workspace/tree/master/apps/google-photos-search-enhancer",
       "content": {
         "introduction": "Google Photos Search Enhancer is an application which requests data from Google Photos API, stores them in the client-end storage and search through it. This project improves my skills of dealing with REST APIs, Asynchronous JavaScript (AJAX) and React.js.",
         "goal": "As a Google Photos user, I expect to find my photos once I put a special filename on the photo or add some description on it. It was frustrating that if you search in Chinese, some words are searchable while most are not. I want to build a app to target the photos by the text in it.",

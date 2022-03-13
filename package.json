@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "start:gpse": "nx serve google-photos-search-enhancer",
+    "start:idea": "nx serve idea-dropper",
     "build": "nx build",
     "build:gpse": "CI= nx build google-photos-search-enhancer",
     "run:gpse": "nx run google-photos-search-enhancer:build",

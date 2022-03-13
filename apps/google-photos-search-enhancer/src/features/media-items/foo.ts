@@ -9,7 +9,7 @@ export async function requestMediaItemsByIds(
   accessToken?: string
 ): Promise<LocalUrls[]> {
   // set a list of requests
-  const urls = ids.map((id) => `${MEDIA_ITEMS_API}/${id}`);
+  const urls = ids.filter((id) => Boolean(id)).map((id) => `${MEDIA_ITEMS_API}/${id}`);
 
   const processedUrls = accessToken
     ? urls.map((url) => `${url}?access_token=${accessToken}`)

@@ -3,8 +3,7 @@
 import { setMediaItems, setTimeStamp, getTimeStamp } from '../client-storage';
 import { sendPost } from '../request';
 import { LocalMediaItem } from './types';
-import {MEDIA_ITEMS_SEARCH_API, MEDIA_ITEMS_API} from './constants';
-
+import { MEDIA_ITEMS_SEARCH_API } from './constants';
 
 // request for all media items and store the result in the IndexedDB
 // return the setted time stamp
@@ -12,7 +11,6 @@ import {MEDIA_ITEMS_SEARCH_API, MEDIA_ITEMS_API} from './constants';
 export async function requestAllMediaItems(
   accessToken?: string,
   url = MEDIA_ITEMS_SEARCH_API,
-  httpMethod = 'POST'
 ) {
   let nextToken;
   try {
@@ -21,9 +19,8 @@ export async function requestAllMediaItems(
       accessToken,
       null,
       url,
-      httpMethod
     );
-    console.table('onePageData: ', onePageData);
+    // console.table('onePageData: ', onePageData);
 
     do {
       //store data from response
@@ -38,7 +35,6 @@ export async function requestAllMediaItems(
         accessToken,
         nextToken,
         url,
-        httpMethod
       );
     } while (nextToken);
   } catch (err) {
@@ -53,8 +49,7 @@ export async function requestAllMediaItems(
 async function requestAPageOfMediaItems(
   accessToken,
   pageToken = '',
-  url = MEDIA_ITEMS_SEARCH_API,
-  method = 'POST'
+  url = MEDIA_ITEMS_SEARCH_API
 ) {
   const processedUrl = accessToken ? `${url}?access_token=${accessToken}` : url;
 
@@ -63,12 +58,11 @@ async function requestAPageOfMediaItems(
     pageSize: 100,
     pageToken: pageToken ? pageToken : null,
   };
-  console.log('options: ', options);
+  // console.log('options: ', options);
 
   const data = await sendPost(processedUrl, options);
   return data;
 }
-
 
 function extractPropsInMediaItems(responseJson): LocalMediaItem[] {
   const mediaItems = responseJson.mediaItems;

@@ -4,7 +4,7 @@
 
 Google Photos is powerful for searching in English. However, you can only search some general keywords in other languages, which leads to unpredictable results. cannot search specific text in Chinese within names or descriptions. This app will help you search through the descriptions and filenames in your Google Photos Library in all UTF-8 supported languages.
 
-Website: https://ceruleanw.github.io/google-photos-search-enhancer/
+[Demo](https://google-photos-search-enhancer.netlify.app/)
 
 ![demo.gif](https://i.imgur.com/5vNyUh5.gif)
 
@@ -30,8 +30,6 @@ The code is available under the [MIT license](LICENSE).
 - [react-sticky-footer](https://www.npmjs.com/package/react-sticky-footer)
 - [React Google Login](https://www.npmjs.com/package/react-google-login)
 - [idb](https://github.com/jakearchibald/idb) - data from your Google Photos account will be stored in IndexedDB
-
-
 
 ```bash
 npm install --save-dev @material-ui/core @material-ui/icons react-google-login idb react-masonry-css react-sticky-footer

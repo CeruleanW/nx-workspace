@@ -90,6 +90,11 @@ export async function searchForItems(keyword) {
   return result;
 }
 
+/**
+ * @description get corresponding key value in IndexedDB
+ * @param key
+ * @returns
+ */
 export async function getValue(key: string): Promise<any> {
   const db = await getDatabase();
   const tx = db.transaction(objectStoreName, 'readonly');

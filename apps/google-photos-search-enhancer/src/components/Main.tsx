@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppBar } from './NavBar/AppBar';
 import PhotosContainer from './Photos';
 import { UpdateLocalDataBackDrop } from './UpdateLocalDataBackDrop';
