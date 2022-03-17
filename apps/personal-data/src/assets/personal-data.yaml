@@ -23,8 +23,8 @@ self-link: https://personal-data-asher.herokuapp.com/static/personal-data.yaml #
 projects:
   - name: Plant Light Meter (working title)
     intro: A mobile app measures and displays the light intensity to help you find the right location for your indoor plants
-    related-techs: 
-      - React Native 
+    related-techs:
+      - React Native
       - Java (Android)
       - MongoDB Realm
       - Agile (Scrum)
@@ -35,8 +35,8 @@ projects:
           description: "Applied the Agile (Scrum) methodology in the project of building a mobile Minimal Viable Product from scratch. To deliver the features of enabling users to get light intensity readings, store the records for multiple locations, and display in charts, learned and combined technologies as React Native, MongoDB Realm, Highcharts and Android native module in Java"
   - name: Google Photos Search Enhancer
     intro: A SPA to enable Google Photos users to search phrases more than general keywords in the descriptions and filenames. Supports fuzzy search
-    repo: https://github.com/CeruleanW/google-photos-search-enhancer
-    demo: https://ceruleanw.github.io/google-photos-search-enhancer
+    repo: https://github.com/CeruleanW/nx-workspace/tree/master/apps/google-photos-search-enhancer
+    demo: https://google-photos-search-enhancer.netlify.app/
     features:
       - keypoint: Single-Page Application Development
         description: "Initiated and built a web application enabling Google Photos users to search phrases more than general keywords in the descriptions and filenames and display matched results, using Fuse.js to achieve fuzzy search. The program consumes RESTful APIs of Google Photos after authentication."
@@ -47,14 +47,14 @@ projects:
     features:
       - keypoint: Responsive design & Graphic effects
         description: To implement the visual animation effects and a fullyresponsive layout in a efficient way, used CSS libraries as styled components, TailwindCSS, and used curtain.js, a WebGL javascript library, to creat a displacement effect on carousel transitions.
-    illustrations: 
+    illustrations:
       - "https://github.com/CeruleanW/large-static-files/raw/master/piJYPfO%20-%20Imgur.gif"
-      - "https://i.imgur.com/HsXYYhw.gif" 
+      - "https://i.imgur.com/HsXYYhw.gif"
       - "https://media.githubusercontent.com/media/CeruleanW/large-static-files/master/exp-demo-3.gif"
   - name: Idea Dropper
     intro: A web app for putting your ideas in boxes and draw them randomly
     repo: https://github.com/CeruleanW/idea-dropper
-    techs: 
+    techs:
       - React.js
       - styled-components
       - MongoDB
@@ -82,7 +82,7 @@ projects:
 linkedin:
   headline: "Web & Mobile developer skilled in JavaScript, Java and MERN stack | @Kaidu.ai"
   aboutme: >-
-    Hi there! I am a Web & Mobile developer who likes solving problems by working hard. 
+    Hi there! I am a Web & Mobile developer who likes solving problems by working hard.
     Recently graduated from York University with a degree, I am carrying my passion for delivering innovative and useful products in Software Development. My background in both Information Technology and Marketing allows me to have a unique perspective when developing code for the end-user, while also enabling me to be a supportive and collaborative team member.
 
     Shortlist of skills:
@@ -177,18 +177,18 @@ resume:
     files-link:
       google-drive: https://drive.google.com/file/d/1kVG2EiIYVW2Bm7j7DMw_6BxSm8fpwrRL/view?usp=sharing
   location: &location Toronto, Ontario, Canada
-  summary: 
+  summary:
     version:
-      short: Software developer with experience in design and implement Web & Mobile products in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java. Always learning along the way. 
+      short: Software developer with experience in design and implement Web & Mobile products in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java. Always learning along the way.
   experience: &general-experience
     - job-title: Software Developer
-      company: 
+      company:
         company-name: Kaidu.ai
         company-location: Toronto, Canada
       time:
         from: 05/2021
         to: 02/2022
-      features: 
+      features:
         - keypoint: Mobile Development
           description: "Built a mobile app from scratch using React Native with integrated Android native module in Java to provide a smooth and efficient user flow for configuring and updating IoT devices"
         - keypoint: Back-end Development
@@ -199,7 +199,7 @@ resume:
       company:
         company-name: &name-alias An early-stage startup
         company-location: Toronto, Canada
-      time: 
+      time:
         from: 02/2021
         to: 03/2021
       features:
@@ -210,7 +210,7 @@ resume:
         company-name: NiceNIC.net
         company-introduction: A web service company that provides website builder tools (like wix.com)
         company-location: Zhuhai, China
-      time: 
+      time:
         from: 03/2016
         to: 09/2016
       features:
@@ -221,7 +221,7 @@ resume:
         company-name: Guangzhou President Enterprises Corp
         company-introduction: A branch of Uni-President China - a consumer packaged goods conglomerate in Asia
         company-location: Guangzhou, China
-      time: 
+      time:
         from: 11/2013
         to: 09/2015
       features:
@@ -234,15 +234,15 @@ resume:
       features:
         - keypoint: Web application development
           description: "Initiated and built a web application enabling Google Photos users to search phrases more than general keywords in the descriptions and filenames and display matched results, using Fuse.js to achieve fuzzy search. The program consumes RESTful APIs of Google Photos after authentication."
-      demo: https://ceruleanw.github.io/google-photos-search-enhancer/
-      repo: https://github.com/CeruleanW/google-photos-search-enhancer
+      demo: https://google-photos-search-enhancer.netlify.app/
+      repo: https://github.com/CeruleanW/nx-workspace/tree/master/apps/google-photos-search-enhancer
     - title: Church Eduction Website
       features:
         - keypoint: Responsive design
           description: "Communicated with my church members to define the requirements for a responsive website with course & news posts and a overview page. Drew a sketch for confirming the UI design, and implemented using React.js, React Router, Styled components and Material UI. The result was regarded as “Great!” by other members."
       demo: https://cew.onrender.com
       repo: https://github.com/CeruleanW/church-eduction-website
-  education: 
+  education:
     - major: Information Technology
       degree: Honours degree
       organization: York University
@@ -284,16 +284,16 @@ resume-versions:
     summary:
   - version: back-end
     summary: Software developer at Safetrack Inc.
-    side-projects: 
-    skills: 
-    experience: 
+    side-projects:
+    skills:
+    experience:
   - version: chinese
     phone-numer: *phone
     title: Web 与 移动应用开发者
     email: *work-email
     links: *resume-links
     location: *location
-    summary: Web 与 移动应用开发工程师，熟练掌握JavaScript/TypeScript, React.js, React Native, Java, 
+    summary: Web 与 移动应用开发工程师，熟练掌握JavaScript/TypeScript, React.js, React Native, Java,
     experience:
       - job-title: 软件开发实习
       - job-title: 软件开发(合同)

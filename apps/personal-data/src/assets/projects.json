@@ -17,7 +17,7 @@
         "goal": "To demonstrate and preview how the residential address signs would look like, so that the users can have a better understanding of the design and make a good choice of the font & size. The height should be determined by the length, font family and text content.",
         "spotlight": "In Web development, we usually set the font size in CSS to assign a height to the text, then the browser will decide the width based on the font size and the number of characters. However, in this case, we need to let the width decides the height and measure each character instead of paragraph. This is where WebGL comes in.",
         "problem": [
-          "A major requirement of this project is to provide approximate height for the address text and font. However, the browser usually do it in the opposite way. They also want to measure the height of text by its content. For example, 'H' should be higher than 'a'.", "To solve this problem, we need to render the text via Canvas and then we can access more information about the measured text instead of only measureing the paragraph block. To let the length determine the height, I wrote a function to calculate the length for given font sizes and change the font size before it's displayed."
+          "The sizes I can get from regular HTML text elements are not accurate enough", "A major requirement of this project is to provide approximate height for the address text and font. However, the browser usually do it in the opposite way. They also want to measure the height of text by its content. For example, 'H' should be higher than 'a'.", "To solve this problem, we need to render the text via Canvas and then we can access more information about the measured text instead of only measureing the paragraph block. To let the length determine the height, I wrote a function to calculate the length for given font sizes and change the font size before it's displayed."
         ],
         "lesson": [
           "Although HTML is more like a printing tool than a designing tool, Canvas and WebGL do enable us to perform more granular operations on the User Interface",
@@ -187,20 +187,20 @@
     },
     {
       "title": "Kaidu Configuration (Lite)",
-      "subtitle": "A mobile app for configuring and getting Kaidu scanners started quickly",
-      "image": "",
-      "techs": ["React Native", "Redux", "", "", ""],
-      "id": "",
+      "subtitle": "A mobile app for configuring Kaidu scanners in a user friendly and quick way",
+      "image": "https://i.imgur.com/vLsK29W.png",
+      "techs": ["React Native", "Redux", "React Native Bluetooth Low Energy library", "React Native Elements", "Styled components"],
+      "id": "8de597a4-a337-11ec-b909-0242ac120002",
       "type": "Work Project",
       "content": {
-        "introduction": "",
-        "goal": "",
-        "spotlight": "",
+        "introduction": "A new Kaidu scanner needs an accessible Wi-Fi, MQTT configuration, a registered client account and other information to start working and send data. This app is helping users to configure the scanner with less burden and time.",
+        "goal": "Enable users to configure Kaidu scanners in less than 5 minutes, involving communicating with both the server and the BLE device",
+        "spotlight": "This fully featured app is designed, built and maintained by me",
         "problem": [
-          ""
+          "Error handling is important for this app. The configuration workflow is simple for users. Many steps are automatically completed by the app. Different kinds of errors and problems could happen after it started. As Bluetooth communication is instable by its nature, the app must help users to recover from those errors."
         ],
         "lesson": [
-          ""
+          "For the data fetching part, using a library like React Query or SWR, to provides solutions for loading state, error handling, caching, and re-validation is very convenient."
         ]
       },
       "illustrations": [
