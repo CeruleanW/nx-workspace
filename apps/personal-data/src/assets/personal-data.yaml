@@ -194,7 +194,7 @@ resume:
         - keypoint: Back-end Development
           description: "Built and deployed Node.js based data pipeline to save cloud resource consumption and add APIs in the NestJS server to enable comminication between the Front-end dashboard and IoT devices"
         - keypoint: Data Visualization
-          description: "Rebuilt the heatmap page with a WebGL-based visualization tool to provide a more detailed and informative heatmap graph"
+          description: "Rebuilt the heatmap page of the dashboard with a WebGL-based visualization tool to provide a more detailed and informative heatmap graph"
     - job-title: Software Developer (contract)
       company:
         company-name: &name-alias An early-stage startup
