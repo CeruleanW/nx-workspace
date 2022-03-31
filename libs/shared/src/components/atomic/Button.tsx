@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MyButton(props) {
+export function Button(props) {
   const { className, ...rest } = props;
   return (
     <>

@@ -65,8 +65,7 @@ export default function SearchBar() {
   // Hooks
   const classes = useStyles();
   const dispatch = useDispatch();
-  const accessToken = useAccess().accessToken;
-  const isLogined = useAccess().isLogined;
+  const {accessToken, isLogined} = useAccess() || {};
   const updateIsSearching = useFeedbackUpdate().handleIsSearching;
   const updateIsNoMatch = useFeedbackUpdate().handleIsNoMatch;
 
@@ -76,7 +75,7 @@ export default function SearchBar() {
   // Search, use the keyword in state, go through the local IndexedDB, pass the base urls to Photos
   const handleSearch = async () => {
     const t0 = performance.now();
-    console.log(`Search start: ${t0} milliseconds`);
+    console.debug(`Search start: ${t0} milliseconds`);
 
     // No input in the searchbar
     if (!keyword) {
