@@ -179,7 +179,7 @@ resume:
   location: &location Toronto, Ontario, Canada
   summary:
     version:
-      short: Software developer with experience in design and implement Web & Mobile products in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java. Always learning along the way.
+      short: Software developer with experience in design and develop Web & Mobile software in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java.
   experience: &general-experience
     - job-title: Software Developer
       company:
@@ -187,14 +187,16 @@ resume:
         company-location: Toronto, Canada
       time:
         from: 05/2021
-        to: 02/2022
+        to: 03/2022
       features:
         - keypoint: Mobile Development
-          description: "Built a mobile app from scratch using React Native with integrated Android native module in Java to provide a smooth and efficient user flow for configuring and updating IoT devices"
-        - keypoint: Back-end Development
-          description: "Built and deployed Node.js based data pipeline to save cloud resource consumption and add APIs in the NestJS server to enable comminication between the Front-end dashboard and IoT devices"
+          description: "Built mobile apps from scratch using React Native to provide a smooth and efficient user flow for configuring and updating IoT devices via REST API and Bluetooth on Android and iOS"
         - keypoint: Data Visualization
-          description: "Rebuilt the heatmap page of the dashboard with a WebGL-based visualization tool to provide a more detailed and informative heatmap graph"
+          description: "Rebuilt the heatmap page of dashboard by using a WebGL-based visualization tool and implementing an trilateration algorithm to provide a more detailed and informative heatmap graph"
+        - keypoint: Back-end Development
+          description: "Built and deployed Node.js based data pipeline to reduce cloud resource consumption and add APIs in the NestJS server to enable comminication between the Front-end dashboard and IoT devices"
+        - keypoint: Agile method
+          description: "Gained experience working in a fast-paced, startup culture by following Agile Methodology and managing tasks using JIRA"
     - job-title: Software Developer (contract)
       company:
         company-name: &name-alias An early-stage startup
@@ -204,7 +206,7 @@ resume:
         to: 03/2021
       features:
         - keypoint: Mobile Development
-          description: "Applied Agile (Scrum) methodology to build a mobile app helping users find a location with the right light intensity for their indoor planting. Using built-in light ambient sensor to capture data and display all history data in the charts via Highcharts and MongoDB Realm"
+          description: "Built a minimal viable product of mobile app helping users find a location with the right light intensity for their indoor planting. Using built-in light ambient sensor to capture data and display them in charts via Highcharts and MongoDB Realm"
     - job-title: Web Content Writer
       company:
         company-name: NiceNIC.net
@@ -230,6 +232,12 @@ resume:
         - keypoint: Task Optimization
           description: "created customized Pivot Tables in Excel for tracing daily data of merchandising events, which reduced 40% of task time and greatly improved data inconsistency"
   side-projects:
+    - title: Font Preview Tool
+      features:
+        - keypoint: Problem Solving
+          description: "To measure text height in the browser for given width more precisely and help users to perceive the physical size of address sign, implemented a HTML5 Canvas component which calculates the height by width and embedded it to client's Shopify website."
+      demo: https://houselettersigns.com/pages/design-preview
+      repo: https://github.com/CeruleanW/preview-tool
     - title: Google Photos Search Enhancer
       features:
         - keypoint: Web application development
@@ -240,8 +248,8 @@ resume:
       features:
         - keypoint: Responsive design
           description: "Communicated with my church members to define the requirements for a responsive website with course & news posts and a overview page. Drew a sketch for confirming the UI design, and implemented using React.js, React Router, Styled components and Material UI. The result was regarded as “Great!” by other members."
-      demo: https://cew.onrender.com
-      repo: https://github.com/CeruleanW/church-eduction-website
+      demo: https://cew-5d8o.onrender.com/
+      repo: https://github.com/zioncma/church-eduction-website/tree/master
   education:
     - major: Information Technology
       degree: Honours degree

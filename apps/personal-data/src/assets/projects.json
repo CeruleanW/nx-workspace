@@ -6,7 +6,8 @@
       "image": "https://i.imgur.com/tfgUrCg.png",
       "techs": [
         "React.js",
-        "Canvas API"
+        "Canvas API",
+        "Konva.js"
       ],
       "id": "850f5998-928f-11ec-b909-0242ac120002",
       "type": "Work Project",
@@ -104,7 +105,7 @@
       "type": "Independent Project",
       "techs": ["React.js", "Material UI", "React Router", "RESTful API"],
       "live": "https://cew-5d8o.onrender.com",
-      "repo": "https://github.com/CeruleanW/church-eduction-website",
+      "repo": "https://github.com/zioncma/church-eduction-website/tree/master",
       "content": {
         "introduction": "CEW is a static course website I built for the sunday school of Zion Alliance Church, to allow church members to access the course announcements and resources during the pandemic conveniently. It has three main pages for announcement, general courses, and a special lecture serie respectively.",
         "goal": "The UI of the existing main website was not made for navigating to and displaying various items, which is courses in this case. In fact, it was like hiding these resources in the corner. As we will be mostly interacting remotely in 2021, we need to make the online education resources more accessible",
