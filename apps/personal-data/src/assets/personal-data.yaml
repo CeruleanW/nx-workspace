@@ -179,7 +179,7 @@ resume:
   location: &location Toronto, Ontario, Canada
   summary:
     version:
-      short: Software developer with experience in design and develop Web & Mobile software in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java.
+      short: Software developer with experience in designing and developing Web & Mobile software in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java.
   experience: &general-experience
     - job-title: Software Developer
       company:
@@ -192,11 +192,11 @@ resume:
         - keypoint: Mobile Development
           description: "Built mobile apps from scratch using React Native to provide a smooth and efficient user flow for configuring and updating IoT devices via REST API and Bluetooth on Android and iOS"
         - keypoint: Data Visualization
-          description: "Rebuilt the heatmap page of dashboard by using a WebGL-based visualization tool and implementing an trilateration algorithm to provide a more detailed and informative heatmap graph"
+          description: "Rebuilt the heatmap page in dashboard using a WebGL-based visualization tool and implementing an trilateration algorithm to provide a more detailed and informative heatmap graph"
         - keypoint: Back-end Development
-          description: "Built and deployed Node.js based data pipeline to reduce cloud resource consumption and add APIs in the NestJS server to enable comminication between the Front-end dashboard and IoT devices"
+          description: "Built and deployed Node.js based data pipeline to reduce cloud resource consumption and add APIs in the NestJS server to enable communication between the Front-end dashboard and IoT devices"
         - keypoint: Agile method
-          description: "Gained experience working in a fast-paced, startup culture by following Agile Methodology and managing tasks using JIRA"
+          description: "Worked in a fast-paced, startup culture by following Agile Methodology and managing tasks using JIRA"
     - job-title: Software Developer (contract)
       company:
         company-name: &name-alias An early-stage startup
@@ -206,7 +206,7 @@ resume:
         to: 03/2021
       features:
         - keypoint: Mobile Development
-          description: "Built a minimal viable product of mobile app helping users find a location with the right light intensity for their indoor planting. Using built-in light ambient sensor to capture data and display them in charts via Highcharts and MongoDB Realm"
+          description: "Built a minimal viable product of mobile app helping users find a location with the right light intensity for their indoor planting. Used built-in light ambient sensor to capture data and display them in charts via Highcharts and MongoDB Realm"
     - job-title: Web Content Writer
       company:
         company-name: NiceNIC.net

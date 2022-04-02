@@ -9,6 +9,7 @@
     "build": "nx build",
     "build:gpse": "CI= nx build google-photos-search-enhancer",
     "run:gpse": "nx run google-photos-search-enhancer:build",
+    "build:personal": "CI= nx build personal-data",
     "test": "nx test"
   },
   "private": true,
