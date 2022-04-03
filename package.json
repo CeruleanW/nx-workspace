@@ -10,9 +10,11 @@
     "start:portfolio": "nx serve portfolio",
     "build": "nx build",
     "build:gpse": "CI= nx build google-photos-search-enhancer",
-    "run:gpse": "nx run google-photos-search-enhancer:build",
+    "build:portfolio": "CI= nx build portfolio",
     "build:personal": "CI= nx build personal-data",
+    "run:gpse": "nx run google-photos-search-enhancer:build",
     "run:personal": "nx run personal-data:build",
+    "run:portfolio": "nx run portfolio:build",
     "test": "nx test"
   },
   "private": true,
