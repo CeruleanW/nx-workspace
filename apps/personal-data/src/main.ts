@@ -4,10 +4,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-let port = process.env.PORT as any;
-if (port == null || port == '') {
-  port = 8000;
-}
+let port = parseInt(process?.env?.PORT);
+// if (port === null || port === NaN || port < 0) {
+  port = 3000;
+// }
 app.use(cors());
 
 //Simple test
