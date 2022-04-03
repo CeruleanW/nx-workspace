@@ -1,0 +1,6 @@
+{
+  "root": "apps/portfolio",
+  "sourceRoot": "apps/portfolio/src",
+  "projectType": "application",
+  "tags": []
+}
