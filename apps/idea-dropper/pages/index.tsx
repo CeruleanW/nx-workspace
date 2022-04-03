@@ -2,8 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { APPNAME } from '../lib/CONSTANTS';
-// import Button from '@mui/material/Button';
-import {Button} from '@root/shared';
+import { Button } from '@root/shared';
 import { useSession, signIn, signOut, signout } from 'next-auth/client';
 import { FrameWrapper } from '../components/FrameWrapper';
 
