@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import Section from './components/ResumeSectionWrapper';
 import Title from './components/atomics/Title';
 import Content from './components/atomics/Content';

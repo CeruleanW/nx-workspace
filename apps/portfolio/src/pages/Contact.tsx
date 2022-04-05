@@ -9,7 +9,6 @@ import {
   useMediaQuery,
   Modal,
   CircularProgress,
-  ButtonProps,
 } from '@material-ui/core';
 import { EMAILAPIURL } from '../features/notification';
 import { makeStyles } from '@material-ui/core/styles';

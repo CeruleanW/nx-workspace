@@ -144,21 +144,23 @@ technical-skills:
     - Express.js
     - Python
     - Tomcat
-  general: &general-skills
+  tools: &tool-skills
     - Git
-    - RESTful API
     - Jira
-    - Agile Methodology (Scrum)
-    - Unit Testing (Jest, JUnit)
-    - E2E Testing (Appium, WebDriverIO)
+    - Figma
+    - RESTful API
     - Bash
-    - UML
-    - Object-Oriented Programming
-    - Waterfall Methodology
     - Next.js
     - JSON/XML
+    - UML
+  methodologies: &method-skills
+    - Agile Methodology (Scrum)
+    - Object-Oriented Programming
+    - Waterfall Methodology
+    - Unit Testing (Jest, JUnit)
+    - E2E Testing (Appium, WebDriverIO)
+    - Test-Driven Development
   additional-list: &additional-tech-list
-    - Figma
     - MATLAB
     - R
     - Bizagi Modeler (BPMN)
