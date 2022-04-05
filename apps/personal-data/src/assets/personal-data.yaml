@@ -287,7 +287,8 @@ resume:
   skills: &resume-skills
     frontEnd: *front-end-skills
     backEnd: *back-end-skills
-    general: *general-skills
+    tools: *tool-skills
+    methodologies: *method-skills
     additional: *additional-tech-list
 resume-versions:
   - version: front-end

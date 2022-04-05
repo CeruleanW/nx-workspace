@@ -8,6 +8,7 @@ export function Resume(props) {
   const version = 'frontend';
 
   if (error) {
+    console.error(error);
     return <div>Error! {error?.messsage}</div>;
   }
 
