@@ -8,6 +8,7 @@
     "start:idea": "nx serve idea-dropper",
     "start:personal": "nx serve personal-data",
     "start:portfolio": "nx serve portfolio",
+    "start:starter": "nx serve starter",
     "build": "nx build",
     "build:gpse": "CI= nx build google-photos-search-enhancer",
     "build:portfolio": "CI= nx build portfolio",

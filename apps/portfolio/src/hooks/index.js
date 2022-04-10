@@ -1,4 +1,4 @@
-import { fetchProjectsData, PROJECTS_DATA_LINK } from '@/lib';
+import { fetchProjectsData, PROJECTS_DATA_LINK } from '../lib';
 import useSWR from 'swr';
 
 export function useProjectsData() {

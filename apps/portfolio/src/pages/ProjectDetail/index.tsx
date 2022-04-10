@@ -1,11 +1,10 @@
-import React from 'react';
 import { Typography, Box, Grid, Container } from '@material-ui/core';
-import Description from '@/components/molecules/Description';
+import Description from '../../components/molecules/Description';
 import { useParams } from 'react-router-dom';
-import { FeatureList } from '@/components/MetaDataList';
-import { useProjectDataByID } from '@/hooks';
-import { Loading } from '@/components/atomics/Loading';
-import { H1 } from '@/components/atomics/Heading';
+import { FeatureList } from '../../components/MetaDataList';
+import { useProjectDataByID } from '../../hooks';
+import { Loading } from '../../components/atomics/Loading';
+import { H1 } from '../../components/atomics/Heading';
 
 export function MetaData(props) {
   return (

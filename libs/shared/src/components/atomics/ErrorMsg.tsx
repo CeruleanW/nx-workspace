@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -9,12 +8,15 @@ export const ErrorSpan = styled.span`
   color: ${(props) => props.theme.palette.danger};
 `;
 
-export default function ErrorMsg({ ...optionals }) {
+export function ErrorMsg({ ...optionals }) {
   const {
     text = 'An error has occurred',
     title = 'Error',
     children,
+    error,
+    ...rest
   } = optionals;
+
   return (
     <Container>
       <strong>{title}</strong>

@@ -1,15 +1,15 @@
-import React from 'react';
 import { MainResume } from './Resume';
 import { useResumeData } from './hooks';
-import { Loading } from '../../components/atomics/Loading';
+import { ErrorMsg } from '@root/shared/components/atomics/ErrorMsg';
+import { Loading } from '@root/shared/components/atomics';
 
 export function Resume(props) {
   const { data: resumeData, isLoading, error } = useResumeData();
   const version = 'frontend';
 
   if (error) {
-    console.error(error);
-    return <div>Error! {error?.messsage}</div>;
+    console.error('Resume error', error);
+    return <ErrorMsg text={`Error! ${error?.messsage}`} error={error} ></ErrorMsg>;
   }
 
   if (isLoading) {

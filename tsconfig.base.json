@@ -1,21 +1,26 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowJs": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@root/shared": ["libs/shared/src/index.ts"]
+      "@root/shared/*": ["libs/shared/src/*"],
+      "@root/shared": ["libs/shared/index.ts"],
+      "@idea/*": ["apps/idea-dropper/*"],
+      "@idea": ["apps/idea-dropper/index.ts"],
+      "@gpse/*": ["apps/google-photos-search-enhancer/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

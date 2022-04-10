@@ -1,8 +1,8 @@
 // import Head from 'next/head';
 import React from 'react';
 import Link from 'next/link';
-import { APPNAME } from '../lib/CONSTANTS';
-import { Button } from '@root/shared';
+import { APPNAME } from '@idea/lib/CONSTANTS';
+import { Button } from '@root/shared/components/atomics';
 import { useSession, signIn, signOut, signout } from 'next-auth/client';
 import { FrameWrapper } from '../components/FrameWrapper';
 

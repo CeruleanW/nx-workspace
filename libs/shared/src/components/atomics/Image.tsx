@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 function MyImage(props, ref) {
   return <img {...props} ref={ref} />;

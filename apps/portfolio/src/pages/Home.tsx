@@ -1,15 +1,14 @@
-import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import Image from 'material-ui-image';
 import { makeStyles } from '@material-ui/core/styles';
-import SeeMyProject from '@/components/molecules/More';
-import { ProjectsCarousel } from '@/components/organisms/ProjectsCarousel';
-import DotBox from '@/components/atomics/DotBox';
+import SeeMyProject from '../components/molecules/More';
+import { ProjectsCarousel } from '../components/organisms/ProjectsCarousel';
+import DotBox from '../components/atomics/DotBox';
 import { motion } from 'framer-motion';
-import { FULLNAME, JOBTITLE } from '@/data/globals';
-import styles from '@/styles/pages/Home.module.scss';
-import { useProjectsData } from '@/hooks';
-import { Loading } from '@/components/atomics/Loading';
+import { FULLNAME, JOBTITLE } from '../data/globals';
+import styles from '../styles/pages/Home.module.scss';
+import { useProjectsData } from '../hooks';
+import { Loading } from '@root/shared/components/atomics/Loading';
 
 const mainPhoto = '/img/avatar.png';
 

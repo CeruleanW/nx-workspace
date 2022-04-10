@@ -1,4 +1,3 @@
-import React from 'react';
 import Heading from '../atomics/Heading';
 import {
   Typography,
@@ -29,7 +28,7 @@ const SimpleSkill = (props) => {
 };
 
 const Skill = (props) => {
-  return <li className={`${styles['skill-item']}`}>{props.children}</li>;
+  return <li className={`${styles['skill-item']} rounded-xl`}>{props.children}</li>;
 };
 
 const ExpandableSkill = (props) => {

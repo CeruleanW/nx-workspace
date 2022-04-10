@@ -1,8 +1,8 @@
 import ProjectSection from '../../components/organisms/ProjectSection';
 import styles from '../../styles/pages/Projects.module.scss';
-import { useProjectsData } from '@/hooks';
+import { useProjectsData } from '../../hooks';
 import { Loading } from '../../components/atomics/Loading';
-import { ErrorMsg } from '@/components/atomics/ErrorMsg';
+import {ErrorMsg} from '@root/shared/components/atomics/ErrorMsg';
 import { MAX_NUMBER_OF_PROJECTS } from './constants';
 import { Title } from './Title';
 
