@@ -1,6 +1,7 @@
 import Section from '../ResumeSectionWrapper';
 import Title from '../atomics/Title';
-import SkillItem from '../atomics/SkillItem';
+import SkillItem, {SkillItem2} from '../atomics/SkillItem';
+import { Stack } from '@mui/material';
 
 const MAX_FRONTEND_SKILLS = 10;
 const MAX_BACKEND_SKILLS = 7;
@@ -12,10 +13,17 @@ function SkillList({ list, ...optionals }) {
   if (!list) return null;
 
   return (
-    <div className={`flex flex-wrap justify-start items-center ${isFirst ? '' : 'mt-3'}`}>
-      <span className='text-xl'>{type}: </span>{list.map((skill) => (
-        <SkillItem key={'key-' + skill}>{skill}</SkillItem>
-      ))}
+    <div className={`flex flex-wrap justify-start items-center ${isFirst ? '' : 'mt-1'}`}>
+      <Stack spacing={1} direction="row" className='flex-wrap items-center' sx={{
+        '>:not(style)+:not(style)': {
+          marginBottom: '0.5rem'
+        }
+      }} >
+        <p className='text-xl mr-2 mb-2'>{type}: </p>
+        {list.map((skill) => (
+          <SkillItem2 key={'key-' + skill} text={skill} />
+        ))}
+      </Stack>
     </div>
   );
 }

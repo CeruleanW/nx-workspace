@@ -194,7 +194,7 @@ resume:
         - keypoint: Mobile Development
           description: "Built mobile apps from scratch using React Native to provide a smooth and efficient user flow for configuring and updating IoT devices via REST API and Bluetooth on Android and iOS"
         - keypoint: Data Visualization
-          description: "Learnt to apply a WebGL-based visualization library and implemented an trilateration algorithm to provide a positioned and informative heatmap graph in dashboard rather than presenting simple numbers"
+          description: "Learned to apply a WebGL-based visualization library and implemented a trilateration algorithm to provide a positioned and informative heatmap graph in the dashboard rather than presenting simple numbers"
         - keypoint: Back-end Development
           description: "Built and deployed Node.js based data pipeline to reduce cloud resource consumption and add APIs in the NestJS server to enable communication between the Front-end dashboard and IoT devices"
         - keypoint: Agile method

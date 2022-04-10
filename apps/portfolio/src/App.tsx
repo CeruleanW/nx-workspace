@@ -17,6 +17,7 @@ import { Home } from './pages/Home';
 import { ProjectDetailPage } from './pages/ProjectDetail';
 import Theme from './styles/base/Theme';
 import './styles/main.scss';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 LogRocket.init('5bsway/portfolio');
 
@@ -31,53 +32,64 @@ export default function App() {
 
   return (
     <Theme>
-      <CssBaseline />
-      <BrowserRouter>
-        <div className={'root-container'}>
-          <Nav routes={PAGE_ROUTES} pageTitles={PAGE_TITLES}>
-            <Route
-              path='/'
-              render={({ location }) => (
-                <NavTabs
-                  routes={PAGE_ROUTES}
-                  value={location.pathname}
-                  pageTitles={PAGE_TITLES}
-                />
-              )}
-            />
-          </Nav>
-          <React.Suspense fallback={<LinearProgress color={'secondary'} />}>
-            <main className={'root-main'}>
+      <StyledEngineProvider injectFirst>
+        <CssBaseline />
+        <BrowserRouter>
+          <div className={'root-container'}>
+            <Nav routes={PAGE_ROUTES} pageTitles={PAGE_TITLES}>
               <Route
+                path="/"
                 render={({ location }) => (
-                  <AnimatePresence exitBeforeEnter initial={false}>
-                    <Switch key={location.pathname}>
-                      <Route
-                        exact
-                        path={PAGE_ROUTES[0]}
-                        render={() => <Home />}
-                      />
-                      <Route
-                        path={`${PAGE_ROUTES[1]}/:id`}
-                        render={() => <ProjectDetailPage />}
-                      />
-                      <Route
-                        path={PAGE_ROUTES[1]}
-                        render={() => <Projects />}
-                      />
-                      <Route path={PAGE_ROUTES[2]} render={() => <AboutMe />} />
-                      <Route path={PAGE_ROUTES[3]} render={() => <Contact />} />
-                      <Route path={PAGE_ROUTES[4]} render={() => <Resume />} />
-                    </Switch>
-                  </AnimatePresence>
+                  <NavTabs
+                    routes={PAGE_ROUTES}
+                    value={location.pathname}
+                    pageTitles={PAGE_TITLES}
+                  />
                 )}
               />
-            </main>
-            <Footer />
-            <ScrollToTop />
-          </React.Suspense>
-        </div>
-      </BrowserRouter>
+            </Nav>
+            <React.Suspense fallback={<LinearProgress color={'secondary'} />}>
+              <main className={'root-main'}>
+                <Route
+                  render={({ location }) => (
+                    <AnimatePresence exitBeforeEnter initial={false}>
+                      <Switch key={location.pathname}>
+                        <Route
+                          exact
+                          path={PAGE_ROUTES[0]}
+                          render={() => <Home />}
+                        />
+                        <Route
+                          path={`${PAGE_ROUTES[1]}/:id`}
+                          render={() => <ProjectDetailPage />}
+                        />
+                        <Route
+                          path={PAGE_ROUTES[1]}
+                          render={() => <Projects />}
+                        />
+                        <Route
+                          path={PAGE_ROUTES[2]}
+                          render={() => <AboutMe />}
+                        />
+                        <Route
+                          path={PAGE_ROUTES[3]}
+                          render={() => <Contact />}
+                        />
+                        <Route
+                          path={PAGE_ROUTES[4]}
+                          render={() => <Resume />}
+                        />
+                      </Switch>
+                    </AnimatePresence>
+                  )}
+                />
+              </main>
+              <Footer />
+              <ScrollToTop />
+            </React.Suspense>
+          </div>
+        </BrowserRouter>
+      </StyledEngineProvider>
     </Theme>
   );
 }

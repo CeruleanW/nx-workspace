@@ -43,7 +43,7 @@ export function MainResume(props) {
         <ExperienceSection experience={experience} />
         <ProjectsSection projects={sideProjects} />
         <EducationSection education={education} />
-        <LanguageSection languages={languages} />{' '}
+        {/* <LanguageSection languages={languages} /> */}
       </article>
 
       <div className='flex justify-center mt-16'>
