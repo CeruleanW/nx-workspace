@@ -237,7 +237,7 @@ resume:
     - title: Font Preview Tool
       features:
         - keypoint: Problem Solving
-          description: "To measure text height in the browser for given width more precisely and help users to perceive the physical size of address sign, implemented a HTML5 Canvas component which calculates the height by width and embedded it to client's Shopify website."
+          description: "Problem Solving: To measure the text height in the browser for a given width precisely and help users to perceive the physical size of the address sign, implemented an HTML5 Canvas component that calculates the height by width and embedded it in the client's Shopify website."
       demo: https://houselettersigns.com/pages/design-preview
       repo: https://github.com/CeruleanW/preview-tool
     - title: Google Photos Search Enhancer
@@ -266,7 +266,7 @@ resume:
       school-projects:
         features:
           - keypoint: Content Searching
-            description: In the project of building a search engine for a batch of compressed HTML documents, explained and recommended the Okapi BM25 ranking algorithm to the team, implemented data preprocessing and formatting functions. The program can return relevant results in the required format for a query in 0.5 seconds on average in a clear object-oriented architecture, which led to an A of this course.
+            description: In the project of building a search engine for a batch of compressed HTML documents, recommended the Okapi BM25 ranking algorithm to the team, and implemented data preprocessing and formatting functions. The program can return relevant results in the required format for a query in 0.5 seconds on average in a clear object-oriented architecture, which led to an A in this course.
           - keypoint: Secured Web System
             description: Led four team members to create a role-based access control system in Java, using Java Servlet, Apache Tomcat, XML to satisfy the requirement that disallowing unauthorized accesses to protected resources.
           - keypoint: User Interface & Experience

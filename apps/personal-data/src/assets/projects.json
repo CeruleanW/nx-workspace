@@ -1,6 +1,33 @@
 {
   "projects": [
     {
+      "title": "Kaidu Configuration (Lite)",
+      "subtitle": "A mobile app for configuring Kaidu scanners in a user friendly and efficient way",
+      "image": "https://i.imgur.com/vLsK29W.png",
+      "techs": ["React Native", "Redux", "Bluetooth Low Energy", "React Native Elements", "Styled components"],
+      "id": "8de597a4-a337-11ec-b909-0242ac120002",
+      "type": "Work Project",
+      "content": {
+        "introduction": "A new Kaidu scanner needs an accessible Wi-Fi, MQTT configuration, a registered client account and other information to start working and sending data. This app will help users to set up the Kaidu scanners with less burden and time.",
+        "goal": "Enable users to configure Kaidu scanners in less than 5 minutes, involving communicating with both the server and the BLE device",
+        "spotlight": "This fully featured app is designed, built and maintained by me",
+        "problem": [
+          "Error handling is important for this app. The configuration workflow is simple for users. Many steps are automatically completed by the app. Different kinds of errors and problems could happen after it started. As Bluetooth communication is instable by its nature, the app must help users to recover from those errors."
+        ],
+        "lesson": [
+          "For the data fetching part, using a library like React Query or SWR, to provides solutions for loading state, error handling, caching, and re-validation is very convenient. It can help us to provide a seamless experience with less loading disruption on the user interface", "However, they are designed for HTTP so it's not good to use them for Bluetooth communication. For Bluetooth, the app is not always connected to a BLE device and when it is connected, displaying outdated cached data will mislead users"
+        ]
+      },
+      "illustrations": [
+        "https://i.imgur.com/NoEAxTE.png",
+        "https://i.imgur.com/U2RyffX.png",
+        "https://i.imgur.com/teRKOlv.png",
+        "https://i.imgur.com/U5DNFln.png",
+        "https://i.imgur.com/M8bq6w4.png",
+        "https://i.imgur.com/HtxI0gk.png"
+      ]
+    },
+    {
       "title": "Font Preview Tool",
       "subtitle": "An embeddable React component measuring the height of address signs for various text & fonts.",
       "image": "https://i.imgur.com/tfgUrCg.png",
@@ -184,33 +211,6 @@
         "https://media.githubusercontent.com/media/CeruleanW/large-static-files/master/illustrations/bc01.png",
         "https://media.githubusercontent.com/media/CeruleanW/large-static-files/master/illustrations/bc02.png",
         "https://media.githubusercontent.com/media/CeruleanW/large-static-files/master/illustrations/bc03.png"
-      ]
-    },
-    {
-      "title": "Kaidu Configuration (Lite)",
-      "subtitle": "A mobile app for configuring Kaidu scanners in a user friendly and quick way",
-      "image": "https://i.imgur.com/vLsK29W.png",
-      "techs": ["React Native", "Redux", "React Native Bluetooth Low Energy library", "React Native Elements", "Styled components"],
-      "id": "8de597a4-a337-11ec-b909-0242ac120002",
-      "type": "Work Project",
-      "content": {
-        "introduction": "A new Kaidu scanner needs an accessible Wi-Fi, MQTT configuration, a registered client account and other information to start working and send data. This app is helping users to configure the scanner with less burden and time.",
-        "goal": "Enable users to configure Kaidu scanners in less than 5 minutes, involving communicating with both the server and the BLE device",
-        "spotlight": "This fully featured app is designed, built and maintained by me",
-        "problem": [
-          "Error handling is important for this app. The configuration workflow is simple for users. Many steps are automatically completed by the app. Different kinds of errors and problems could happen after it started. As Bluetooth communication is instable by its nature, the app must help users to recover from those errors."
-        ],
-        "lesson": [
-          "For the data fetching part, using a library like React Query or SWR, to provides solutions for loading state, error handling, caching, and re-validation is very convenient."
-        ]
-      },
-      "illustrations": [
-        "https://i.imgur.com/NoEAxTE.png",
-        "https://i.imgur.com/U2RyffX.png",
-        "https://i.imgur.com/teRKOlv.png",
-        "https://i.imgur.com/U5DNFln.png",
-        "https://i.imgur.com/M8bq6w4.png",
-        "https://i.imgur.com/HtxI0gk.png"
       ]
     }
   ],
