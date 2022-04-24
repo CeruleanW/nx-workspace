@@ -5,7 +5,7 @@
       "subtitle": "A mobile app for configuring Kaidu scanners in a user friendly and efficient way",
       "image": "https://i.imgur.com/vLsK29W.png",
       "techs": ["React Native", "Redux", "Bluetooth Low Energy", "React Native Elements", "Styled components"],
-      "id": "8de597a4-a337-11ec-b909-0242ac120002",
+      "id": "8de597a4-a337-11ec-b909-0242ac12000",
       "type": "Work Project",
       "content": {
         "introduction": "A new Kaidu scanner needs an accessible Wi-Fi, MQTT configuration, a registered client account and other information to start working and sending data. This app will help users to set up the Kaidu scanners with less burden and time.",

@@ -15,6 +15,7 @@ import { LanguageSection } from './components/sections/LanguageSection';
 const PDF_NAME = FIRSTNAME + LASTNAME + '_Resume';
 
 export function MainResume(props) {
+  // Process props
   const fullName = props['full-name'];
   const phone = props['phone-numer'];
   const { email, title, skills, experience, education, languages, location: address, links } = props || {};
@@ -22,6 +23,7 @@ export function MainResume(props) {
   const summaryContent = props.summary.version.short;
   const sideProjects = props['side-projects'];
 
+  // Local state
   const pdfDOM = useRef(null);
 
   return (

@@ -7,23 +7,32 @@ const MAX_FRONTEND_SKILLS = 10;
 const MAX_BACKEND_SKILLS = 7;
 const MAX_GENERAL_SKILLS = 6;
 
+function SkillType({text, ...optionals}) {
+  const {className, ...rest} = optionals;
+  return <p {...rest} className={`text-xl mr-2 mb-2 shrink-0 w-40 ${className ?? ''}`}>{text}: </p>
+}
+
+function SkillItemContainer({children, ...optional}) {
+  return <Stack spacing={1} direction="row" className='flex-wrap items-center flex-1' sx={{
+    '>:not(style)+:not(style)': {
+      marginBottom: '0.5rem'
+    }
+  }} >{children}</Stack>
+}
+
 function SkillList({ list, ...optionals }) {
   const {type = 'Misc', isFirst = false, ...rest} = optionals;
 
   if (!list) return null;
 
   return (
-    <div className={`flex flex-wrap justify-start items-center ${isFirst ? '' : 'mt-1'}`}>
-      <Stack spacing={1} direction="row" className='flex-wrap items-center' sx={{
-        '>:not(style)+:not(style)': {
-          marginBottom: '0.5rem'
-        }
-      }} >
-        <p className='text-xl mr-2 mb-2'>{type}: </p>
+    <div className={`flex flex-wrap justify-start items-start mb-2 ${isFirst ? '' : 'mt-1'}`}>
+      <SkillType text={type} />
+      <div className='flex flex-wrap items-start flex-1 space-x-2' >
         {list.map((skill) => (
           <SkillItem2 key={'key-' + skill} text={skill} />
         ))}
-      </Stack>
+      </div>
     </div>
   );
 }
@@ -35,7 +44,7 @@ export function SkillsSection({ skills, ...optionals }) {
     <Section id="skills">
       <Title text="Tech Skills" />
       {/* map the skill list to each component */}
-      <div className="flex flex-wrap mt-4 justify-start">
+      <div className="flex flex-col mt-4 justify-start w-full">
         <SkillList list={frontEnd?.slice(0, MAX_FRONTEND_SKILLS)} type='Front-End' isFirst />
         <SkillList list={backEnd?.slice(0, MAX_BACKEND_SKILLS)} type='Back-End' />
         <SkillList list={tools?.slice(0, MAX_GENERAL_SKILLS)} type={'Tools'} />

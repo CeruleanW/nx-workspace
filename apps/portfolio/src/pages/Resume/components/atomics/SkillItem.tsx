@@ -31,5 +31,5 @@ export default function SkillItem({text, ...optionals}) {
 }
 
 export function SkillItem2({text, ...optionals}) {
-  return (<Chip label={text} size='small' />);
+  return (<Chip label={text} size='small' className={'mb-2'} />);
 }

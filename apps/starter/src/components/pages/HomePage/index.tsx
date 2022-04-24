@@ -1,7 +1,7 @@
 // https://github.com/diegohaz/arc/wiki/Atomic-Design
 import PageTemplate from '../../template/PageTemplate';
 import { Nav } from '../../organism/Nav';
-import {Loading} from '@root/shared/components/atomic/Loading';
+import {Loading} from '@root/shared/components/atomics/Loading';
 
 function HomePage(props) {
 
