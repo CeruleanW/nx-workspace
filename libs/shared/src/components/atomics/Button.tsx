@@ -1,10 +1,10 @@
-import React from 'react';
+import MuiButton from '@mui/material/Button';
 
 export function Button(props) {
-  const { className, ...rest } = props;
+  const { className, variant='contained', ...rest } = props;
   return (
     <>
-      <button className={`w-max ${className}`} {...rest} />
+      <MuiButton className={`w-max ${className}`} variant={variant} {...rest} />
     </>
   );
 }

@@ -5,10 +5,14 @@ import { APPNAME } from '@idea/lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
 import { useSession, signIn, signOut, signout } from 'next-auth/client';
 import { FrameWrapper } from '../components/FrameWrapper';
+import { Loading } from '@root/shared/components/atomics';
 
 export default function Index() {
   const [session, loading] = useSession();
 
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -19,17 +23,17 @@ export default function Index() {
             <p className='text-center'>Drop your ideas in the box</p>
             <p className='text-center'>Draw your ideas for inspiration </p>
           </div>
-          <div className='mt-4 flex justify-center items-center'>
+          <div className='mt-4 flex justify-center items-center space-x-4'>
             {session ? (
               <>
-                <Link href={`/user/${encodeURIComponent(session.user.email)}`}>
+                <Link href={`/user/${encodeURIComponent(session?.user?.email)}`}>
                   <Button>Go to User Page</Button>
                 </Link>
-                <Button onClick={() => signout()}>Logout</Button>
+                <Button onClick={signout}>Logout</Button>
               </>
             ) : (
               <>
-                <Button onClick={() => signIn()}>Login</Button>
+                <Button onClick={signIn}>Login</Button>
                 <Link href='/signup'>
                   <Button>Sign up</Button>
                 </Link>
