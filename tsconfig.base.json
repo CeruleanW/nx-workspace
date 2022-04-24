@@ -18,8 +18,8 @@
     "paths": {
       "@root/shared/*": ["libs/shared/src/*"],
       "@root/shared": ["libs/shared/index.ts"],
-      "@idea/*": ["apps/idea-dropper/*"],
-      "@idea": ["apps/idea-dropper/index.ts"],
+      "@idea/*": ["apps/idea-dropper/src/*"],
+      "@idea": ["apps/idea-dropper/src/index.ts"],
       "@gpse/*": ["apps/google-photos-search-enhancer/*"]
     }
   },
