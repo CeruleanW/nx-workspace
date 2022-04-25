@@ -3,11 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import { APPNAME } from '@idea/lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
-import { useSession, signIn, signOut, signout } from 'next-auth/client';
+import { useSession, signIn, signOut } from 'next-auth/client';
 import { FrameWrapper } from '../components/FrameWrapper';
 import { Loading } from '@root/shared/components/atomics';
 
-export default function Index() {
+export default function Home() {
   const [session, loading] = useSession();
 
   if (loading) {
@@ -26,10 +26,10 @@ export default function Index() {
           <div className='mt-4 flex justify-center items-center space-x-4'>
             {session ? (
               <>
-                <Link href={`/user/${encodeURIComponent(session?.user?.email)}`}>
+                <Link href={`/user`}>
                   <Button>Go to User Page</Button>
                 </Link>
-                <Button onClick={signout}>Logout</Button>
+                <Button onClick={signOut}>Logout</Button>
               </>
             ) : (
               <>

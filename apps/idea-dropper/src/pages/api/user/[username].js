@@ -1,15 +1,15 @@
-import { connectToDatabase } from "../../../utils/mongodb";
+import { connectToDatabase } from '../../../utils/mongodb';
 
 export default async (req, res) => {
   // authentication - if fails, redirect to login page
   // const myUsername = getUsername(req.cookies);
   // const myPassword = getPassword(req.cookies);
-  
+
   //return the user document
   const { db } = await connectToDatabase();
   const userCursor = await db
-    .collection("user")
-    .findOne({username: myUsername});
+    .collection('user')
+    .findOne({ username: myUsername });
   res.json(userCursor);
 };
 

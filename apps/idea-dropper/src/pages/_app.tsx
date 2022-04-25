@@ -1,16 +1,18 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { ProviderGroup } from '../providers'
+import { ProviderGroup } from '../providers';
+import {APPNAME} from '../lib/CONSTANTS';
+
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Idea Dropper</title>
+        <title>{APPNAME}</title>
       </Head>
       <ProviderGroup>
-        <main className="app">
+        <main className="flex flex-col grow h-screen">
           <Component {...pageProps} />
         </main>
       </ProviderGroup>
