@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { ProviderGroup } from '../providers';
-import {APPNAME} from '../lib/CONSTANTS';
+import { AppProvider } from '../providers';
+import { APPNAME } from '../lib/CONSTANTS';
 
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -11,11 +11,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>{APPNAME}</title>
       </Head>
-      <ProviderGroup>
+      <AppProvider>
         <main className="flex flex-col grow h-screen">
           <Component {...pageProps} />
         </main>
-      </ProviderGroup>
+      </AppProvider>
     </>
   );
 }

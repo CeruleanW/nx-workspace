@@ -5,13 +5,13 @@ import { APPNAME } from '@idea/lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
 import { useSession, signIn, signOut } from 'next-auth/client';
 import { FrameWrapper } from '../components/FrameWrapper';
-import { Loading } from '@root/shared/components/atomics';
+import { CenteredLoading } from '@root/shared/components/atomics';
 
 export default function Home() {
   const [session, loading] = useSession();
 
   if (loading) {
-    return <Loading />;
+    return <CenteredLoading />;
   }
 
   return (
@@ -26,7 +26,7 @@ export default function Home() {
           <div className='mt-4 flex justify-center items-center space-x-4'>
             {session ? (
               <>
-                <Link href={`/user`}>
+                <Link href={`/user`} passHref>
                   <Button>Go to User Page</Button>
                 </Link>
                 <Button onClick={signOut}>Logout</Button>
@@ -34,7 +34,7 @@ export default function Home() {
             ) : (
               <>
                 <Button onClick={signIn}>Login</Button>
-                <Link href='/signup'>
+                <Link href='/signup' passHref>
                   <Button>Sign up</Button>
                 </Link>
               </>
@@ -75,27 +75,6 @@ export default function Home() {
           flex-wrap: wrap;
           max-width: 800px;
           margin-top: 3rem;
-        }
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
         }
         .card p {
           margin: 0;

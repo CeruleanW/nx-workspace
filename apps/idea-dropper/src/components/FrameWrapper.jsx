@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import { useState } from 'react';
 // import Footer from './Footer/Footer';
 // import { SideMenu } from './SideMenu';
 // import { Nav } from './Nav';
@@ -9,7 +9,7 @@ const tabTypes = ['box', 'add', 'board'];
 
 export function FrameWrapper({ title, ...optionals }) {
   const {children, activeTab, ...rest} = optionals;
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  // const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   return (
     <>

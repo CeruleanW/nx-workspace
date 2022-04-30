@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { palette, font, size } from '../styles/variables';
 

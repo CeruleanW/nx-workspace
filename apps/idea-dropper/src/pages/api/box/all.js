@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../../utils/mongodb";
+import { connectToDatabase } from "@root/shared/features/mongodb";
 
 export default async (req, res) => {
   console.log("Retrieving all the boxes from box API");
