@@ -91,17 +91,17 @@ export function ProjectDetailPage(props) {
           </Box>
         </Box>
         <Box mt={4}>{renderIllustration(0)}</Box>
-        <Box mt={6} maxWidth={1024}>
+        {content?.goal ? <Box mt={6} maxWidth={1024}>
           <Heading>Project Goal</Heading>
           <Box mt={2}>
-            <Description>{content.goal}</Description>
+            <Description>{content?.goal}</Description>
           </Box>
-        </Box>
-        {content.spotlight ? (
+        </Box> : null}
+        {content?.spotlight ? (
           <Box mt={8} maxWidth={1024}>
             <Heading>Spotlight</Heading>
             <Box mt={2}>
-              <Description>{content.spotlight}</Description>
+              <Description>{content?.spotlight}</Description>
             </Box>
           </Box>
         ) : null}
