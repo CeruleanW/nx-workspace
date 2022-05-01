@@ -5,6 +5,7 @@ import { FeatureList } from '../../components/MetaDataList';
 import { useProjectDataByID } from '../../hooks';
 import { Loading } from '../../components/atomics/Loading';
 import { H1 } from '../../components/atomics/Heading';
+import Image from '@root/shared/components/atomics/Image';
 
 export function MetaData(props) {
   return (
@@ -49,10 +50,10 @@ export function ProjectDetailPage(props) {
             display='flex'
             justifyContent='center'
           >
-            <img
+            <Image
               src={illustrations[index]}
               alt={'illustration'}
-              style={{ maxWidth: ' 100%', height: 'auto' }}
+              style={{ maxWidth: ' 100%', height: 'auto', objectFit: 'contain' }}
             />
           </Box>
         );

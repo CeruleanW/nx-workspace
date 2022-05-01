@@ -1,4 +1,3 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-free-solid';
 import {
@@ -8,7 +7,7 @@ import {
   FaLayerGroup,
 } from 'react-icons/fa';
 
-export default function Icon({ name, ...rest }) {
+export function Icon({ name, ...rest }) {
   if (name === 'tools') {
     return <FaTools {...rest} />;
   } else if (name === 'FaRegSquare') {

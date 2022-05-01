@@ -1,5 +1,4 @@
 // https://github.com/diegohaz/arc/wiki/Atomic-Design#templates
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { rest } from 'lodash';
@@ -42,17 +41,18 @@ function PageTemplate({ children, ...optionals }) {
         {sponsor && <Sponsor>{sponsor}</Sponsor>}
         <Content>{children}</Content>
       </main>
-      <Footer>{footer}</Footer>
+      {footer ? <Footer>{footer}</Footer> : null}
     </Wrapper>
   );
 }
 
 PageTemplate.propTypes = {
-  header: PropTypes.node.isRequired,
+  header: PropTypes.node,
   hero: PropTypes.node,
   sponsor: PropTypes.node,
-  footer: PropTypes.node.isRequired,
+  footer: PropTypes.node,
   children: PropTypes.any.isRequired,
+  className: PropTypes.string,
 };
 
 export default PageTemplate;
