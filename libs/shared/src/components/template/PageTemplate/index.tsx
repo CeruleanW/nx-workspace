@@ -24,7 +24,10 @@ const Sponsor = styled.section``;
 const Content = styled.section`
   width: 100%;
   box-sizing: border-box;
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Footer = styled.footer`
@@ -32,11 +35,11 @@ const Footer = styled.footer`
 `;
 
 function PageTemplate({ children, ...optionals }) {
-  const { header, hero, sponsor, footer, ...rest } = optionals;
+  const { header, hero, sponsor, footer, mainClassName, ...rest } = optionals;
   return (
     <Wrapper {...rest}>
       {header && <Header>{header}</Header>}
-      <main>
+      <main className={`flex-grow flex flex-col ${mainClassName}`}>
         {hero && <Hero>{hero}</Hero>}
         {sponsor && <Sponsor>{sponsor}</Sponsor>}
         <Content>{children}</Content>

@@ -6,17 +6,24 @@ import { Button } from '@root/shared/components/atomics';
 import { useSession, signIn, signOut } from 'next-auth/client';
 import { FrameWrapper } from '../components/FrameWrapper';
 import { CenteredLoading } from '@root/shared/components/atomics';
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  // Hooks
   const [session, loading] = useSession();
+  const router = useRouter();
 
   if (loading) {
     return <CenteredLoading />;
   }
 
+  if (session) {
+    router.push('/main');
+    return <p>Redirecting...</p>
+  }
+
   return (
     <>
-      <FrameWrapper title='Home'>
         <main className='max-w-full flex-auto flex flex-col justify-center'>
           <h1 className='title'>{APPNAME}</h1>
           <div className='mt-10'>
@@ -24,24 +31,14 @@ export default function Home() {
             <p className='text-center'>Draw your ideas for inspiration </p>
           </div>
           <div className='mt-4 flex justify-center items-center space-x-4'>
-            {session ? (
-              <>
-                <Link href={`/user`} passHref>
-                  <Button>Go to User Page</Button>
-                </Link>
-                <Button onClick={signOut}>Logout</Button>
-              </>
-            ) : (
               <>
                 <Button onClick={signIn}>Login</Button>
                 <Link href='/signup' passHref>
                   <Button>Sign up</Button>
                 </Link>
               </>
-            )}
           </div>
         </main>
-      </FrameWrapper>
       <style jsx>{`
         .title a {
           color: #0070f3;

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +12,7 @@ export function Nav(props) {
     <StyledNav className="w-full flex p-3">
       <button className="h-full">
         <FontAwesomeIcon
-          icon={faBars}
+          icon={faBars as any}
           size="1x"
           fixedWidth
           onClick={() => setIsMenuOpened(!isMenuOpened)}
@@ -22,7 +21,7 @@ export function Nav(props) {
       <p className="flex-auto text-center text-2xl m-0">{title}</p>
       <button className="h-full">
         <FontAwesomeIcon
-          icon={faEllipsisH}
+          icon={faEllipsisH as any}
           size="1x"
           fixedWidth
           onClick={() => console.log('ellipsis clicked')}
