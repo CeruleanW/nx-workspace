@@ -14,7 +14,7 @@ export function TabPanel(props) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      className={'flex flex-row w-full'}
+      className={`flex flex-row w-full pt-8 ${className || ''}`}
       {...other}
     >
       {children}
