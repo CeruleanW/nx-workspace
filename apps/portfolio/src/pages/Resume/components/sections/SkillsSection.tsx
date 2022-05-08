@@ -4,7 +4,7 @@ import SkillItem, {SkillItem2} from '../atomics/SkillItem';
 import { Stack } from '@mui/material';
 
 const MAX_FRONTEND_SKILLS = 10;
-const MAX_BACKEND_SKILLS = 8;
+const MAX_BACKEND_SKILLS = 9;
 const MAX_GENERAL_SKILLS = 6;
 
 export function SkillType({text, ...optionals}) {
