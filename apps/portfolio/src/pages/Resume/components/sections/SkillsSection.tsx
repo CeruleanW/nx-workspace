@@ -4,15 +4,15 @@ import SkillItem, {SkillItem2} from '../atomics/SkillItem';
 import { Stack } from '@mui/material';
 
 const MAX_FRONTEND_SKILLS = 10;
-const MAX_BACKEND_SKILLS = 7;
+const MAX_BACKEND_SKILLS = 8;
 const MAX_GENERAL_SKILLS = 6;
 
-function SkillType({text, ...optionals}) {
+export function SkillType({text, ...optionals}) {
   const {className, ...rest} = optionals;
   return <p {...rest} className={`text-xl mr-2 mb-2 shrink-0 w-40 ${className ?? ''}`}>{text}: </p>
 }
 
-function SkillItemContainer({children, ...optional}) {
+export function SkillItemContainer({children, ...optional}) {
   return <Stack spacing={1} direction="row" className='flex-wrap items-center flex-1' sx={{
     '>:not(style)+:not(style)': {
       marginBottom: '0.5rem'
@@ -20,7 +20,7 @@ function SkillItemContainer({children, ...optional}) {
   }} >{children}</Stack>
 }
 
-function SkillList({ list, ...optionals }) {
+export function SkillList({ list, ...optionals }) {
   const {type = 'Misc', isFirst = false, ...rest} = optionals;
 
   if (!list) return null;

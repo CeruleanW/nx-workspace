@@ -143,6 +143,7 @@ technical-skills:
     - MongoDB
     - Express.js
     - Python
+    - Google Cloud Platform
     - Tomcat
   tools: &tool-skills
     - Git
@@ -156,10 +157,11 @@ technical-skills:
   methodologies: &method-skills
     - Agile Methodology (Scrum)
     - Object-Oriented Programming
-    - Waterfall Methodology
     - Unit Testing (Jest, JUnit)
     - E2E Testing (Appium, WebDriverIO)
     - Test-Driven Development
+    - Functional Programming (Ramda)
+    - Waterfall Methodology
   additional-list: &additional-tech-list
     - MATLAB
     - R
@@ -194,7 +196,7 @@ resume:
         - keypoint: Mobile Development
           description: "Built mobile apps from scratch using React Native to provide a smooth and efficient user flow for configuring and updating IoT devices via REST API and Bluetooth on Android and iOS"
         - keypoint: Data Visualization
-          description: "Learned to apply a WebGL-based visualization library and implemented a trilateration algorithm to provide a positioned and informative heatmap graph in the dashboard rather than presenting simple numbers"
+          description: "Improved the heat map visual graph by implementing a trilateration algorithm to generate positioned data and rendered it with a WebGL-based visualization solution to provide more informative insights to users"
         - keypoint: Back-end Development
           description: "Built and deployed Node.js based data pipeline to reduce cloud resource consumption and add APIs in the NestJS server to enable communication between the Front-end dashboard and IoT devices"
         - keypoint: Agile method
