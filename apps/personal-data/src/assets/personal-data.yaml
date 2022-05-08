@@ -189,7 +189,7 @@ resume:
         company-location: Toronto, Canada
       time:
         from: 05/2021
-        to: 04/2022
+        to: 05/2022
       features:
         - keypoint: Mobile Development
           description: "Built mobile apps from scratch using React Native to provide a smooth and efficient user flow for configuring and updating IoT devices via REST API and Bluetooth on Android and iOS"
