@@ -2,10 +2,7 @@ import Section from '../ResumeSectionWrapper';
 import Title from '../atomics/Title';
 import SkillItem, {SkillItem2} from '../atomics/SkillItem';
 import { Stack } from '@mui/material';
-
-const MAX_FRONTEND_SKILLS = 10;
-const MAX_BACKEND_SKILLS = 9;
-const MAX_GENERAL_SKILLS = 6;
+import {MAX_FRONTEND_SKILLS, MAX_BACKEND_SKILLS, MAX_GENERAL_SKILLS} from '../../constants';
 
 export function SkillType({text, ...optionals}) {
   const {className, ...rest} = optionals;

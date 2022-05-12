@@ -1,4 +1,3 @@
-import React from 'react';
 import { EmailIcon, FacebookIcon, LinkedinIcon } from 'react-share';
 import { Box, Link } from '@material-ui/core';
 
