@@ -12,7 +12,7 @@ const initialValue = [
     type: 'paragraph',
     children: [{ text: 'Write something to your card.' }],
   },
-];
+] as Descendant[];
 
 declare module 'slate' {
   interface CustomTypes {
@@ -22,7 +22,7 @@ declare module 'slate' {
   }
 }
 
-export function Editor(props) {
+export function BasicEditor(props) {
   const [editor] = useState(() => withReact(createEditor()))
 
   return (

@@ -3,9 +3,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 export function Loading(props) {
-
   return (
-    <CircularProgress />
+    <CircularProgress {...props}/>
   );
 }
 
@@ -13,7 +12,7 @@ export function Loading(props) {
 export function CenteredLoading(props) {
 
   return (
-    <div className={'flex flex-col flex-grow justify-center items-center w-full'}>
+    <div className={'flex flex-col flex-grow justify-center items-center w-full'} {...props}>
       <Loading />
     </div>
   );
