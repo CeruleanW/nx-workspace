@@ -1,5 +1,5 @@
 import Heading from '../atomics/Heading';
-import {Skill} from '../atomics/SkillItem';
+import { Skill } from '../atomics/SkillItem';
 import styles from '../../styles/components/components.module.scss';
 
 const SkillSet = (props) => {
@@ -26,17 +26,18 @@ export default function MySkills() {
           <Skill>HTML5</Skill>
           <Skill>CSS3</Skill>
           <Skill>Sass/Scss</Skill>
-          <Skill>SQL</Skill>
+          <Skill>SQL (PostgreSQL)</Skill>
           <Skill>Python</Skill>
         </SkillSet>
         <SkillSet title={'Frameworks & Libs'}>
           <Skill>React.js</Skill>
-          <Skill>Redux</Skill>
           <Skill>React Native</Skill>
+          <Skill>Node.js</Skill>
+          <Skill>Redux</Skill>
           <Skill>Next.js</Skill>
           <Skill>TailwindCSS</Skill>
+          <Skill>Jest, Cypress, Appium</Skill>
           <Skill>Material UI</Skill>
-          <Skill>Jest, JUnit</Skill>
         </SkillSet>
         <SkillSet title={'Methods & Tools'}>
           <Skill>Agile Methodology</Skill>
@@ -50,7 +51,7 @@ export default function MySkills() {
         <SkillSet title={'Additional'}>
           <Skill>UML</Skill>
           <Skill>SAP</Skill>
-          <Skill>Bizagi BPMN Modeler</Skill>
+          <Skill>BPMN Modeler</Skill>
         </SkillSet>
       </div>
     </>

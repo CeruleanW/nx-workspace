@@ -10,8 +10,19 @@ const Li = styled.li`
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 18px;
-    /* border: 2px solid #d0dbec; */
+    border: 2px solid #d0dbec;
     display: flex;
+    font-weight: 500;
+    color: #444;
+
+    &:hover {
+      background-image: -webkit-linear-gradient(-70deg,#2cda86,#469cff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: 2px solid #96b5e6;
+      color: #fff;
+    }
 `;
 
 const Span = styled.span`
