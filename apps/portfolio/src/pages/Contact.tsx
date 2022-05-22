@@ -174,8 +174,7 @@ export default function Contact() {
               onClick={handleSubmit(onSubmit)}
               href='#'
             >
-              Submit
-              <span className={''}>Click to send a email</span>
+              <span className={''}>Send</span>
             </Button>
           </form>
         </motion.div>

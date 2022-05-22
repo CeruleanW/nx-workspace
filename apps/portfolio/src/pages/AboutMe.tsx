@@ -3,8 +3,8 @@ import { Box } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import Description from '../components/molecules/Description';
 import MyStory from '../components/organisms/MyStory';
-import MySkills from '../components/organisms/MySkills';
-import { FULLNAME } from '../data/globals';
+import MySkills from '../components/organisms/SkillsGroup';
+import { FULLNAME } from '../lib/constants';
 import styles from '../styles/pages/AboutMe.module.scss';
 import { H1 } from '../components/atomics/Heading';
 

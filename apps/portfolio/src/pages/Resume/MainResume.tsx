@@ -4,7 +4,7 @@ import Title from './components/atomics/Title';
 import Content from './components/atomics/Content';
 import '../../styles/pages/resume.scss';
 import ReactToPrint from 'react-to-print';
-import { FIRSTNAME, LASTNAME } from '../../data/globals';
+import { FIRSTNAME, LASTNAME } from '../../lib/constants';
 import { SkillsSection } from './components/sections/SkillsSection';
 import { HeaderSection } from './components/sections/HeaderSection';
 import { ExperienceSection } from './components/sections/ExperienceSection';

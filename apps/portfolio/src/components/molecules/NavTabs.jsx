@@ -3,19 +3,17 @@ import { Link } from 'react-router-dom';
 
 //TODO
 // - add icons
+const labels = ['Home', 'Projects', 'About me', 'Contact', 'Resume'];
+
+const a11yProps = (index) => {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+};
 
 export default function NavTabs(props) {
   const allTabs = props.routes; //["/", "/projects", "/aboutme", "/contact"];
-  const labels = ['Home', 'Projects', 'About me', 'Contact', 'Resume'];
-
-  function handleChange(e) {}
-  
-  const a11yProps = (index) => {
-    return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
-    };
-  };
 
   const renderTabs = allTabs.map((route, index) => (
     <Tab
@@ -31,7 +29,6 @@ export default function NavTabs(props) {
   return (
     <Tabs
       value={props.value}
-      onChange={handleChange}
       centered
       aria-label='navigation tabs'
     >

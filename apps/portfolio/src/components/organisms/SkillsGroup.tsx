@@ -1,8 +1,5 @@
 import Heading from '../atomics/Heading';
-import {
-  Typography,
-  ListItem,
-} from '@material-ui/core';
+import {Skill} from '../atomics/SkillItem';
 import styles from '../../styles/components/components.module.scss';
 
 const SkillSet = (props) => {
@@ -16,29 +13,11 @@ const SkillSet = (props) => {
   );
 };
 
-const SimpleSkill = (props) => {
-  return (
-    <ListItem>
-      <Typography>
-        <span style={{ color: 'cadetblue', marginRight: '6px' }}>●</span>
-        {props.children}
-      </Typography>
-    </ListItem>
-  );
-};
-
-const Skill = (props) => {
-  return <li className={`${styles['skill-item']} rounded-xl`}>{props.children}</li>;
-};
-
-const ExpandableSkill = (props) => {
-  return <SimpleSkill>{props.children}</SimpleSkill>;
-};
 
 export default function MySkills() {
   return (
     <>
-      <Heading>My Skills</Heading>
+      <Heading>Technical Skills</Heading>
       <div className='flex flex-col justify-between lg:flex-row mt-8'>
         <SkillSet title={'Coding Language'}>
           <Skill>JavaScript</Skill>
