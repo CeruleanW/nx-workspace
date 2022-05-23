@@ -8,6 +8,7 @@ import { useProjectsData } from '../../hooks';
 import { Loading } from '@root/shared/components/atomics/Loading';
 import { Header } from './Header';
 import { ProfileImg } from './ProfileImg';
+import { HeroImg } from './HeroImg';
 
 
 export const useStyles = makeStyles((theme) => ({
@@ -48,27 +49,32 @@ export function Home() {
   }
 
   return (
-    <div className={styles['container']}>
-      <div className={styles['left']}>
-        <Header />
-        <motion.div
-          initial='left'
-          animate='animate'
-          variants={variants}
-          transition={{ duration: 0.8 }}
-        >
-          <div className={styles['leftBottom']}>
-            <SeeMyProject height={40} />
-          </div>
-          <Box mt={3}>
-            <ProjectsCarousel data={projectData} />
-          </Box>
-        </motion.div>
-      </div>
-      <div className={styles['right']}>
-        <ProfileImg></ProfileImg>
-      </div>
-    </div>
+    <>
+      <section>
+        <HeroImg/>
+      </section>
+      <section className={styles['container']}>
+        <div className={styles['left']}>
+          <Header />
+          <motion.div
+            initial='left'
+            animate='animate'
+            variants={variants}
+            transition={{ duration: 0.8 }}
+          >
+            <div className={styles['leftBottom']}>
+              <SeeMyProject height={40} />
+            </div>
+            <Box mt={3}>
+              <ProjectsCarousel data={projectData} />
+            </Box>
+          </motion.div>
+        </div>
+        <div className={styles['right']}>
+          <ProfileImg />
+        </div>
+      </section>
+    </>
   );
 }
 

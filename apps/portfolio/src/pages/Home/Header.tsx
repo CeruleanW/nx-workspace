@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { FULLNAME, JOBTITLE } from '../../lib/constants';
 import { useStyles } from '../Home';
 
-const imgUrl = 'https://i.imgur.com/ZAIrnnZ.jpg'; //Fire Flames
-const imgUrl2 = 'https://i.imgur.com/07foc9r.jpg';
 
 export function Header() {
   const classes = useStyles();

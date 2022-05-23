@@ -1,9 +1,11 @@
-import { Tab, Tabs } from '@material-ui/core/';
+import { Tabs } from '@material-ui/core/';
+import { Tab } from '@mui/material';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-//TODO
-// - add icons
-const labels = ['Home', 'Projects', 'About me', 'Contact', 'Resume'];
+const StyledTab = styled(Tab)`
+  font-family: 'Raleway', sans-serif;
+`;
 
 const a11yProps = (index) => {
   return {
@@ -12,11 +14,11 @@ const a11yProps = (index) => {
   };
 };
 
-export default function NavTabs(props) {
-  const allTabs = props.routes; //["/", "/projects", "/aboutme", "/contact"];
+export default function NavTabs({routes, value, labels}) {
+  const allTabs = routes; //["/", "/projects", "/aboutme", "/contact"];
 
   const renderTabs = allTabs.map((route, index) => (
-    <Tab
+    <StyledTab
       label={labels[index]}
       value={route}
       component={Link}
@@ -27,11 +29,7 @@ export default function NavTabs(props) {
   ));
 
   return (
-    <Tabs
-      value={props.value}
-      centered
-      aria-label='navigation tabs'
-    >
+    <Tabs value={value} centered aria-label="navigation tabs">
       {renderTabs}
     </Tabs>
   );

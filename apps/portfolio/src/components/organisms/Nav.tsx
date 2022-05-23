@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import '../../styles/components/link.scss';
 
-export default function Nav(props) {
-  const allTabs = props.routes;
+export default function Nav({ routes, children, pageTitles }) {
+  const allTabs = routes;
 
   return (
     <AppBar position='static'>
@@ -15,9 +15,9 @@ export default function Nav(props) {
           <Link to={allTabs[0]}>&#10023; Asher.Y</Link>
         </p>
         <div className='flex-1'></div>
-        <Hidden smDown>{props.children}</Hidden>
+        <Hidden smDown>{children}</Hidden>
         <Hidden mdUp>
-          <Menu routes={allTabs} pageTitles={props.pageTitles} />
+          <Menu routes={allTabs} pageTitles={pageTitles} />
         </Hidden>
       </Toolbar>
     </AppBar>

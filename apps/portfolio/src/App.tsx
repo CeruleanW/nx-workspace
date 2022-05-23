@@ -32,7 +32,7 @@ export default function App() {
                 <NavTabs
                   routes={PAGE_ROUTES}
                   value={location.pathname}
-                  pageTitles={PAGE_TITLES}
+                  labels={PAGE_TITLES}
                 />
               )}
             />
