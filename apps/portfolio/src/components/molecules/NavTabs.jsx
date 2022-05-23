@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const StyledTab = styled(Tab)`
   font-family: 'Raleway', sans-serif;
+  width: 9rem;
 `;
 
 const a11yProps = (index) => {
