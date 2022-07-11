@@ -1,17 +1,17 @@
-import { useMainPageData } from '../../hooks';
+import { useMainPageData } from '../hooks';
 import { ErrorMsg } from '@root/shared/components/atomics/ErrorMsg';
 import PageTemplate from '@root/shared/components/template/PageTemplate';
 import { CenteredLoading } from '@root/shared/components/atomics/Loading';
-import { processMainData } from './processors';
-import { BoxCard } from '../../components/molecule/BoxCard';
-import { Tabs } from '../../components/organism/Tabs';
+import { processMainData } from '../lib/main/processors';
+import { BoxCard } from '../components/molecule/BoxCard';
+import { Tabs } from '../components/organism/Tabs';
 import { useState } from 'react';
-import { TabPanel } from '../../components/organism/TabPanel';
-import { BasicEditor, Editor } from '../../components/organism/Editor';
-import { Board } from '../../components/organism/Board';
-import { Nav } from '@root/shared/components/organism/Nav';
-import { MenuAppBar } from '../../components/organism/AppBar';
-import { Protected } from '../../features/auth/components/Protected';
+import { TabPanel } from '../components/organism/TabPanel';
+import { BasicEditor, Editor } from '../components/organism/Editor';
+import { Board } from '../components/organism/Board';
+// import { Nav } from '@root/shared/components/organism/Nav';
+import { MenuAppBar } from '../components/organism/AppBar';
+import { Protected } from '../features/auth/components/Protected';
 
 export default function Main() {
   // should show all the boxes of current user

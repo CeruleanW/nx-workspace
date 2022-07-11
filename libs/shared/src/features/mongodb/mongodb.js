@@ -28,7 +28,7 @@ if (!cached) {
 //
 export async function connectToDatabase() {
   console.log("Connecting to Database...");
-  if (cached.conn) {
+  if (cached?.conn) {
     return cached.conn
   }
 
