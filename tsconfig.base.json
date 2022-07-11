@@ -20,7 +20,8 @@
       "@root/shared": ["libs/shared/index.ts"],
       "@idea/*": ["apps/idea-dropper/src/*"],
       "@idea": ["apps/idea-dropper/src/index.ts"],
-      "@gpse/*": ["apps/google-photos-search-enhancer/*"]
+      "@gpse/*": ["apps/google-photos-search-enhancer/*"],
+      "@portfolio/*": ["apps/portfolio/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

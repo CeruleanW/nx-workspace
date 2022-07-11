@@ -16,6 +16,7 @@
     "isolatedModules": true,
     "incremental": true
   },
+  "baseUrl": "./src",
   "include": [
     "**/*.ts",
     "**/*.tsx",

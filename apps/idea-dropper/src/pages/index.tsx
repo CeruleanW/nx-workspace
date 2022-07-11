@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { APPNAME } from '@idea/lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
 import { useSession, signIn, signOut } from 'next-auth/client';
-import { FrameWrapper } from '../components/FrameWrapper';
 import { CenteredLoading } from '@root/shared/components/atomics';
 import { useRouter } from 'next/router'
 

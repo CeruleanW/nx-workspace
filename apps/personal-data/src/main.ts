@@ -12,8 +12,7 @@ app.use(cors());
 
 //Simple test
 app.get('/', (req, res) => {
-  // console.log(req);
-  console.log(req.body);
+  // console.debug(req?.body);
   res.send("This is Asher's API");
 });
 

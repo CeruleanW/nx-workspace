@@ -25,7 +25,7 @@ const toggleBlock = (editor, format) => {
       !TEXT_ALIGN_TYPES.includes(format),
     split: true,
   })
-  let newProperties: Partial<SlateElement>
+  let newProperties: Partial<SlateElement> & {align?: string};
   if (TEXT_ALIGN_TYPES.includes(format)) {
     newProperties = {
       align: isActive ? undefined : format,
