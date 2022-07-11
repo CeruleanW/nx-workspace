@@ -1,4 +1,4 @@
-import { connectToDatabase } from '@idea/utils/mongodb';
+import { connectToDatabase } from '@root/shared/features/mongodb';
 import { getSession } from 'next-auth/client';
 
 //request a card by its id

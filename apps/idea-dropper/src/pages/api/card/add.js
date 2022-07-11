@@ -1,4 +1,4 @@
-import { connectToDatabase } from '../../../utils/mongodb';
+import { connectToDatabase } from '@root/shared/features/mongodb';
 const ObjectID = require('mongodb').ObjectID;
 //TODO: destruct request body to get data from client
 

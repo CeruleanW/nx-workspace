@@ -1,4 +1,4 @@
-import { connectToDatabase } from '../../../utils/mongodb';
+import { connectToDatabase } from '@root/shared/features/mongodb';
 
 export default async (req, res) => {
   // authentication - if fails, redirect to login page

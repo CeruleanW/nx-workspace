@@ -25,6 +25,7 @@ if (!cached) {
   cached = global.mongo = { conn: null, promise: null }
 }
 
+//
 export async function connectToDatabase() {
   console.log("Connecting to Database...");
   if (cached.conn) {

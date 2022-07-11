@@ -1,4 +1,4 @@
-import { connectToDatabase } from '../../utils/mongodb';
+import { connectToDatabase } from '@root/shared/features/mongodb';
 
 //add a card to a box
 export default async (req, res) => {
