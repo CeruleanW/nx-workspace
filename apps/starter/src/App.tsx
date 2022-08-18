@@ -1,8 +1,9 @@
-import React from 'react';
 import HomePage from './components/pages/HomePage';
 import { AppProvider } from './providers/app';
 
 function App() {
+  // testJWT();
+
   return (
     <AppProvider>
       <div className="App">

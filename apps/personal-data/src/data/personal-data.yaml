@@ -127,6 +127,7 @@ technical-skills:
     - Redux
     - CSS3
     - HTML5
+    - Next.js
     - Styled components
     - Sass
     - Canvas
@@ -151,14 +152,13 @@ technical-skills:
     - Figma
     - RESTful API
     - Bash
-    - Next.js
     - JSON/XML
     - UML
   methodologies: &method-skills
     - Agile Methodology (Scrum)
     - Object-Oriented Programming
-    - Unit Testing (Jest, JUnit)
-    - E2E Testing (Appium, WebDriverIO)
+    - Unit Testing
+    - E2E Testing
     - Test-Driven Development
     - Functional Programming (Ramda)
     - Waterfall Methodology
@@ -172,7 +172,7 @@ technical-skills:
 resume:
   phone-numer: &phone "+1(416)8937473"
   title: &title Web & Mobile Developer
-  email: &work-email yyang.techie@gmail.com
+  email: &work-email ashery.tech@gmail.com
   links: &resume-links
     portfolio: *portfolio
     github: *github
@@ -191,7 +191,7 @@ resume:
         company-location: Toronto, Canada
       time:
         from: 05/2021
-        to: 07/2022
+        to: Present
       features:
         - keypoint: Mobile Development
           description: "Built mobile apps from scratch using React Native to provide a smooth and efficient user flow for configuring and updating IoT devices via REST API and Bluetooth on Android and iOS"
