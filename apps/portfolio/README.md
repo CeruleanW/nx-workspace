@@ -19,7 +19,7 @@
 * Project homepage: <https://yiyangdev.me/>
 * Repository: <https://github.com/CeruleanW/MyPortfolio/>
 * Issue tracker: <https://github.com/CeruleanW/MyPortfolio/issues>
-  * In case of sensitive bugs like security vulnerabilities, please contact yyang.techie@gmail.com directly instead of using issue tracker. We value your effort to improve the security and privacy of this project!
+  * In case of sensitive bugs like security vulnerabilities, please contact ashery.tech@gmail.com directly instead of using issue tracker. We value your effort to improve the security and privacy of this project!
 * Related projects:
   * https://github.com/CeruleanW/idea-dropper
   * <https://github.com/CeruleanW/google-photos-search-enhancer>

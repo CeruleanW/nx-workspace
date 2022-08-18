@@ -1,4 +1,4 @@
-import { fetchProjectsData, PROJECTS_DATA_LINK } from '../lib';
+import { fetchProjectsData, PROJECTS_DATA_LINK, PERSONAL_DATA_LINK, fetchPersonalData } from '../lib';
 import useSWR from 'swr';
 
 export function useProjectsData() {
@@ -14,4 +14,10 @@ export function useProjectDataByID(id) {
   }
 
   return { projectData: project, error, isLoading };
+}
+
+
+export function usePersonalData() {
+  const { data, error } = useSWR(PERSONAL_DATA_LINK, fetchPersonalData);
+  return { data, error, isLoading: !data && !error };
 }

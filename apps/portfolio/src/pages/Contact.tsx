@@ -12,11 +12,13 @@ import {
 } from '@material-ui/core';
 import { EMAILAPIURL } from '../features/notification';
 import { makeStyles } from '@material-ui/core/styles';
-import SocialMedia from '../components/molecules/SocialMedia';
+import {SocialMedia} from '../components/molecules/SocialMedia';
 import { useTheme } from '@material-ui/styles';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import styles from '../styles/pages/Contact.module.scss';
+import { usePersonalData } from '../hooks';
+import { Loading } from '@root/shared/components/atomics';
 
 const useStyles = makeStyles((theme) => {
   const py = theme.spacing(10);
@@ -90,6 +92,7 @@ function createHeader() {
 }
 
 export default function Contact() {
+  const {data, isLoading, error} = usePersonalData();
   const classes = useStyles();
   const theme = useTheme() as any;
   const isMobile = useMediaQuery(theme?.breakpoints?.down('xs'), {
@@ -112,6 +115,15 @@ export default function Contact() {
       })
       .catch((error) => console.log('error:', error));
   };
+
+  if (error) {
+    return <div>Error! {error?.messsage}</div>;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
 
   return (
     <Box maxWidth={1280} className={classes.root}>
@@ -180,10 +192,7 @@ export default function Contact() {
         </motion.div>
       </Box>
       <Box mt={18} width={120}>
-        {/* <Typography>
-          Email: yyang.techie#gmail.com {"(Please replace # with @)"}
-        </Typography> */}
-        <SocialMedia text={''} />
+        <SocialMedia text={''} email={data?.resume?.email}/>
       </Box>
       <Modal
         open={!isReady}

@@ -1,5 +1,5 @@
 {
-  "npmScope": "temp-workspace",
+  "npmScope": "asher-workspace",
   "affected": {
     "defaultBase": "main"
   },

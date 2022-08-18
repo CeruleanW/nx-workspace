@@ -1,4 +1,3 @@
-import React from 'react';
 import Section from '../ResumeSectionWrapper';
 import Title from '../atomics/Title';
 import Job from '../atomics/Job';

@@ -10,7 +10,7 @@ import { HeaderSection } from './components/sections/HeaderSection';
 import { ExperienceSection } from './components/sections/ExperienceSection';
 import { EducationSection } from './components/sections/EducationSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
-import { LanguageSection } from './components/sections/LanguageSection';
+// import { LanguageSection } from './components/sections/LanguageSection';
 
 const PDF_NAME = FIRSTNAME + LASTNAME + '_Resume';
 
