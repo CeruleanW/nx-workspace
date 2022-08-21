@@ -86,12 +86,7 @@ export const Menu = React.forwardRef(
 
 
 const StyledToolbar = styled(Menu)`
-  position: relative;
-  padding: 1px 18px 17px;
   border-bottom: 2px solid #eee;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  max-width: 100%;
 `;
 
 export const ToolbarContainer = React.forwardRef(
@@ -102,7 +97,7 @@ export const ToolbarContainer = React.forwardRef(
     <StyledToolbar
       {...props}
       ref={ref}
-      className={`${className}`}
+      className={`relative p-3 max-w-full ${className}`}
     />
   )
 )

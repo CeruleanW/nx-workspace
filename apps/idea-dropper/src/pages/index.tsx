@@ -29,7 +29,7 @@ export default function Home() {
             <p className='text-center'>Drop your ideas in the box</p>
             <p className='text-center'>Draw your ideas for inspiration </p>
           </div>
-          <div className='mt-4 flex justify-center items-center space-x-4'>
+          <div className='mt-4 flex justify-center items-center gap-x-4'>
               <>
                 <Button onClick={signIn}>Login</Button>
                 <Link href='/signup' passHref>

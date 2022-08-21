@@ -24,27 +24,31 @@ export const RichTextEditor = () => {
   if (!editorRef.current) editorRef.current = withReact(createEditor())
   const editor = editorRef.current;
 
+  const handleKeyDown = event => {
+    for (const hotkey in HOTKEYS) {
+      if (isHotkey(hotkey, event as any)) {
+        event.preventDefault()
+        const mark = HOTKEYS[hotkey]
+        toggleMark(editor, mark)
+      }
+    }
+  };
+
   return (
-    <Slate editor={editor} value={initialValue}>
-      <Toolbar />
-      <Editable
-        renderElement={renderElement}
-        renderLeaf={renderLeaf}
-        placeholder="Write your ideas here…"
-        spellCheck
-        autoFocus
-        onKeyDown={event => {
-          for (const hotkey in HOTKEYS) {
-            if (isHotkey(hotkey, event as any)) {
-              event.preventDefault()
-              const mark = HOTKEYS[hotkey]
-              toggleMark(editor, mark)
-            }
-          }
-        }}
-        className={'p-4'}
-      />
-    </Slate>
+    <div className='relative'>
+      <Slate editor={editor} value={initialValue}>
+        <Toolbar />
+        <Editable
+          renderElement={renderElement}
+          renderLeaf={renderLeaf}
+          placeholder="Write your ideas here…"
+          spellCheck
+          autoFocus
+          onKeyDown={handleKeyDown}
+          className={'p-4'}
+        />
+      </Slate>
+    </div>
   )
 }
 

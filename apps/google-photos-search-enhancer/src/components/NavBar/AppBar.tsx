@@ -28,14 +28,14 @@ export function AppBar({ onOpenDrawer, ...optionals }) {
   return (
     <div>
       <MUIAppBar position="sticky">
-        <div className="flex items-stretch justify-between flex-wrap max-w-full space-y-2 md:space-y-0 sm:space-x-2 px-4 my-2">
+        <div className="flex items-stretch justify-between flex-wrap max-w-full space-y-2 md:space-y-0 sm:gap-x-2 px-4 my-2">
           <div className="flex items-center flex-grow">
             <Title setIsDrawerOpen={onOpenDrawer} />
           </div>
-          <div className="flex justify-start items-stretch max-w-full flex-wrap sm:space-x-2 flex-grow">
+          <div className="flex justify-start items-stretch max-w-full flex-wrap flex-grow">
             <SearchBar />
           </div>
-          <div className={'flex space-x-2 items-center'} >
+          <div className={'flex gap-x-2 items-center'} >
             <RandomBtn />
             <GoogleBtn
               onSetLastUpdateTime={() => setLastUpdateTime(getTimeStamp())}

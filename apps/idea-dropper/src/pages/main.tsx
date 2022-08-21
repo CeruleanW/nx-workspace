@@ -12,6 +12,7 @@ import { Board } from '../components/organism/Board';
 // import { Nav } from '@root/shared/components/organism/Nav';
 import { MenuAppBar } from '../components/organism/AppBar';
 import { Protected } from '../features/auth/components/Protected';
+import {useForm} from 'react-hook-form';
 
 export default function Main() {
   // should show all the boxes of current user
@@ -40,8 +41,8 @@ export default function Main() {
     <Protected>
       <PageTemplate>
         <MenuAppBar title={'Idea Dropper'} ></MenuAppBar>
-        <div className={'flex space-x-4 mx-4 flex-grow'} >
-          <TabPanel value={tab} index={0} className='space-x-8' >
+        <div className={'flex gap-x-4 mx-4 flex-grow'} >
+          <TabPanel value={tab} index={0} className='gap-x-8' >
             {processed?.map(item => <BoxCard key={`${item?._id}`} name={item?.name} data={item} className={'max-h-36 min-w-max w-32'} />)}
           </TabPanel>
           <TabPanel value={tab} index={1}>
