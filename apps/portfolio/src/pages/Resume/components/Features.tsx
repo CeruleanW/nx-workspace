@@ -1,4 +1,3 @@
-import React from 'react';
 import Spotlight from './atomics/Spotlight';
 
 export default function Features({features, ...optionals}) {
@@ -7,12 +6,12 @@ export default function Features({features, ...optionals}) {
     <ul className='list-disc pl-4 mt-2'>
       {Array.isArray(features) ? (
         features.slice(0, maxNumber).map((item) => (
-          <Spotlight key={item.keypoint} keypoint={item.keypoint}>
-            {item.description}
+          <Spotlight key={item?.keypoint} keypoint={item?.keypoint}>
+            {item?.description}
           </Spotlight>
         ))
       ) : (
-        <Spotlight keypoint={features.keypoint}>{features.description}</Spotlight>
+        <Spotlight keypoint={features?.keypoint}>{features?.description}</Spotlight>
       )}
       {children}
     </ul>

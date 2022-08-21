@@ -19,6 +19,7 @@ export default function App() {
   useEffect(() => {
     easterEgg();
     console.log(STATEMENT);
+    console.log(`Env: ${process.env.NODE_ENV}`);
   }, []);
 
   return (
