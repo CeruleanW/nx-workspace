@@ -25,7 +25,7 @@ export function SkillList({ list, ...optionals }) {
   return (
     <div className={`flex flex-wrap justify-start items-start mb-2 ${isFirst ? '' : 'mt-1'}`}>
       <SkillType text={type} />
-      <div className='flex flex-wrap items-start flex-1 space-x-2' >
+      <div className='flex flex-wrap items-start flex-1 gap-x-2' >
         {list.map((skill) => (
           <SkillItem2 key={'key-' + skill} text={skill} />
         ))}

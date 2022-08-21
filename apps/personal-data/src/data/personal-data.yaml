@@ -183,7 +183,7 @@ resume:
   location: &location Toronto, Ontario, Canada
   summary:
     version:
-      short: Adaptive software developer with experience in designing and developing Web & Mobile software in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, Java.
+      short: Adaptive software developer with experience in designing and developing Web & Mobile software in the IoT industry. Skilled in JavaScript, TypeScript, React.js, React Native, and Java.
   experience: &general-experience
     - job-title: Software Developer
       company:
@@ -194,13 +194,13 @@ resume:
         to: Present
       features:
         - keypoint: Mobile Development
-          description: "Designed and built mobile APPs from scratch using React Native to let users to configure and update IoT devices a smooth and efficient way. To reduce the error rate of Bluetooth (BLE) from 33% to less than 5% under specified conditions, refactored the code and ran testing for it"
+          description: "Designed and built mobile apps from scratch using React Native to let users configure and update IoT devices in a smooth and efficient way. To reduce the error rate of Bluetooth (BLE) from 33% to less than 5% under specified conditions, refactored the code and ran testing for it."
         - keypoint: Data Visualization
-          description: "Revamped the customer traffic map from rendering circles to rendering dynamic heat map to provide more informative insights for users. Used a WebGL-based visualization solution and implemented trilateration algorithm for the positioning problem"
+          description: "Revamped the customer traffic map from rendering circles to rendering dynamic heat maps to provide more informative insights for users. Used a WebGL-based visualization solution and implemented a trilateration algorithm for the positioning problem."
         - keypoint: Back-end Development
-          description: "To reduce cloud resource consumption and cost, built and deployed a Node.js based data pipeline and add APIs in the NestJS server to enhance communication between the Web dashboard and IoT devices"
+          description: "To reduce cloud resource consumption and cost, built and deployed a Node.js data pipeline and add APIs in the NestJS server to enhance communication between the Web dashboard and IoT devices."
         - keypoint: UI Design
-          description: "Learned to use Figma in the work to create Web & Mobile UI designs and prototypes for better collaboration with other team members"
+          description: "Learned to use Figma in the work to create Web & Mobile UI designs and prototypes for better collaboration with other team members."
         # - keypoint: Agile method
         #   description: "Worked in a fast-paced, startup culture by following Agile Methodology and managing tasks using JIRA"
     - job-title: Software Developer (contract)
@@ -212,7 +212,7 @@ resume:
         to: 04/2021
       features:
         - keypoint: Mobile Development
-          description: "Built a minimal viable product of mobile app helping users find a location with the right light intensity for their indoor planting. Used built-in light ambient sensor to capture data and display them in charts via Highcharts and MongoDB Realm"
+          description: "Built a minimal viable product of mobile app helping users find a location with the right light intensity for their indoor planting. Used built-in light ambient sensor to capture data and display them in charts via Highcharts and MongoDB Realm."
     - job-title: Public Relations Officer
       company:
         company-name: Guangdong Zhuoru Medical Relief Foundation
@@ -222,7 +222,7 @@ resume:
         from: 11/2016
         to: 06/2017
       features:
-        - description: "Digitalized historical paper version of program expense and published corresponding donation reports on over 138,000 persons to the website to increase the accountability and transparency of the organization"
+        - description: "Digitalized historical paper version of program expense and published corresponding donation reports of over 138,000 persons on the website to increase the accountability and transparency of the organization."
     - job-title: Web Content Writer
       company:
         company-name: NiceNIC.net
@@ -233,7 +233,7 @@ resume:
         to: 09/2016
       features:
         - keypoint: Written communication
-          description: "Wrote various web content, including social media posts, user guides, to proclaim features and benefits to the targeted audience, attracted 30,000+ page views in two weeks"
+          description: "Wrote various web content, including social media posts, user guides, to proclaim features and benefits to the targeted audience, attracted 30,000+ page views in two weeks."
     - job-title: Marketing Coordinator
       company:
         company-name: Guangzhou President Enterprises Corp
@@ -244,9 +244,9 @@ resume:
         to: 09/2015
       features:
         - keypoint: Project Management
-          description: "Simultaneously handling various tasks in marketing plans such as crafting and presenting plans, communicating with designers and suppliers, analyzing collected data, to ensure merchandising events are held timely and appropriately"
+          description: "Simultaneously handld various tasks in marketing plans such as crafting and presenting plans, communicating with designers and suppliers, analyzing collected data, to ensure merchandising events are held timely and appropriately."
         - keypoint: Task Optimization
-          description: "created customized Pivot Tables in Excel for tracing daily data of merchandising events, which reduced 40% of task time and greatly improved data inconsistency"
+          description: "Created customized Pivot Tables in Excel for tracing daily data of merchandising events, which reduced 40% of task time and greatly improved data inconsistency."
   side-projects:
     - title: Font Preview Tool
       features:
@@ -280,7 +280,7 @@ resume:
       school-projects:
         features:
           - keypoint: Content Searching
-            description: In the project of building a search engine for a batch of compressed HTML documents, recommended the Okapi BM25 ranking algorithm to the team, and implemented data preprocessing and formatting functions. The program can return relevant results in the required format for a query in 0.5 seconds on average in a clear object-oriented architecture, which led to an A in this course.
+            description: In a local search engine project, recommended the Okapi BM25 ranking algorithm to the team, and implemented data preprocessing and formatting. The program can return relevant results in the required format in 0.5 seconds on average in a clear object-oriented architecture, which led to an A in this course.
           - keypoint: Secured Web System
             description: Led four team members to create a role-based access control system in Java, using Java Servlet, Apache Tomcat, XML to satisfy the requirement that disallowing unauthorized accesses to protected resources.
           - keypoint: User Interface & Experience
@@ -327,3 +327,5 @@ resume-versions:
     side-projects:
       - Google Photos Search Enhancer
     displayed-name: 杨溢
+  - version: medical-related
+
