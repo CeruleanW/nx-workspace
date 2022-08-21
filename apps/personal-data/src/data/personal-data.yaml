@@ -222,7 +222,7 @@ resume:
         from: 11/2016
         to: 06/2017
       features:
-        - description: "Digitalized historical paper version of program expense and published corresponding donation reports of over 138,000 persons on the website to increase the accountability and transparency of the organization."
+        - description: "Digitalized historical paper version of program expenses and published corresponding donation reports of over 138,000 persons on the website to increase the accountability and transparency of the organization."
     - job-title: Web Content Writer
       company:
         company-name: NiceNIC.net
@@ -256,7 +256,7 @@ resume:
       repo: https://github.com/CeruleanW/preview-tool
     - title: Google Photos Search Enhancer
       features:
-        - keypoint: Web application development
+        - keypoint: Web Application Development
           description: "Initiated and built a web application enabling Google Photos users to search phrases more than general keywords in the descriptions and filenames and display matched results, using Fuse.js to achieve fuzzy search. The program consumes RESTful APIs of Google Photos after authentication."
       demo: https://google-photos-search-enhancer.netlify.app/
       repo: https://github.com/CeruleanW/nx-workspace/tree/master/apps/google-photos-search-enhancer
