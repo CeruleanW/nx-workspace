@@ -2,7 +2,6 @@
   "name": "asher-yang-public",
   "version": "1.0.0",
   "main": "main.ts",
-  "repository": "https://git.heroku.com/email-service-cerulean.git",
   "author": "Asher Yang",
   "license": "MIT"
 }

@@ -14,6 +14,8 @@ import CustomCard from '../../molecules/CustomCard';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import './ProjectsCarousel.css';
+import { Loading } from '../../atomics/Loading';
+import { useProjectsData } from '../../../hooks';
 
 const SLIDE_NUMBER = 5;
 
@@ -33,14 +35,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function ProjectsCarousel({ data, ...optionals }) {
+export function ProjectsCarousel({ ...optionals }) {
   const classes = useStyles();
 
-  if (!data) {
-    return null;
+  const { projectData, isLoading, error } = useProjectsData();
+
+  if (error) {
+    return <div>Error! {error?.messsage}</div>;
   }
 
-  const projectList = data?.projects?.slice(0, SLIDE_NUMBER);
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  // if (!data) {
+  //   return null;
+  // }
+
+  const projectList = projectData?.projects?.slice(0, SLIDE_NUMBER);
 
   return (
     <Box mx={'auto'} maxWidth={580}>

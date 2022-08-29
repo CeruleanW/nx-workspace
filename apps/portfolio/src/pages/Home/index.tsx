@@ -38,15 +38,6 @@ export const variants = {
 };
 
 export function Home() {
-  const { projectData, isLoading, error } = useProjectsData();
-
-  if (error) {
-    return <div>Error! {error?.messsage}</div>;
-  }
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <>
@@ -66,7 +57,7 @@ export function Home() {
               <SeeMyProject height={40} />
             </div>
             <Box mt={3}>
-              <ProjectsCarousel data={projectData} />
+              <ProjectsCarousel />
             </Box>
           </motion.div>
         </div>

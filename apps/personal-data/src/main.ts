@@ -5,8 +5,7 @@ const path = require('path');
 const app = express();
 
 
-let port = parseInt(process?.env?.PORT);
-port = 3000;
+let port = parseInt(process?.env?.PORT) || 3000;
 app.use(cors());
 
 //Simple test
