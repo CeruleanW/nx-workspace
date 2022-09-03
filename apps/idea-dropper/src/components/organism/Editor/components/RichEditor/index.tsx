@@ -6,25 +6,19 @@ import {
 } from 'slate';
 import { Editable, Slate, withReact } from 'slate-react';
 import { Toolbar } from '../Toolbar';
-import { HOTKEYS, DEFAULT_INIT_VALUE } from './constants';
-import { setToLocalStorage, getLocalStorage } from '@root/shared/features/local-storage';
+import { HOTKEYS } from './constants';
+import { DEFAULT_INIT_VALUE, CONTENT_KEY } from '../../constants';
+import { useLocalStorage } from '@root/shared/features/local-storage';
+import { Button } from '@root/shared/components/atomics/Button';
+
+export const RichTextEditor = ({value,  editor, localStorageCallbacks, ...optionals}) => {
+  // Hooks
+  const renderElement = useCallback(props => <Element {...props} />, []);
+  const renderLeaf = useCallback(props => <Leaf {...props} />, []);
 
 
-export const RichTextEditor = () => {
-  const renderElement = useCallback(props => <Element {...props} />, [])
-  const renderLeaf = useCallback(props => <Leaf {...props} />, [])
-
-
-  // const editor = useMemo(() => withHistory(withReact(createEditor())), []);
-  const editorRef = useRef() as any;
-  if (!editorRef.current) editorRef.current = withReact(createEditor())
-  const editor = editorRef.current;
-
-  const value = useMemo(
-    () =>
-      getLocalStorage('@content') || DEFAULT_INIT_VALUE,
-    []
-  );
+  // Props
+  const {setValue, remove,} = localStorageCallbacks || {};
 
   const handleKeyDown = event => {
     for (const hotkey in HOTKEYS) {
@@ -42,7 +36,7 @@ export const RichTextEditor = () => {
     )
     if (isAstChange) {
       // Save the value to Local Storage.
-      setToLocalStorage('@content', value);
+      setValue(value);
     }
   };
 

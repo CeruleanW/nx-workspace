@@ -19,7 +19,7 @@ export function setTokenToLocalStorage(token: string) {
 }
 
 export function getAuthTokenFromLocalStorage(): string {
-  const { token } = getLocalStorage(AUTH_KEY) || {};
+  const { token } = getLocalStorage(AUTH_KEY) || {token: undefined};
   return token;
 }
 
