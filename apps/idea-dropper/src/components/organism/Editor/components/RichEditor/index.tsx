@@ -1,18 +1,14 @@
 import isHotkey from 'is-hotkey';
-import { useCallback, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import {
   createEditor,
   Descendant, Editor
 } from 'slate';
 import { Editable, Slate, withReact } from 'slate-react';
-import { Toolbar } from './Toolbar';
+import { Toolbar } from '../Toolbar';
+import { HOTKEYS, DEFAULT_INIT_VALUE } from './constants';
+import { setToLocalStorage, getLocalStorage } from '@root/shared/features/local-storage';
 
-const HOTKEYS = {
-  'mod+b': 'bold',
-  'mod+i': 'italic',
-  'mod+u': 'underline',
-  'mod+`': 'code',
-}
 
 export const RichTextEditor = () => {
   const renderElement = useCallback(props => <Element {...props} />, [])
@@ -24,6 +20,12 @@ export const RichTextEditor = () => {
   if (!editorRef.current) editorRef.current = withReact(createEditor())
   const editor = editorRef.current;
 
+  const value = useMemo(
+    () =>
+      getLocalStorage('@content') || DEFAULT_INIT_VALUE,
+    []
+  );
+
   const handleKeyDown = event => {
     for (const hotkey in HOTKEYS) {
       if (isHotkey(hotkey, event as any)) {
@@ -34,9 +36,19 @@ export const RichTextEditor = () => {
     }
   };
 
+  const handleChange = value => {
+    const isAstChange = editor.operations.some(
+      op => 'set_selection' !== op.type
+    )
+    if (isAstChange) {
+      // Save the value to Local Storage.
+      setToLocalStorage('@content', value);
+    }
+  };
+
   return (
     <div className='relative'>
-      <Slate editor={editor} value={initialValue}>
+      <Slate editor={editor} value={value as any} onChange={handleChange}>
         <Toolbar />
         <Editable
           renderElement={renderElement}
@@ -51,7 +63,6 @@ export const RichTextEditor = () => {
     </div>
   )
 }
-
 
 const toggleMark = (editor, format) => {
   const isActive = isMarkActive(editor, format)
@@ -135,14 +146,3 @@ const Leaf = ({ attributes, children, leaf }) => {
 
   return <span {...attributes}>{children}</span>
 }
-
-const initialValue: any[] = [
-  {
-    type: 'paragraph',
-    children: [
-      { text: '' },
-    ],
-  },
-]
-
-export default RichTextEditor

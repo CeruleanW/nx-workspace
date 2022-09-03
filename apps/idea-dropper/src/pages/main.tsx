@@ -7,15 +7,18 @@ import { BoxCard } from '../components/molecule/BoxCard';
 import { Tabs } from '../components/organism/Tabs';
 import { useState } from 'react';
 import { TabPanel } from '../components/organism/TabPanel';
-import { BasicEditor, Editor } from '../components/organism/Editor';
+import { Editor } from '../components/organism/Editor';
 import { Board } from '../components/organism/Board';
 // import { Nav } from '@root/shared/components/organism/Nav';
 import { MenuAppBar } from '../components/organism/AppBar';
 import { Protected } from '../features/auth/components/Protected';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
+/**
+ *
+ * @returns should show all the boxes of current user
+ */
 export default function Main() {
-  // should show all the boxes of current user
 
   // Hook
   const { data, error } = useMainPageData();

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { forwardRef } from 'react';
 import { ensuredForwardRef } from 'react-use';
 
-const ResetBg = styled(MuiButton)`
-  background-color: #1976d2; /* fix conflict between tailwindcss and mui button color */
+const ResetBg = styled(MuiButton)<{variant: string}>`
+  background-color: ${p => p.variant === 'contained' ? '#1976d2' : '#fff'} ; /* fix conflict between tailwindcss and mui button color */
 `;
 
 export const Button = ensuredForwardRef((props: any, ref: any) => {

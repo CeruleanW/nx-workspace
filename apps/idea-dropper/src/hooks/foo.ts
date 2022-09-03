@@ -1,7 +1,6 @@
-import useSWR from 'swr';
-import { getData } from '@root/shared/features/axios';
+import { useAllBoxes } from '../features/idea-server';
 
 export function useMainPageData(enabled = true) {
-  const { data, error } = useSWR(enabled ? '/api/box/all' : null, getData);
+  const { data, error } = useAllBoxes(enabled);
   return { data, error };
 }

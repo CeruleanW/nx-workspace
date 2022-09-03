@@ -1,67 +1,6 @@
 import React, { Ref, PropsWithChildren } from 'react'
 import styled from 'styled-components';
-
-const StyledBtn = styled.span<{ reversed, active }>`
-  cursor: pointer;
-      color: ${props => props.reversed
-    ? props.active
-      ? 'white'
-      : '#aaa'
-    : props.active
-      ? 'black'
-      : '#ccc'
-  };`;
-
-interface BaseProps {
-  className: string
-  [key: string]: unknown
-}
-type OrNull<T> = T | null
-
-export const Button = React.forwardRef(
-  (
-    {
-      className,
-      active,
-      reversed,
-      ...props
-    }: PropsWithChildren<
-      {
-        active: boolean
-        reversed: boolean
-      } & BaseProps
-    >,
-    ref: Ref<OrNull<HTMLSpanElement>>
-  ) => (
-    <StyledBtn
-      {...props}
-      ref={ref}
-      className={className}
-      reversed={reversed}
-      active={active}
-    />
-  )
-)
-
-
-const StyledIcon = styled.span`
-  font-size: 18px;
-  vertical-align: text-bottom;
-`;
-
-export const Icon = React.forwardRef(
-  (
-    { className, ...props }: PropsWithChildren<BaseProps>,
-    ref: Ref<OrNull<HTMLSpanElement>>
-  ) => (
-    <StyledIcon
-      {...props}
-      ref={ref}
-      className={`material-icons ${className}`}
-    />
-  )
-);
-
+import { BaseProps, OrNull } from './Button';
 
 const StyledMenu = styled.div`
         & > * {

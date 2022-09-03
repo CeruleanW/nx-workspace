@@ -2,7 +2,9 @@ import {
   Editor, Element as SlateElement, Transforms
 } from 'slate';
 import { useSlate } from 'slate-react';
-import { Button, Icon, ToolbarContainer } from './components';
+import { ToolbarContainer } from '.';
+import { Icon } from "./Icon";
+import { Button } from './Button';
 import { ToolbarItemIcon } from './ToolbarItemIcon';
 
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];
@@ -25,7 +27,7 @@ const toggleBlock = (editor, format) => {
       !TEXT_ALIGN_TYPES.includes(format),
     split: true,
   })
-  let newProperties: Partial<SlateElement> & {align?: string};
+  let newProperties: Partial<SlateElement> & { align?: string };
   if (TEXT_ALIGN_TYPES.includes(format)) {
     newProperties = {
       align: isActive ? undefined : format,

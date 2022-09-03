@@ -1,21 +1,35 @@
 import React from 'react';
-import { RichTextEditor } from './RichEditor';
+import { RichTextEditor } from './components/RichEditor';
 import { Paper } from '@root/shared/components/atomics/Paper';
 import { ErrorBoundary } from '@root/shared/features/error-handling';
-import { CardTitle } from './CardTitle';
+import { CardTitle } from '../../molecule/CardTitle';
+import { Button } from '@root/shared/components/atomics/Button';
+import { insertCard } from '@idea/features/idea-server';
+import { useAsyncFn } from 'react-use';
 
 export function Editor() {
+  const [saveState, executeSave] = useAsyncFn((data) => insertCard(data));
+
+  const handleSave = () => {
+
+  };
+
+  const handleDiscard = () => {
+
+  }
+
   return (
-    <ErrorBoundary>
-      <div className='mx-auto w-10/12 flex flex-col'>
+    <div className='mx-auto w-10/12 flex flex-col'>
+      <ErrorBoundary>
         <CardTitle />
         <Paper className='w-full flex-grow'>
           <RichTextEditor />
         </Paper>
-      </div>
-    </ErrorBoundary>
+        <div className='flex gap-x-4 mt-4' >
+          <Button onClick={handleSave} >Save</Button>
+          <Button onClick={handleDiscard} variant='outlined' >Discard</Button>
+        </div>
+      </ErrorBoundary>
+    </div>
   );
 }
-
-export * from './BasicEditor';
-export * from './RichEditor';
