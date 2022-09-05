@@ -1,6 +1,7 @@
 import {} from '@root/shared/features/axios';
 import axios from 'axios';
 import { handle } from '@root/shared/utils';
+import {ADD_CARD} from './apis';
 
 //Data operations a user can perform on the App
 
@@ -13,7 +14,7 @@ export async function randomnizeSequence(boxId) {}
 export async function insertCard(data) {
   // process data
   // call API
-  const [result, resultErr] = await handle(axios.post('./card/add', data));
+  const [result, resultErr] = await handle(axios.post(ADD_CARD, data));
   if (resultErr) throw new Error('Could not insert the card to database');
   // return response
   return result;

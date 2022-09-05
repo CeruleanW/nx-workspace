@@ -1,4 +1,4 @@
-import { useLocalStorage } from '@root/shared/features/local-storage';
+import { useLocalStorage } from '@root/shared/features/local-storage'; //https://github.com/streamich/react-use/blob/master/docs/useLocalStorage.md
 import { useRef } from 'react';
 import { createEditor } from 'slate';
 import { withReact } from 'slate-react';

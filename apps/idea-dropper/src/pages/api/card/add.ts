@@ -1,18 +1,32 @@
 import { connectToDatabase } from '@root/shared/features/mongodb';
+import { NextApiRequest, NextApiResponse } from 'next';
 const ObjectID = require('mongodb').ObjectID;
+
 //TODO: destruct request body to get data from client
 
+type RequestBody = {
+  cardData: {
+    title: string;
+    content: any;
+  };
+  boxId: string;
+};
+
+const ownerIdString = '603449406a2ed67286c5d810';
+
 //add a card to a box
-export default async (req, res) => {
+export default async (
+  req: NextApiRequest & { body: RequestBody },
+  res: NextApiResponse
+) => {
   if (req.method === 'POST') {
     const { db } = await connectToDatabase();
     const { cardData, boxId } = req.body;
+    const { title, content } = cardData || {};
 
-    const ownerIdString = '603449406a2ed67286c5d810';
     const createdDate = new Date();
     const owner = new ObjectID(ownerIdString); //this user
-    const title = 'Once upon a time...';
-    const content = "We had a hero";
+
     const doc = createCardDoc(title, owner, content, createdDate);
 
     db.collection('card')
@@ -21,7 +35,7 @@ export default async (req, res) => {
         // process result
         const objResult = JSON.parse(result);
         const { ok, insertedId } = objResult;
-        console.log(ok);
+        // console.log(ok);
         if (ok) {
           return res.status(200).send({ insertedId });
         }
@@ -32,7 +46,7 @@ export default async (req, res) => {
   }
 };
 
-function createCardDoc(title, owner, content, createdDate) {
+function createCardDoc(title: string, owner: string, content, createdDate) {
   return {
     title,
     'created-date': createdDate,

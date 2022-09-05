@@ -21,7 +21,7 @@ import { useForm } from 'react-hook-form';
 export default function Main() {
 
   // Hook
-  const { data, error } = useMainPageData();
+  const { data, boxes, error } = useMainPageData();
 
   // State
   const [tab, setTab] = useState(0);
@@ -34,7 +34,7 @@ export default function Main() {
     return <CenteredLoading />;
   }
 
-  console.debug('Main data', data);
+  // console.debug('Main data', data);
   const processed = processMainData(data);
   const handleChange = (event, newValue) => {
     setTab(newValue);
@@ -49,7 +49,7 @@ export default function Main() {
             {processed?.map(item => <BoxCard key={`${item?._id}`} name={item?.name} data={item} className={'max-h-36 min-w-max w-32'} />)}
           </TabPanel>
           <TabPanel value={tab} index={1}>
-            <Editor />
+            <Editor tags={boxes} />
           </TabPanel>
           <TabPanel value={tab} index={2}>
             <Board />

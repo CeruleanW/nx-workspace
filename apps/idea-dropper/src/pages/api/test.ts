@@ -22,6 +22,6 @@ export default async (req, res) => {
       res.send();
     })
   } else {
-    res.send('This API cannot be accessed by GET method');
+    res.send('The test API cannot be accessed by GET method');
   }
 };
