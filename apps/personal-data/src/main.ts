@@ -3,19 +3,29 @@ const cors = require('cors');
 const express = require('express');
 const path = require('path');
 const app = express();
+const data1mb = require('./data/1mb.json');
 
 
 let port = parseInt(process?.env?.PORT) || 3000;
 app.use(cors());
 
-//Simple test
+//Test
 app.get('/', (req, res) => {
   // console.debug(req?.body);
   res.send("This is Asher's API");
 });
 
+app.get('/test/1mb', (req, res) => {
+  res.json(data1mb);
+})
+
 //Static files
 app.use('/static', express.static(path.join(__dirname, 'data')));
+
+app.get('/', (req, res) => {
+  // console.debug(req?.body);
+  res.send("This is Asher's API");
+});
 
 app.listen(port, () => {
   console.log(`Listening at port: ${port}`);
