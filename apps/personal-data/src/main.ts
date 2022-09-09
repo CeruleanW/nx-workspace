@@ -19,6 +19,10 @@ app.get('/test/1mb', (req, res) => {
   res.json(data1mb);
 })
 
+app.post('/test', (req, res) => {
+  res.send("POST is done");
+})
+
 //Static files
 app.use('/static', express.static(path.join(__dirname, 'data')));
 
