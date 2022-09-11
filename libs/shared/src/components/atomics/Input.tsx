@@ -15,11 +15,11 @@ const StyledInput = styled.input`
 
 const StyledBottomBorder = styled(StyledInput)`
   border-width: 0px;
-  border-bottom: 1px solid ${(props) => props.theme?.colors?.grayscale[4]};
+  border-bottom: 1px solid ${(props) => props.theme?.palette?.grayscale[4]};
   border-radius: 0px;
   padding: 4px 0;
   min-width: 6rem;
-  color: ${(props) => props.theme?.colors?.fourth};
+  color: ${(props) => props.theme?.palette?.fourth};
 `;
 
 export function Input(props) {

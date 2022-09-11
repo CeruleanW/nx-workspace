@@ -12,7 +12,8 @@ const schema = {
       'last-updated-date': { bsonType: 'date' },
       'last-access-date': { bsonType: 'date' },
       owner: { bsonType: 'objectId' },
-      title: { basonType: 'string' },
+      title: { bsonType: 'string' },
+      boxes: { bsonType: 'string' }
     },
   },
 };

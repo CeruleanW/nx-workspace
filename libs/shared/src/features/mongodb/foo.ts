@@ -1,16 +1,19 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, MongoClientOptions } from 'mongodb';
 
-const { MONGODB_URI, MONGODB_DB } = process?.env || {};
+const { MONGODB_URI, MONGODB_DB } = process?.env || {
+  MONGODB_URI: undefined,
+  MONGODB_DB: undefined,
+};
 
 if (!MONGODB_URI) {
   throw new Error(
     'Please define the MONGODB_URI environment variable inside .env.local'
-  )
+  );
 }
 if (!MONGODB_DB) {
   throw new Error(
     'Please define the MONGODB_DB environment variable inside .env.local'
-  )
+  );
 }
 
 /**
@@ -18,10 +21,10 @@ if (!MONGODB_DB) {
  * in development. This prevents connections growing exponentially
  * during API Route usage.
  */
-let cached = global.mongo
+let cached = global.mongo;
 
 if (!cached) {
-  cached = global.mongo = { conn: null, promise: null }
+  cached = global.mongo = { conn: null, promise: null };
 }
 
 /**
@@ -29,24 +32,32 @@ if (!cached) {
  * @returns
  */
 export async function connectToDatabase(): Promise<any> {
-  console.log("Connecting to Database...");
+  console.log('Connecting to Database...');
   if (cached?.conn) {
-    return cached.conn
+    return cached.conn;
   }
 
   if (!cached.promise) {
-    const opts = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+    const opts: MongoClientOptions = {
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
+    };
 
     cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
       return {
         client,
         db: client.db(MONGODB_DB),
-      }
-    })
+      };
+    });
   }
-  cached.conn = await cached.promise
-  return cached.conn
+  cached.conn = await cached.promise;
+  return cached.conn;
+}
+
+export function iterateFunc(doc) {
+  console.log(JSON.stringify(doc, null, 4));
+}
+
+export function errorFunc(error) {
+  console.log(error);
 }

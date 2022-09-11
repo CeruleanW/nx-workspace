@@ -3,7 +3,7 @@ import Head from 'next/head';
 import './styles.css';
 import { AppProvider } from '../providers';
 import { APPNAME } from '../lib/CONSTANTS';
-import {NotificationGroup} from '@root/shared/features/notification';
+import { NotificationGroup } from '@root/shared/features/notification';
 
 
 function CustomApp({ Component, pageProps }: AppProps) {

@@ -1,7 +1,8 @@
 import { connectToDatabase, BOX_COLLECTION } from "@root/shared/features/mongodb";
+import {} from '@idea/features/idea-server-backend';
 
 export default async (req, res) => {
-  console.log("Retrieving all the boxes from box API");
+  console.log("Retrieving all the boxes for user ");
   // // authentication - if fails, redirect to login page
   // const myUsername = getUsername(req.cookies);
   // const myPassword = getPassword(req.cookies);

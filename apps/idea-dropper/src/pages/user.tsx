@@ -11,6 +11,7 @@ export default function User() {
     return <CenteredLoading />;
   }
 
+  console.debug('session', session);
   return (
     <div className={'p-4'}>
       <UserProfile user={session?.user} />

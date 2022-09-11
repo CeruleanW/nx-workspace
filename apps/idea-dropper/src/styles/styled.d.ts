@@ -12,6 +12,7 @@ interface IColorsPalette {
   alert?: string;
   primaryText?: string;
   secondaryText?: string;
+  grayscale?: string[];
   [x: string]: any;
 }
 

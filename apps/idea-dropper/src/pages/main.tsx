@@ -12,7 +12,7 @@ import { Board } from '../components/organism/Board';
 // import { Nav } from '@root/shared/components/organism/Nav';
 import { MenuAppBar } from '../components/organism/AppBar';
 import { Protected } from '../features/auth/components/Protected';
-import { useForm } from 'react-hook-form';
+import React from "react";
 
 /**
  *
@@ -21,7 +21,7 @@ import { useForm } from 'react-hook-form';
 export default function Main() {
 
   // Hook
-  const { data, boxes, error } = useMainPageData();
+  const { data, boxes, user, error } = useMainPageData();
 
   // State
   const [tab, setTab] = useState(0);
@@ -41,22 +41,24 @@ export default function Main() {
   };
 
   return (
-    <Protected>
-      <PageTemplate>
-        <MenuAppBar title={'Idea Dropper'} ></MenuAppBar>
-        <div className={'flex gap-x-4 mx-4 flex-grow'} >
-          <TabPanel value={tab} index={0} className='gap-x-8' >
-            {processed?.map(item => <BoxCard key={`${item?._id}`} name={item?.name} data={item} className={'max-h-36 min-w-max w-32'} />)}
-          </TabPanel>
-          <TabPanel value={tab} index={1}>
-            <Editor tags={boxes} />
-          </TabPanel>
-          <TabPanel value={tab} index={2}>
-            <Board />
-          </TabPanel>
-        </div>
-        <Tabs onChange={handleChange} value={tab} />
-      </PageTemplate>
-    </Protected>
+    <>
+      <Protected>
+        <PageTemplate>
+          <MenuAppBar title={'Idea Dropper'} ></MenuAppBar>
+          <div className={'flex gap-x-4 mx-4 flex-grow'} >
+            <TabPanel value={tab} index={0} className='gap-x-8' >
+              {processed?.map(item => <BoxCard key={`${item?._id}`} name={item?.name} data={item} className={'max-h-36 min-w-max w-32'} />)}
+            </TabPanel>
+            <TabPanel value={tab} index={1}>
+              <Editor tags={boxes} userID={user?._id} />
+            </TabPanel>
+            <TabPanel value={tab} index={2}>
+              <Board />
+            </TabPanel>
+          </div>
+          <Tabs onChange={handleChange} value={tab} />
+        </PageTemplate>
+      </Protected>
+    </>
   )
 }

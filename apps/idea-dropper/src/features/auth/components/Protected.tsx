@@ -1,6 +1,6 @@
 import React from 'react'
-import { useSession } from 'next-auth/client'
-import { AccessDenied } from './AccessDenied'
+import { useSession } from 'next-auth/client';
+import { AccessDenied } from './AccessDenied';
 
 export function Protected({children}) {
   const [session, loading] = useSession();
