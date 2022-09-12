@@ -1,8 +1,7 @@
-import { Button } from 'components/atomic/Button';
+import { Button } from '../../../components/atomics/Button';
 import { Modal, ModalBody, ModalFooter, } from 'components/atomic/Modal';
 import { useHistory } from "react-router-dom";
-import { removeAxiosAuthHeader } from "features/axios";
-import { useAppState } from "../../../hooks";
+import { removeAxiosAuthHeader } from "../../axios";
 import { clearAuthTokenInLocalStorage } from '../processors';
 
 export function LogoutDialog({
@@ -13,24 +12,12 @@ export function LogoutDialog({
   toggleLogout?: () => void;
   toggleModal: () => void;
 }) {
-  const { userDispatch, userState } = useAppState();
   let history = useHistory();
 
   const onLogout = () => {
     clearAuthTokenInLocalStorage();
     removeAxiosAuthHeader();
     sessionStorage.clear();
-    userDispatch({
-      type: "UPDATE_USER",
-      payload: {
-        ...userState,
-        isAuth: false,
-        username: "",
-        userPicture: null,
-        customerId: "",
-        isSuper: false,
-      },
-    });
     history.push("/login");
   };
 

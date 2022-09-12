@@ -31,3 +31,16 @@ export type CreateCardDTO = {
   shared_with?: string;
   tags?: string[];
 };
+
+export type CreateBoxDTO = {
+  name: string;
+  created_date?: string;
+  last_updated_date?: string;
+  last_access_date?: string;
+  cards?: string[];
+  owner: string;
+  shared_with?: string[];
+  tags?: string[];
+  // draw_sequence?: number[];
+  // draw_pointer?: number;
+};

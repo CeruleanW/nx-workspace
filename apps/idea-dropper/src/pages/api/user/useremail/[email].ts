@@ -1,5 +1,5 @@
 import { connectToDatabase } from '@root/shared/features/mongodb';
-import { USERS_COLLECTION } from '@idea/features/idea-server';
+import { USERS_COLLECTION } from '@idea/features/idea-server-backend';
 
 export default async (req, res) => {
   const { db } = await connectToDatabase();

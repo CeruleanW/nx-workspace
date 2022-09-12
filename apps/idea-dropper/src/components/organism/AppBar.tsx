@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Icon } from '@root/shared/components/atomics/Icon';
-import {LogoutBtn} from '../molecule/LogoutBtn';
+import { LogoutBtn } from '../molecule/LogoutBtn';
 
 export function MenuAppBar(props) {
   const { title, ...rest } = props;

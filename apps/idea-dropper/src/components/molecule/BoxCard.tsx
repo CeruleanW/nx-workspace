@@ -8,13 +8,13 @@ export function BoxCard({ name, data, ...optionals }) {
 
   const handleClick = () => {
     console.debug('BoxCard clicked', data);
-
+    
   }
 
   return (
     <Card {...optionals} onClick={handleClick}>
       <Typography className='text-lg font-semibold' >{name}</Typography>
-      <Icon name={'fa-solid fa-users'} />
+      {isShared ? <Icon name={'fa-solid fa-users'} /> : null}
     </Card>
   );
 }

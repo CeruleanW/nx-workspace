@@ -1,5 +1,5 @@
-import { connectToDatabase, BOX_COLLECTION } from "@root/shared/features/mongodb";
-import {} from '@idea/features/idea-server-backend';
+import { connectToDatabase,  } from "@root/shared/features/mongodb";
+import {BOX_COLLECTION} from '@idea/features/idea-server-backend';
 
 export default async (req, res) => {
   console.log("Retrieving all the boxes for user ");

@@ -1,7 +1,8 @@
-import { connectToDatabase, BOX_COLLECTION } from "@root/shared/features/mongodb";
+import { connectToDatabase } from '@root/shared/features/mongodb';
+import { BOX_COLLECTION } from '@idea/features/idea-server-backend';
 
 export default async (req, res) => {
-  console.log("Retrieving all the boxes from box API");
+  console.log('Retrieving all the boxes from box API');
   // // authentication - if fails, redirect to login page
   // const myUsername = getUsername(req.cookies);
   // const myPassword = getPassword(req.cookies);
@@ -11,7 +12,7 @@ export default async (req, res) => {
     const boxes = await db
       .collection(BOX_COLLECTION)
       .find({})
-      .sort({ "last-access-date": -1 })
+      .sort({ 'last-access-date': -1 })
       .limit(20)
       .toArray();
     res.status(200).json(boxes);

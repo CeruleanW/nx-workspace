@@ -1,8 +1,8 @@
 import { useSession } from 'next-auth/client';
 import React from 'react';
 import { CenteredLoading } from '@root/shared/components/atomics';
-import { UserProfile } from '../components/UserProfile';
-import { HomeBtn } from '../components/HomeBtn';
+import { UserProfile } from '../components/molecule/UserProfile';
+import { HomeBtn } from '../components/molecule/HomeBtn';
 
 export default function User() {
   const [session, loading] = useSession();

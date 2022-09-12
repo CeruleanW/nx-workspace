@@ -4,7 +4,7 @@ import {
 import { ObjectId } from "mongodb";
 import {
   USERS_COLLECTION,
-} from '@idea/features/idea-server';
+} from '@idea/features/idea-server-backend';
 
 export default async (req, res) => {
   const { db } = await connectToDatabase();

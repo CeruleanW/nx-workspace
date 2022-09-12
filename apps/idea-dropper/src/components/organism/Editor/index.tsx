@@ -23,34 +23,8 @@ type OptionalsProps = {
   [x: string]: any;
 };
 
-
-
 export function EditorContent() {
 
-}
-
-export function TestFunction() {
-  const { handleSubmit, setValue, getValues, register } = useForm({
-    defaultValues: {
-      boxes: [],
-      test: 0
-    },
-  });
-
-  //   const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <select name="gender" ref={register}>
-        <option value="female">female</option>
-        <option value="male">male</option>
-        <option value="other">other</option>
-      </select>
-      <input type="submit" />
-    </form>
-  );
 }
 
 /**

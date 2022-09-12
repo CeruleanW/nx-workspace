@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@root/shared/components/atomics';
-import { HomeBtn } from '@idea/components/HomeBtn';
+import { HomeBtn } from '@idea/components/molecule/HomeBtn';
 
 export default function Signup() {
   return (

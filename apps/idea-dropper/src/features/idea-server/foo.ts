@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { handle } from '@root/shared/utils';
-import { CARD } from './apis';
-import { CreateCardDTO } from './types';
+import { CARD, BOX } from './apis';
+import { CreateCardDTO, CreateBoxDTO } from './types';
 
 //Data operations a user can perform on the App
 
@@ -13,6 +13,7 @@ export async function randomnizeSequence(boxId) {}
 
 export async function insertCard(data: CreateCardDTO): Promise<any> {
   // process data
+  console.debug('insertCard', data);
   // call API
   const [result, resultErr] = await handle(axios.post(CARD, data));
   if (resultErr) throw new Error('Could not insert the card to database');
@@ -21,6 +22,9 @@ export async function insertCard(data: CreateCardDTO): Promise<any> {
 }
 
 export async function insertMultipleCards(cardArray) {}
+export async function addBox(data: CreateBoxDTO) {
+  return await axios.post(BOX, data);
+}
 export async function deleteCard(cardId) {}
 export async function deleteBox(boxId) {}
 export async function drawCard(boxId) {}
