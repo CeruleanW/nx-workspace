@@ -1,5 +1,5 @@
 import { connectToDatabase } from '@root/shared/features/mongodb';
-import { getSession } from 'next-auth/client';
+import { getSession } from '@idea/features/auth';
 import {
   CARD_COLLECTION,
   findCardById,

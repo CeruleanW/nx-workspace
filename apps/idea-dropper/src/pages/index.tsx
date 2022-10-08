@@ -3,18 +3,18 @@ import React from 'react';
 import Link from 'next/link';
 import { APPNAME } from '@idea/lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
-import { useSession, signIn, signOut } from 'next-auth/client';
+import { useSession, signIn, signOut } from '@idea/features/auth';
 import { CenteredLoading } from '@root/shared/components/atomics';
 import { useRouter } from 'next/router'
 
 export default function Home() {
   // Hooks
-  const [session, loading] = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
-  if (loading) {
-    return <CenteredLoading />;
-  }
+  // if (loading) {
+  //   return <CenteredLoading />;
+  // }
 
   if (session) {
     router.push('/main');

@@ -1,5 +1,6 @@
 import React from 'react';
-import { signOut } from 'next-auth/client';
+import { signOut } from '@idea/features/auth';
+
 import MenuItem from '@mui/material/MenuItem';
 
 export function LogoutBtn(props) {

@@ -6,6 +6,7 @@ import {
   createCardDoc,
   getAllCards,
   deleteAllCards,
+  insertNewCard,
 } from '@idea/features/idea-server-backend';
 //TODO: destruct request body to get data from client
 
@@ -23,32 +24,25 @@ export default async (
   res: NextApiResponse
 ) => {
   if (req.method === 'POST') {
-    const { db } = await connectToDatabase();
-    const { cardData } = req.body || {};
-    const { title, content, owner, boxes } = cardData || {};
+    try {
+      const { cardData } = req.body || {};
 
-    const createdDate = new Date();
+      const result = await insertNewCard(cardData);
+      console.log('insert new card result', result);
+      // process result
+      const { insertedId } = result || {};
 
-    const doc = createCardDoc(title, owner, content, createdDate, boxes);
-
-    db.collection(CARD_COLLECTION)
-      .insertOne(doc)
-      .then(function (result) {
-        // process result
-        const objResult = JSON.parse(result);
-        const { ok, insertedId } = objResult;
-        // console.log(ok);
-        if (ok) {
-          return res.status(200).send({ insertedId });
-        }
-        return res.send('Insertion failed');
-      });
+      return res.status(200).send({ insertedId });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send('Insertion failed');
+    }
   } else if (req.method === 'GET') {
     const result = await getAllCards();
     res.status(200).json(result);
   } else if (req.method === 'DELETE') {
     await deleteAllCards();
-    res.status(200).send('Deletion success!')
+    res.status(200).send('Deletion success!');
   } else {
     res.send(`${req.method} method is not supported`);
   }

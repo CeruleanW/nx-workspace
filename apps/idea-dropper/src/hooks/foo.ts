@@ -1,9 +1,9 @@
 import { useAllBoxes, useUserByEmail } from '../features/idea-server';
-import { useSession } from 'next-auth/client';
+import { useSession } from '@idea/features/auth';
 
 
 export function useUser() {
-  const [session, loadingSession] = useSession();
+  const { data: session } = useSession();
   const userEmail = session?.user?.email;
   return useUserByEmail(userEmail);
 }
