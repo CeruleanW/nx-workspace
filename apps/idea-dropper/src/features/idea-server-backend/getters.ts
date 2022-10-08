@@ -1,10 +1,9 @@
 import { connectToDatabase } from '@root/shared/features/mongodb';
-import { USERS_COLLECTION, CARD_COLLECTION } from './collections';
-
-export async function getCardCollection() {
-  const { db } = await connectToDatabase();
-  const result = await db.collection(CARD_COLLECTION)
-}
+import {
+  USERS_COLLECTION,
+  CARD_COLLECTION,
+  getCardCollection,
+} from './collections';
 
 export async function getUserByEmail(userEmail: string) {
   // console.log("Retrieving all the boxes for user ");
@@ -25,8 +24,12 @@ export async function findCardById(cardID: any) {
   return result;
 }
 
-export async function deleteAllCards() {
-  const { db } = await connectToDatabase();
-  const result = await db.collection(CARD_COLLECTION).deleteMany({});
-  return result;
+export async function getAllCards() {
+  const collection = await getCardCollection();
+  // print a message if no documents were found
+  if (await collection.estimatedDocumentCount() === 0) {
+    console.log('No documents in this collection!');
+  }
+  const cursor = collection.find();
+  return cursor.toArray();
 }

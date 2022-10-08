@@ -1,4 +1,4 @@
-import { MongoClient, MongoClientOptions } from 'mongodb';
+import { Db, MongoClient, MongoClientOptions } from 'mongodb';
 
 const { MONGODB_URI, MONGODB_DB } = process?.env || {
   MONGODB_URI: undefined,
@@ -16,8 +16,14 @@ if (!MONGODB_DB) {
   );
 }
 
+type MongoDBInstance = {
+    client: MongoClient
+    db: Db
+};
+
 type MongoConnection = {
-  conn:
+  conn: MongoDBInstance;
+  promise: MongoDBInstance;
 }
 
 /**
@@ -25,34 +31,40 @@ type MongoConnection = {
  * in development. This prevents connections growing exponentially
  * during API Route usage.
  */
-let cached = global.mongo;
+let cached: MongoConnection = global.mongo;
 
 if (!cached) {
   cached = global.mongo = { conn: null, promise: null };
 }
 
+const opts: MongoClientOptions = {
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
+};
+
 /**
  * requires environment variable MONGODB_URI and MONGODB_DB
  * @returns
  */
-export async function connectToDatabase(): Promise<any> {
+export async function connectToDatabase(): Promise<MongoDBInstance> {
   console.log('Connecting to Database...');
   if (cached?.conn) {
     return cached.conn;
   }
 
   if (!cached.promise) {
-    const opts: MongoClientOptions = {
-      // useNewUrlParser: true,
-      // useUnifiedTopology: true,
+    const client: MongoClient = await MongoClient.connect(MONGODB_URI, opts);
+    cached.promise = {
+      client,
+      db: client.db(MONGODB_DB),
     };
 
-    cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
-      return {
-        client,
-        db: client.db(MONGODB_DB),
-      };
-    });
+    // cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
+    //   return {
+    //     client,
+    //     db: client.db(MONGODB_DB),
+    //   };
+    // });
   }
   cached.conn = await cached.promise;
   return cached.conn;

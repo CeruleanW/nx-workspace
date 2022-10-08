@@ -56,7 +56,7 @@
     "lodash": "^4.17.21",
     "logrocket": "^1.2.1",
     "material-ui-image": "^3.3.1",
-    "mongodb": "^3.5.9",
+    "mongodb": "^4.10.0",
     "next": "^12.1.6",
     "next-auth": "^3.13.3",
     "node": "^17.7.2",

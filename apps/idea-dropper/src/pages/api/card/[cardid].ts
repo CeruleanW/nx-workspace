@@ -22,6 +22,7 @@ export default async (req, res) => {
       res.json(foundCard);
     } else if (req.method === 'POST') {
     } else if (req.method === 'DELETE') {
+
     }
     res.send('No handler for this request method');
   } else {
