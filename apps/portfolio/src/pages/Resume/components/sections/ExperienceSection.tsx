@@ -8,7 +8,7 @@ import Duration from '../Duration';
 import Location from '../atomics/Location';
 import Features from '../Features';
 
-const MAX_NUMBER = 3;
+const MAX_NUMBER = 2;
 
 export function ExperienceSection({ experience, ...optionals }) {
   const displayedExp = experience?.slice(0, MAX_NUMBER);

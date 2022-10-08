@@ -6,7 +6,7 @@ const app = express();
 const data1mb = require('./data/1mb.json');
 
 
-let port = parseInt(process?.env?.PORT) || 3000;
+let port = Number(process?.env?.PORT) || 3000;
 app.use(cors());
 
 //Test

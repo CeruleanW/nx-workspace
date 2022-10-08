@@ -4,6 +4,7 @@ export const FULLNAME = FIRSTNAME + " " + LASTNAME;
 export const JOBTITLE = "Web & Mobile Developer";
 export const PAGE_ROUTES = ['/', '/projects', '/aboutme', '/contact', '/resume'];
 export const PAGE_TITLES = ['Home', 'Projects', 'About me', 'Contact', 'Resume'];
+export const ROUTES = [{path: '/', title: 'Home'}];
 
 
   // Statement of Originality: A paragraph stating that this is your work and that it is confidential. also indicate if any parts of the portfolio should not be copied.

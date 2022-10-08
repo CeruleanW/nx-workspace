@@ -17,10 +17,10 @@ const PDF_NAME = FIRSTNAME + LASTNAME + '_Resume';
 export function MainResume(props) {
   // Process props
   const fullName = props['full-name'];
-  const phone = props['phone-numer'];
-  const { email, title, skills, experience, education, languages, location: address, links } = props || {};
+  const phone = props['phoneNumber'];
+  const { email, title, skills, experience, education, languages, location: address, links, summary } = props || {};
   const { github, portfolio } = links || {};
-  const summaryContent = props.summary.version.short;
+  const summaryContent = summary?.version?.short;
   const sideProjects = props['side-projects'];
 
   // Local state

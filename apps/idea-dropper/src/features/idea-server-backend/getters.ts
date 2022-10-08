@@ -1,7 +1,10 @@
-import {
-  connectToDatabase,
-} from '@root/shared/features/mongodb';
-import {USERS_COLLECTION, CARD_COLLECTION} from './collections';
+import { connectToDatabase } from '@root/shared/features/mongodb';
+import { USERS_COLLECTION, CARD_COLLECTION } from './collections';
+
+export async function getCardCollection() {
+  const { db } = await connectToDatabase();
+  const result = await db.collection(CARD_COLLECTION)
+}
 
 export async function getUserByEmail(userEmail: string) {
   // console.log("Retrieving all the boxes for user ");
@@ -12,14 +15,18 @@ export async function getUserByEmail(userEmail: string) {
   const { db } = await connectToDatabase();
   const result = await db
     .collection(USERS_COLLECTION)
-    .findOne({email: userEmail})
+    .findOne({ email: userEmail });
   return result;
 }
 
 export async function findCardById(cardID: any) {
   const { db } = await connectToDatabase();
-  const result = await db
-    .collection(CARD_COLLECTION)
-    .findOne({_id: cardID})
+  const result = await db.collection(CARD_COLLECTION).findOne({ _id: cardID });
+  return result;
+}
+
+export async function deleteAllCards() {
+  const { db } = await connectToDatabase();
+  const result = await db.collection(CARD_COLLECTION).deleteMany({});
   return result;
 }

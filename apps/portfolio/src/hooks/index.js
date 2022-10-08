@@ -1,4 +1,4 @@
-import { fetchProjectsData, PROJECTS_DATA_LINK, PERSONAL_DATA_LINK, fetchPersonalData } from '../lib';
+import { fetchProjectsData, PROJECTS_DATA_LINK, PERSONAL_DATA_LINK, fetchPersonalData, fetchLocalPersonalData } from '../lib';
 import useSWR from 'swr';
 
 export function useProjectsData() {
@@ -18,6 +18,8 @@ export function useProjectDataByID(id) {
 
 
 export function usePersonalData() {
-  const { data, error } = useSWR(PERSONAL_DATA_LINK, fetchPersonalData);
+  // console.debug('test', process.env.NODE_ENV);
+  const fetcher = process.env?.NODE_ENV === 'development' ? fetchLocalPersonalData : fetchPersonalData;
+  const { data, error } = useSWR(PERSONAL_DATA_LINK, fetcher);
   return { data, error, isLoading: !data && !error };
 }

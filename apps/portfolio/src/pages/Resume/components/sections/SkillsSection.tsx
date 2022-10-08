@@ -1,15 +1,15 @@
 import Section from '../ResumeSectionWrapper';
 import Title from '../atomics/Title';
-import SkillItem, {SkillItem2} from '../atomics/SkillItem';
+import { SkillItem2 } from '../atomics/SkillItem';
 import { Stack } from '@mui/material';
-import {MAX_FRONTEND_SKILLS, MAX_BACKEND_SKILLS, MAX_GENERAL_SKILLS} from '../../constants';
+import { MAX_FRONTEND_SKILLS, MAX_BACKEND_SKILLS, MAX_GENERAL_SKILLS } from '../../constants';
 
-export function SkillType({text, ...optionals}) {
-  const {className, ...rest} = optionals;
+export function SkillType({ text, ...optionals }) {
+  const { className, ...rest } = optionals;
   return <p {...rest} className={`text-xl mr-2 mb-2 shrink-0 w-40 ${className ?? ''}`}>{text}: </p>
 }
 
-export function SkillItemContainer({children, ...optional}) {
+export function SkillItemContainer({ children, ...optional }) {
   return <Stack spacing={1} direction="row" className='flex-wrap items-center flex-1' sx={{
     '>:not(style)+:not(style)': {
       marginBottom: '0.5rem'
@@ -18,7 +18,7 @@ export function SkillItemContainer({children, ...optional}) {
 }
 
 export function SkillList({ list, ...optionals }) {
-  const {type = 'Misc', isFirst = false, ...rest} = optionals;
+  const { type = 'Misc', isFirst = false, ...rest } = optionals;
 
   if (!list) return null;
 
@@ -42,8 +42,8 @@ export function SkillsSection({ skills, ...optionals }) {
       <Title text="Tech Skills" />
       {/* map the skill list to each component */}
       <div className="flex flex-col mt-4 justify-start w-full">
-        <SkillList list={frontEnd?.slice(0, MAX_FRONTEND_SKILLS)} type='Front-End' isFirst />
-        <SkillList list={backEnd?.slice(0, MAX_BACKEND_SKILLS)} type='Back-End' />
+        <SkillList list={backEnd?.slice(0, MAX_BACKEND_SKILLS)} type='Back-End' isFirst />
+        <SkillList list={frontEnd?.slice(0, MAX_FRONTEND_SKILLS)} type='Front-End' />
         <SkillList list={tools?.slice(0, MAX_GENERAL_SKILLS)} type={'Tools'} />
         <SkillList list={methodologies?.slice(0, MAX_GENERAL_SKILLS)} type={'Methodologies'} />
       </div>
