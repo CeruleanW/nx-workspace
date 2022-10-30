@@ -10,3 +10,15 @@ export const credentials = {
 
 export const AUTH_STORAGE_KEY = '@auth';
 export const ACCESS_TOKEN_KEY = '@accessToken';
+
+
+export const oauth2 = {
+  clientID: credentials.web.client_id,
+  projectId: credentials.web.project_id,
+  authUri: credentials.web.auth_uri,
+  tokenUri: credentials.web.token_uri,
+  scopes: [
+    'https://www.googleapis.com/auth/photoslibrary',
+    'https://www.googleapis.com/auth/photoslibrary.readonly',
+  ],
+};

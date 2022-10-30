@@ -12181,6 +12181,11 @@ react-share@^4.3.1:
     classnames "^2.2.5"
     jsonp "^0.2.1"
 
+react-social-login-buttons@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/react-social-login-buttons/-/react-social-login-buttons-3.6.1.tgz#77e5c33ac6610a29071e2ad688ef585871120763"
+  integrity sha512-DIz30W+C147s7wxwt8zgwjx5pE+gTJwtUzTNKpKZO3bEY06eLjcY1zvZ8h35hQd1Yjd7b4rLkeuZBwlLURYIfg==
+
 react-sticky-footer@^0.1.0-rc3:
   version "0.1.0-rc3"
   resolved "https://registry.yarnpkg.com/react-sticky-footer/-/react-sticky-footer-0.1.0-rc3.tgz#47137e332cafcf49a48561894aa410cca683b3af"

@@ -5,17 +5,17 @@ import React, { useState, useEffect } from 'react';
 import {
   clearData, getTimeStamp,
   setTimeStamp
-} from '@/features/client-storage';
+} from '../../features/client-storage';
 import { useAccess } from '../Context/AccessContext';
 import { useDispatch } from 'react-redux';
-import { setIsUpdateDataModalShown, setSnackbar } from '@/providers/redux/globalSlice';
-import { SnackbarMessage } from '@/providers';
-import { requestAllMediaItems } from '@/features/g-api';
-import { getNow } from '@/features/date';
+import { setIsUpdateDataModalShown, setSnackbar } from '../../providers/redux/globalSlice';
+import { SnackbarMessage } from '../../providers';
+import { requestAllMediaItems } from '../../features/g-api';
+import { getNow } from '@root/shared/features/date';
 import MyDialog from '../MyDialog';
 import { Typography } from '@material-ui/core';
 
-export function DrawerList({}) {
+export function DrawerList() {
 
   const isLogined = useAccess().isLogined;
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export function DrawerList({}) {
           dispatch(setSnackbar(msg));
 
           // Update the LastUpdate Time
-          const now = getNow();
+          const now = String(getNow());
           setLastUpdateTime(now);
         })
         .finally(() => {

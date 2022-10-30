@@ -1,5 +1,5 @@
 import { useEffectOnce } from 'react-use';
-import { Button } from '@/components/atomic/Button';
+import { Button } from '../../../components/atomics/Button';
 import styled from 'styled-components';
 import { AppleLoginButton } from 'react-social-login-buttons'; //https://github.com/MichalSzorad/react-social-login-buttons#readme
 

@@ -8,8 +8,9 @@ import { useAccess } from './Context/AccessContext';
 import { useFeedbackUpdate } from './Context/FeedbackContext';
 import { useDispatch } from 'react-redux';
 import { requestMediaItemsByIds } from '../features/media-items';
-import { setDisplayedPhotos } from '@/providers/redux/photosSlice';
+import { setDisplayedPhotos } from '../providers/redux/photosSlice';
 import styled from 'styled-components';
+import { useIndexedDB } from '../features/client-storage';
 
 const InputContainer = styled.div`
   margin-bottom: 0.5rem;
@@ -17,7 +18,6 @@ const InputContainer = styled.div`
     margin-bottom: 0;
   }
 `;
-
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -65,9 +65,10 @@ export default function SearchBar() {
   // Hooks
   const classes = useStyles();
   const dispatch = useDispatch();
-  const {accessToken, isLogined} = useAccess() || {};
+  const { accessToken, isLogined } = useAccess() || {};
   const updateIsSearching = useFeedbackUpdate().handleIsSearching;
   const updateIsNoMatch = useFeedbackUpdate().handleIsNoMatch;
+  const { data: localMediaKeys, error: localMediaKeysError } = useIndexedDB();
 
   // Local state
   const [keyword, setKeyword] = useState('');
@@ -122,6 +123,8 @@ export default function SearchBar() {
     }
   };
 
+  const isDisabled = !Boolean(localMediaKeys && localMediaKeys.length) || !isLogined;
+
   return (
     <>
       <InputContainer className={`min-w-fit max-w-full relative space-y-2 bg-slate-100/20 hover:bg-slate-100/30 rounded mr-2`}>
@@ -142,7 +145,7 @@ export default function SearchBar() {
         />
       </InputContainer>
       <div className={'flex items-center'}>
-        <Button variant='contained' onClick={handleClick} disabled={!isLogined}>
+        <Button variant='contained' onClick={handleClick} disabled={isDisabled}>
           Search
         </Button>
       </div>

@@ -13,7 +13,6 @@ import { selectDisplayedPhotos } from '../providers/redux/photosSlice';
 import { selectSnackbar, resetSnackbar } from '../providers/redux/globalSlice';
 import { UpdateResultSnackbar } from './UpdateResultSnackbar';
 import { Drawer } from './Drawer';
-import styled from 'styled-components';
 
 // @ts-ignore
 export const useStyles = makeStyles((theme) => ({
@@ -47,17 +46,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StyledMain = styled.main`
-  display: flex;
-`;
-
-const FlexColContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-`;
-
-export default function Main() {
+export function Main() {
   const classes = useStyles() as any;
   const dispatch = useDispatch();
 

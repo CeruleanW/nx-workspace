@@ -25,6 +25,8 @@ export function AppBar({ onOpenDrawer, ...optionals }) {
     setIsHelpModalOpen(false);
   };
 
+  const handleSetLastUpdateTime = () => setLastUpdateTime(getTimeStamp());
+
   return (
     <div>
       <MUIAppBar position="sticky">
@@ -38,7 +40,7 @@ export function AppBar({ onOpenDrawer, ...optionals }) {
           <div className={'flex gap-x-2 items-center'} >
             <RandomBtn />
             <GoogleBtn
-              onSetLastUpdateTime={() => setLastUpdateTime(getTimeStamp())}
+              onSetLastUpdateTime={handleSetLastUpdateTime}
               lastUpdateTime={lastUpdateTime}
             />
           </div>

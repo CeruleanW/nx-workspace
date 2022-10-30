@@ -10,6 +10,9 @@ export function formatFromUnixTime(unix: number, form: string) {
   return nativeFormat(createDateByUnixTime(unix), form);
 }
 
+/**
+ * https://date-fns.org/v2.29.3/docs/format
+ */
 export function format(date: number | Date, form: string) {
   return nativeFormat(date, form);
 }

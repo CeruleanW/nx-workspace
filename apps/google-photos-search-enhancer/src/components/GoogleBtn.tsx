@@ -1,25 +1,16 @@
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { credentials } from '../features/auth';
+import { oauth2 } from '../features/auth';
 import { getTimeStamp, setUpdateTime } from '../features/client-storage';
 import { requestAllMediaItems } from '../features/g-api';
-import {setAxiosDefaultAuthHeader} from '../features/request';
+import { setAxiosDefaultAuthHeader } from '../features/request';
 import { Button } from '@material-ui/core';
 import { useAccessUpdate, useAccess } from './Context/AccessContext';
 import { useFeedbackUpdate } from './Context/FeedbackContext';
 
-const oauth2 = {
-  clientID: credentials.web.client_id,
-  projectId: credentials.web.project_id,
-  authUri: credentials.web.auth_uri,
-  tokenUri: credentials.web.token_uri,
-  scopes: [
-    'https://www.googleapis.com/auth/photoslibrary',
-    'https://www.googleapis.com/auth/photoslibrary.readonly',
-  ],
-};
-
 export default function GoogleBtn(props) {
+  const { onSetLastUpdateTime, ...rest } = props;
+
   // const classes = useStyles();
   const updateAccessToken = useAccessUpdate().handleAccessToken;
   const updateBackdrop = useFeedbackUpdate().handleBackdrop;
@@ -27,7 +18,10 @@ export default function GoogleBtn(props) {
   const updateIsLogined = useAccessUpdate().handleIsLogined;
   const isLogined = useAccess().isLogined;
 
-  // get the access token from Google
+  /**
+   * get the access token from Google
+   * @param response
+   */
   const login = (response) => {
     if (response?.accessToken) {
       const token = response.accessToken;
@@ -35,7 +29,7 @@ export default function GoogleBtn(props) {
       updateAccessToken(response.accessToken);
       setAxiosDefaultAuthHeader(token);
       // start request
-      handleRequest(response.accessToken);
+      updateMediaItemsInStorage(response.accessToken);
     }
   };
 
@@ -50,43 +44,42 @@ export default function GoogleBtn(props) {
     alert('Failed to log in');
   };
 
-  const handleLogoutFailure = (response) => {
-    console.error(response);
-    alert('Failed to log out');
-  };
+  // const handleLogoutFailure = (response) => {
+  //   console.error(response);
+  //   alert('Failed to log out');
+  // };
 
-  // run after the log-in is completed
-  const handleRequest = (accessToken) => {
-    console.log('handleRequest is called');
-
-    // If it's the first time that the user login
-    if (!getTimeStamp()) {
-      updateTextMessage(
-        'Initializing Local Data Storage. This may take long time depends the quantity of media items in your library'
-      );
-      updateBackdrop(true);
-      requestAllMediaItems(accessToken)
-        .then((fulfilled) => {
-          // Update the LastUpdateView
-          props.onSetLastUpdateTime();
-        })
-        .finally(() => {
+  /**
+   * run after the log-in is completed
+   * should update the media items in local storage automatically
+   * @param accessToken
+   */
+  async function updateMediaItemsInStorage(accessToken) {
+    console.log('fetchMediaItems is called');
+    try {
+      // If it's the first time that the user login
+      if (!getTimeStamp()) {
+        updateTextMessage(
+          'Initializing Local Data Storage. This may take long time depends the quantity of media items in your library'
+        );
+        updateBackdrop(true);
+        await requestAllMediaItems(accessToken).finally(() => {
           updateBackdrop(false);
           updateTextMessage('');
         });
-    } else {
-      //TODO: get new items since last update
 
-      setUpdateTime()
-        .then(() => {
-          props.onSetLastUpdateTime();
-        })
-        .finally(() => {
-          updateBackdrop(false);
-          updateTextMessage('');
-        });
+        onSetLastUpdateTime();
+      } else {
+        //TODO: get new items since last update
+        setUpdateTime();
+        onSetLastUpdateTime();
+      }
+    } catch (error) {
+      console.error(error?.messsage);
     }
-  };
+    updateBackdrop(false);
+    updateTextMessage('');
+  }
 
   return (
     <>
@@ -105,7 +98,7 @@ export default function GoogleBtn(props) {
               Logout
             </Button>
           )}
-          // cookiePolicy={'single_host_origin'}
+        // cookiePolicy={'single_host_origin'}
         />
       ) : (
         <GoogleLogin

@@ -1,9 +1,13 @@
 import { MEDIA_ITEMS_API } from './../g-api/constants';
 import { LocalUrls } from './types';
-import { fetchData } from '@/features/request';
+import { fetchData } from '../../features/request';
 
-// return a Promise with the fulfilled value
-// the value is an array of object, which has 2 property: baseUrl & productUrl
+/**
+ *
+ * @param ids
+ * @param accessToken
+ * @returns
+ */
 export async function requestMediaItemsByIds(
   ids: string[],
   accessToken?: string

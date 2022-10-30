@@ -22,13 +22,20 @@ export function setTimeStamp(isUpdated = true) {
   }
 }
 
-// return a date object or a empty string
+
+/**
+ *
+ * @returns a date object or a empty string
+ */
 export function getTimeStamp() {
   return localStorage.getItem(UPDATE_TIME_KEY);
 }
 
-export async function setUpdateTime() {
-  // get items that not exists in IndexedDB
+/**
+ * set the latest update time
+ * @returns
+ */
+export function setUpdateTime() {
   setTimeStamp();
   return getTimeStamp();
 }

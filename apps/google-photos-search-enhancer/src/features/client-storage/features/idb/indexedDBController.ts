@@ -1,10 +1,7 @@
 import { LocalMediaItem } from './../../../g-api/types';
-
+import {dbName, objectStoreName} from './constants';
 import { IDBPObjectStore, openDB } from 'idb'; //https://www.npmjs.com/package/idb
 import Fuse from 'fuse.js';
-
-const dbName = 'db';
-const objectStoreName = 'localMediaItems';
 
 let dbPromise = createDatabase();
 
@@ -26,7 +23,10 @@ export async function getAllKeys(
   return await store.getAllKeys();
 }
 
-// for local media items
+/**
+ * for local media items
+ * @returns
+ */
 export async function getLocalMediaItemsObjectStore() {
   return await getObjectStore(objectStoreName);
 }
@@ -36,7 +36,10 @@ export async function getAllKeysOfLocalMediaItems() {
   return await getAllKeys(store);
 }
 
-// Create a database with a 'localMediaItems' object store
+/**
+ * Create a database with a 'localMediaItems' object store
+ * @returns
+ */
 export function createDatabase() {
   const dbPromise = openDB(dbName, 1, {
     upgrade(db) {
