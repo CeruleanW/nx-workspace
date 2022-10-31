@@ -66,6 +66,10 @@ export async function setMediaItems(mediaItems: LocalMediaItem[]) {
   });
 }
 
+/**
+ * clear data in IndexedDB
+ * @returns
+ */
 export async function clearData() {
   const db = await dbPromise;
   return db.clear(objectStoreName);

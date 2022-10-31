@@ -1,12 +1,15 @@
 import { handle } from '../../utils';
 import axios, { AxiosRequestConfig } from 'axios';
 
+/**
+ *
+ */
 export async function fetchAsArrayBuffer(
   url: string,
-  config?: object,
+  config?: object
 ): Promise<ArrayBuffer> {
   console.log(`fetchAsArrayBuffer called with input: ${url}`);
-  let mergedConfig: AxiosRequestConfig = {responseType: 'arraybuffer'};
+  let mergedConfig: AxiosRequestConfig = { responseType: 'arraybuffer' };
   if (config) {
     mergedConfig = Object.assign(mergedConfig, config);
   }
@@ -22,9 +25,7 @@ export async function fetchAsArrayBuffer(
 }
 
 /**
- *
- * @param url
- * @param config
+ * basic fetcher
  * @returns the data of response
  */
 export function getData(url: string, config?: any) {

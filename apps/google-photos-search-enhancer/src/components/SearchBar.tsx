@@ -61,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ *
+ */
 export default function SearchBar() {
   // Hooks
   const classes = useStyles();

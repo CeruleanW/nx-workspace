@@ -1,18 +1,22 @@
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { oauth2 } from '../features/auth';
-import { getTimeStamp, setUpdateTime } from '../features/client-storage';
+import { getTimeStamp, setUpdateTime, clearData, INDEXEDDB_LOCALMEDIAITEMS_KEY } from '../features/client-storage';
 import { requestAllMediaItems } from '../features/g-api';
 import { setAxiosDefaultAuthHeader } from '../features/request';
 import { Button } from '@material-ui/core';
 import { useAccessUpdate, useAccess } from './Context/AccessContext';
 import { useFeedbackUpdate } from './Context/FeedbackContext';
+import { useSWRConfig } from 'swr'
 
-export default function GoogleBtn(props) {
+/**
+ *
+ */
+export function GoogleBtn(props) {
   const { onSetLastUpdateTime, ...rest } = props;
 
-  // const classes = useStyles();
-  const updateAccessToken = useAccessUpdate().handleAccessToken;
+  // Hooks
+  const {mutate} = useSWRConfig();
   const updateBackdrop = useFeedbackUpdate().handleBackdrop;
   const updateTextMessage = useFeedbackUpdate().handleTextMessage;
   const updateIsLogined = useAccessUpdate().handleIsLogined;
@@ -23,20 +27,23 @@ export default function GoogleBtn(props) {
    * @param response
    */
   const login = (response) => {
-    if (response?.accessToken) {
-      const token = response.accessToken;
+    const {accessToken} = response || {};
+    if (accessToken) {
+      console.debug('get login token: ', accessToken);
       updateIsLogined(true);
-      updateAccessToken(response.accessToken);
-      setAxiosDefaultAuthHeader(token);
+      // updateAccessToken(accessToken);
+      setAxiosDefaultAuthHeader(accessToken);
       // start request
-      updateMediaItemsInStorage(response.accessToken);
+      updateMediaItemsInStorage();
     }
   };
 
   const logout = () => {
     updateIsLogined(false);
-    updateAccessToken('');
+    // updateAccessToken('');
     // clear search results
+    clearData();
+    mutate(INDEXEDDB_LOCALMEDIAITEMS_KEY);
   };
 
   const handleLoginFailure = (response) => {
@@ -50,11 +57,9 @@ export default function GoogleBtn(props) {
   // };
 
   /**
-   * run after the log-in is completed
-   * should update the media items in local storage automatically
-   * @param accessToken
+   * should update the media items in local storage
    */
-  async function updateMediaItemsInStorage(accessToken) {
+  async function updateMediaItemsInStorage(): Promise<void> {
     console.log('fetchMediaItems is called');
     try {
       // If it's the first time that the user login
@@ -63,7 +68,7 @@ export default function GoogleBtn(props) {
           'Initializing Local Data Storage. This may take long time depends the quantity of media items in your library'
         );
         updateBackdrop(true);
-        await requestAllMediaItems(accessToken).finally(() => {
+        await requestAllMediaItems().finally(() => {
           updateBackdrop(false);
           updateTextMessage('');
         });
@@ -71,6 +76,10 @@ export default function GoogleBtn(props) {
         onSetLastUpdateTime();
       } else {
         //TODO: get new items since last update
+        await requestAllMediaItems().finally(() => {
+          updateBackdrop(false);
+          updateTextMessage('');
+        });
         setUpdateTime();
         onSetLastUpdateTime();
       }
