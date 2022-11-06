@@ -1,12 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  color: ${(props) => props.theme.palette.danger};
+  color: ${(props) => props.theme.palette?.danger};
 `;
 
 export const ErrorSpan = styled.span`
-  color: ${(props) => props.theme.palette.danger};
+  color: ${(props) => props.theme.palette?.danger};
 `;
 
 export default function ErrorMsg({ ...optionals }) {

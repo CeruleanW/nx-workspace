@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 const themeInstance = createTheme({
   palette: {
+    main: '#2C2C2C',
     primary: {
       // light: will be calculated from palette.primary.main,
       main: '#2C2C2C',
@@ -16,9 +17,15 @@ const themeInstance = createTheme({
       contrastText: '#fff',
     },
     text: {
+      main: '#373737',
       primary: '#373737',
       secondary: '#505050',
       contrastBackground: '#65FFC9',
+    },
+    result: {
+      danger: { main: '#d32f2f' },
+      alert: { main: '#ffa000' },
+      success: { main: '#388e3c' },
     },
     // // Used by `getContrastText()` to maximize the contrast between
     // // the background and the text.

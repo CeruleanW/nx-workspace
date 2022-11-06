@@ -18,7 +18,7 @@ export function Resume(props) {
     return <Loading />;
   }
 
-  console.debug('resumeData', resumeData);
+  // console.debug('resumeData', resumeData);
   const { names, resume, resumeVersions } = resumeData || {};
   const data = resumeVersions?.find(item => item.version === version);
 
