@@ -1,5 +1,5 @@
 import { useAllBoxes, useUserByEmail } from '../features/idea-server';
-import { useSession } from '@idea/features/auth';
+import { useSession } from '../features/auth';
 
 /**
  * user data

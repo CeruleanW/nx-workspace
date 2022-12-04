@@ -1,9 +1,9 @@
 // import Head from 'next/head';
 import React from 'react';
 import Link from 'next/link';
-import { APPNAME } from '@idea/lib/CONSTANTS';
+import { APPNAME } from '../lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
-import { useSession, signIn, signOut } from '@idea/features/auth';
+import { useSession, signIn, signOut } from '../features/auth';
 import { CenteredLoading } from '@root/shared/components/atomics';
 import { useRouter } from 'next/router'
 
