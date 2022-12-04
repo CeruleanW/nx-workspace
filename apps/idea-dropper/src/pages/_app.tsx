@@ -4,9 +4,16 @@ import './styles.css';
 import { AppProvider } from '../providers';
 import { APPNAME } from '../lib/CONSTANTS';
 import { NotificationGroup } from '@root/shared/features/notification';
+import { useEffect } from 'react';
 
 
 function CustomApp({ Component, pageProps }: AppProps) {
+
+  // useEffect(() => {
+  //   const jssStyles = document.querySelector('#jss-server-side');
+  //   if (jssStyles) jssStyles.parentElement.removeChild(jssStyles);
+  // }, []);
+
   return (
     <>
       <Head>

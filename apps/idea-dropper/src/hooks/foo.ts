@@ -1,7 +1,9 @@
 import { useAllBoxes, useUserByEmail } from '../features/idea-server';
 import { useSession } from '@idea/features/auth';
 
-
+/**
+ * user data
+ */
 export function useUser() {
   const { data: session } = useSession();
   const userEmail = session?.user?.email;

@@ -7,6 +7,9 @@ import { useSession, signIn, signOut } from '@idea/features/auth';
 import { CenteredLoading } from '@root/shared/components/atomics';
 import { useRouter } from 'next/router'
 
+/**
+ *
+ */
 export default function Home() {
   // Hooks
   const { data: session } = useSession();

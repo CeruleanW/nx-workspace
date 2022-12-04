@@ -14,7 +14,9 @@ import { Button } from '@root/shared/components/atomics/Button';
 import { useForm, Controller } from 'react-hook-form';
 import {toast} from 'react-toastify';
 
-
+/**
+ *
+ */
 export function BoxPanel({ data, ...optionals }) {
   // Props
   const processed = processMainData(data);
@@ -30,6 +32,7 @@ export function BoxPanel({ data, ...optionals }) {
   if (userError) {
     return null;
   }
+
   if (!userData) {
     return null;
   }

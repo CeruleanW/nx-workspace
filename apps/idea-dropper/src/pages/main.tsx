@@ -13,11 +13,10 @@ import { Board } from '../components/organism/Board';
 import { MenuAppBar } from '../components/organism/AppBar';
 import { Protected } from '../features/auth/components/Protected';
 import React from "react";
-import {BoxPanel} from '../components/panel/BoxPanel';
+import { BoxPanel } from '../components/panel/BoxPanel';
 
 /**
- *
- * @returns should show all the boxes of current user
+ * should show all the boxes of current user
  */
 export default function Main() {
 
