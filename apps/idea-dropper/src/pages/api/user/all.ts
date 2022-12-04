@@ -10,7 +10,7 @@ export default async (req, res) => {
   if (req.method === 'GET') {
     //return the user document
     const { db } = await connectToDatabase();
-    const userCursor = await db.collection('user').findAll();
+    const userCursor = await db.collection('user').find();
     res.json(userCursor);
   } else if (req.method === 'POST') {
     const {name, email, image, emailVerified} = req.body || {};
