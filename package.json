@@ -97,7 +97,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",
-    "@nrwl/cli": "13.7.3",
+    "@nrwl/cli": "13.10.3",
     "@nrwl/cypress": "13.7.3",
     "@nrwl/eslint-plugin-nx": "13.7.3",
     "@nrwl/express": "^13.8.4",
@@ -109,7 +109,7 @@
     "@nrwl/react": "13.7.3",
     "@nrwl/tao": "13.7.3",
     "@nrwl/web": "13.7.3",
-    "@nrwl/workspace": "13.7.3",
+    "@nrwl/workspace": "13.10.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
