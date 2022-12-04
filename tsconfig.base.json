@@ -18,6 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "@root/shared/*": ["libs/shared/src/*"],
+      "@root/shared/components": ["libs/shared/src/components/index.ts"],
       "@root/shared": ["libs/shared/index.ts"],
       "@idea/*": ["apps/idea-dropper/src/*"],
       "@idea": ["apps/idea-dropper/src/index.ts"],

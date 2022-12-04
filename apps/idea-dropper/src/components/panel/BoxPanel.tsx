@@ -1,6 +1,5 @@
 import { processMainData } from '../../lib/main/processors';
 import { BoxCard } from '../molecule/BoxCard';
-import { Icon } from '@root/shared/components/atomics/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useAsyncFn } from 'react-use';
 import { addBox, CreateBoxDTO } from '../../features/idea-server';
@@ -8,10 +7,11 @@ import { useUser } from '../../hooks';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import { TextField } from '@root/shared/components/atomics/TextField';
-import { Button } from '@root/shared/components/atomics/Button';
+import { Icon } from '@root/shared/components';
+import { TextField } from '@root/shared/components';
+import { Button } from '@root/shared/components';
 import { useForm, Controller } from 'react-hook-form';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 /**
  *
@@ -22,7 +22,7 @@ export function BoxPanel({ data, ...optionals }) {
 
   // Hooks
   // const [saveState, executeSave] = useAsyncFn((d) => addBox(d));
-  const {data: userData, error: userError} = useUser();
+  const { data: userData, error: userError } = useUser();
   const { handleSubmit, control } = useForm();
 
   // Local state
@@ -45,7 +45,7 @@ export function BoxPanel({ data, ...optionals }) {
     console.debug('form data', data);
     const { name } = data || {};
 
-    const input: CreateBoxDTO = { name, owner: userData._id};
+    const input: CreateBoxDTO = { name, owner: userData._id };
     console.debug('submit data', input);
     addBox(input).then(() => toast.success(`Add box ${name}`)).catch(() => toast.error(`Failed to add a box`));
   }
