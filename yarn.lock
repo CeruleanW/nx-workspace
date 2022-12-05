@@ -4881,13 +4881,13 @@
   dependencies:
     tslib "^2.4.0"
 
-"@szhsin/react-menu@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@szhsin/react-menu/-/react-menu-3.0.1.tgz#363befa4c26f64a766bc85016f1823f426aa4c66"
-  integrity sha512-lwy0FgarjTzVocHapZkS6zx8KUIWRGbb7LvQPjemzfQmDxiD0ibx+dxjeZVrQrYWPib3FUFBzD1VQxgY7kMMeA==
+"@szhsin/react-menu@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@szhsin/react-menu/-/react-menu-3.3.0.tgz#66b921b31938a665b665f80e24d9ca2800360c45"
+  integrity sha512-GZfPLey2ZSVDaRtALuqH611cSM8QBujztYqLDqrqbWkTCwXrdob9G8PaBapBR/5hyW6dqDKJzFfcthZE3/iMpg==
   dependencies:
     prop-types "^15.7.2"
-    react-transition-state "^1.1.4"
+    react-transition-state "^1.1.5"
 
 "@testing-library/dom@^8.0.0":
   version "8.11.3"
@@ -13455,10 +13455,10 @@ react-transition-group@^4.4.0, react-transition-group@^4.4.2:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-transition-state@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/react-transition-state/-/react-transition-state-1.1.4.tgz#113224eaa27e0ff81661305e44d5e0348cdf61ac"
-  integrity sha512-6nQLWWx95gYazCm6OdtD1zGbRiirvVXPrDtHAGsYb4xs9spMM7bA8Vx77KCpjL8PJ8qz1lXFGz2PTboCSvt7iw==
+react-transition-state@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-transition-state/-/react-transition-state-1.1.5.tgz#22accee21d0011b1d0245be24b6262ae67f494c3"
+  integrity sha512-ITY2mZqc2dWG2eitJkYNdcSFW8aKeOlkL2A/vowRrLL8GH3J6Re/SpD/BLvQzrVOTqjsP0b5S9N10vgNNzwMUQ==
 
 react-universal-interface@^0.6.2:
   version "0.6.2"

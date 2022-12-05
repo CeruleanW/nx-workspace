@@ -8,8 +8,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import { Icon } from '@root/shared/components';
-import { TextField } from '@root/shared/components';
-import { Button } from '@root/shared/components';
+import { TextField, Button } from '@root/shared/components';
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -50,6 +49,8 @@ export function BoxPanel({ data, ...optionals }) {
     addBox(input).then(() => toast.success(`Add box ${name}`)).catch(() => toast.error(`Failed to add a box`));
   }
 
+  const menuClickHandlers = {};
+
   return (
     <>
       <div className="max-h-36">
@@ -61,14 +62,17 @@ export function BoxPanel({ data, ...optionals }) {
           <Icon name="solid-circle-plus" size={48} />
         </IconButton>
       </div>
-      {processed?.map((item) => (
-        <BoxCard
-          key={`${item?._id}`}
-          name={item?.name}
-          data={item}
-          className={'max-h-36 min-w-max w-32'}
-        />
-      ))}
+      <div data-cy={'box-card-list'} className='flex gap-x-8 items-start'>
+        {processed?.map((item) => (
+          <BoxCard
+            key={`${item?._id}`}
+            name={item?.name}
+            data={item}
+            className={'max-h-36 min-w-max w-32'}
+            onMenuClicks={menuClickHandlers}
+          />
+        ))}
+      </div>
       <Dialog open={isDialogOpened} onClose={() => setIsDialogOpened(false)}>
         <DialogTitle>Create a box</DialogTitle>
         <div className='p-4' >

@@ -38,7 +38,7 @@
     "@nrwl/next": "^13.8.1",
     "@react-pdf/renderer": "^2.0.8",
     "@reduxjs/toolkit": "^1.5.0",
-    "@szhsin/react-menu": "^3.0.1",
+    "@szhsin/react-menu": "^3.3.0",
     "autoprefixer": "^10.4.2",
     "axios": "^0.21.1",
     "chance": "^1.1.8",
