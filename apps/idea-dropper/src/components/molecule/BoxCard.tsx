@@ -6,19 +6,24 @@ import { Menu, MenuItem, ControlledMenu } from '@root/shared/components';
 import { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import styled from 'styled-components';
+import { BoxResponseDTO } from '../../features/idea-server';
 
 const StyledCard = styled(Card)`
   min-height: 8rem;
   min-width: 8rem;
 `;
 
+
+
 /**
  * Interact with a Box
  */
 export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
-  const {onDraw, onShake, onAdd, onImport, onShare} = onMenuClicks || {};
+  const { ...rest } = optionals;
+  const { onDraw, onShake, onAdd, onImport, onShare } = onMenuClicks || {};
 
-  const { shared_with, tags } = data || {};
+  const { _id, shared_with, tags, cards, draw_pointer, draw_sequence } = data as BoxResponseDTO || {};
+  // const nextCardID = getNextDrawCardID(draw_sequence, draw_pointer, cards);
   const isShared = isFilledArray(shared_with);
 
   // Local state & ref
@@ -43,22 +48,22 @@ export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
 
   return (
     <>
-      <div ref={cardActionRef}  data-cy={'box-card-container'}>
-        <StyledCard {...optionals} onClick={handleClick} data-cy={'box-card'} className={'flex flex-col justify-between p-4'}>
+      <div ref={cardActionRef} data-cy={'box-card-container'}>
+        <StyledCard onClick={handleClick} data-cy={'box-card'} className={'flex flex-col justify-between p-4'}>
           <Typography className='text-lg font-semibold' >{name}</Typography>
           <div className='flex justify-end' >{isShared ? <Icon name={'fa-solid fa-users'} /> : null}</div>
         </StyledCard>
+        <ControlledMenu
+          state={isOpen ? 'open' : 'closed'}
+          anchorRef={cardActionRef}
+        >
+          <MenuItem onClick={() => onDraw && onDraw(_id)}>Draw</MenuItem>
+          <MenuItem onClick={() => onShake && onShake(_id)}>Shake</MenuItem>
+          <MenuItem onClick={() => onAdd && onAdd(_id)}>Add</MenuItem>
+          <MenuItem onClick={handleMenuClick}>Import</MenuItem>
+          <MenuItem onClick={handleMenuClick}>Share</MenuItem>
+        </ControlledMenu>
       </div>
-      <ControlledMenu
-        state={isOpen ? 'open' : 'closed'}
-        anchorRef={cardActionRef}
-      >
-        <MenuItem onClick={handleMenuClick}>Draw</MenuItem>
-        <MenuItem onClick={handleMenuClick}>Shake</MenuItem>
-        <MenuItem onClick={handleMenuClick}>Add</MenuItem>
-        <MenuItem onClick={handleMenuClick}>Import</MenuItem>
-        <MenuItem onClick={handleMenuClick}>Share</MenuItem>
-      </ControlledMenu>
     </>
   );
 }

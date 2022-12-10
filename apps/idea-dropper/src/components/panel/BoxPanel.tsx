@@ -2,15 +2,14 @@ import { processMainData } from '../../lib/main/processors';
 import { BoxCard } from '../molecule/BoxCard';
 import IconButton from '@mui/material/IconButton';
 import { useAsyncFn } from 'react-use';
-import { addBox, CreateBoxDTO } from '../../features/idea-server';
+import { addBox, CreateBoxDTO, drawCard } from '../../features/idea-server';
 import { useUser } from '../../hooks';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import { Icon } from '@root/shared/components';
-import { TextField, Button } from '@root/shared/components';
-import { useForm, Controller } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { useSWRConfig } from 'swr';
+import { AddBoxDialog } from '../organism/AddBoxDialog';
 
 /**
  *
@@ -22,7 +21,7 @@ export function BoxPanel({ data, ...optionals }) {
   // Hooks
   // const [saveState, executeSave] = useAsyncFn((d) => addBox(d));
   const { data: userData, error: userError } = useUser();
-  const { handleSubmit, control } = useForm();
+  const { mutate } = useSWRConfig();
 
   // Local state
   const [isDialogOpened, setIsDialogOpened] = useState(false);
@@ -49,7 +48,25 @@ export function BoxPanel({ data, ...optionals }) {
     addBox(input).then(() => toast.success(`Add box ${name}`)).catch(() => toast.error(`Failed to add a box`));
   }
 
-  const menuClickHandlers = {};
+  /**
+   * Draw a card from given box
+   */
+  const handleDraw = async (boxID: string) => {
+    console.debug('Draw a card from box', boxID);
+    // send a request to draw a card from this box
+    const card = await drawCard(boxID);
+    console.debug('card', card);
+    // open a modal for showing the card
+  };
+
+  const handleShake = () => {
+
+  };
+
+  const menuClickHandlers = {
+    onDraw: handleDraw,
+    onShake: handleShake,
+  };
 
   return (
     <>
@@ -74,7 +91,8 @@ export function BoxPanel({ data, ...optionals }) {
         ))}
       </div>
       <Dialog open={isDialogOpened} onClose={() => setIsDialogOpened(false)}>
-        <DialogTitle>Create a box</DialogTitle>
+        <AddBoxDialog onHide={() => setIsDialogOpened(false)} onConfirm={() => setIsDialogOpened(false)} data={userData} />
+        {/* <DialogTitle>Create a box</DialogTitle>
         <div className='p-4' >
           <div className='my-2' >
             <Controller
@@ -87,7 +105,7 @@ export function BoxPanel({ data, ...optionals }) {
             <Button onClick={handleSubmit(handleAddBoxSubmit)} >Save</Button>
             <Button variant='secondary' onClick={() => setIsDialogOpened(false)}>Cancel</Button>
           </div>
-        </div>
+        </div> */}
       </Dialog>
     </>
   );

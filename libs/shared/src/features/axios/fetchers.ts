@@ -31,3 +31,7 @@ export async function fetchAsArrayBuffer(
 export function getData(url: string, config?: any) {
   return axios.get(url, config).then((res) => res?.data);
 }
+
+export function post(url: string, data?: any, config?: any) {
+  return axios.post(url, data, config).then((res) => res?.data);
+}
