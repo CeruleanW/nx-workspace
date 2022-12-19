@@ -3,7 +3,9 @@ import { getSession } from '@idea/features/auth';
 import {
   CARD_COLLECTION,
   findCardById,
+  updateCard,
 } from '@idea/features/idea-server-backend';
+import {inspect} from '@root/shared/utils';
 
 //request a card by its id
 export default async (req, res) => {
@@ -11,18 +13,15 @@ export default async (req, res) => {
   const session = await getSession({ req });
   if (session) {
     const { db } = await connectToDatabase();
-    // const card = await db
-    //   .collection(CARD_COLLECTION)
-    //   .find({})
-    //   .sort({ 'last-access-date': -1 })
-    //   .limit(20)
-    //   .toArray();
     if (req.method === 'GET') {
       const foundCard = await findCardById(cardid);
       res.json(foundCard);
     } else if (req.method === 'POST') {
     } else if (req.method === 'DELETE') {
 
+    } else if (req.method === 'PATCH') {
+      const result = await updateCard(req?.body);
+      return res.status(200).json(result);
     }
     res.send('No handler for this request method');
   } else {

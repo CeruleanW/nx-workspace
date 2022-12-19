@@ -20,7 +20,7 @@ const StyledCard = styled(Card)`
  */
 export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
   const { ...rest } = optionals;
-  const { onDraw, onShake, onAdd, onImport, onShare } = onMenuClicks || {};
+  const { onDraw, onShake, onAdd, onImport, onShare, onDelete } = onMenuClicks || {};
 
   const { _id, shared_with, tags, cards, draw_pointer, draw_sequence } = data as BoxResponseDTO || {};
   // const nextCardID = getNextDrawCardID(draw_sequence, draw_pointer, cards);
@@ -59,9 +59,10 @@ export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
         >
           <MenuItem onClick={() => onDraw && onDraw(_id)}>Draw</MenuItem>
           <MenuItem onClick={() => onShake && onShake(_id)}>Shake</MenuItem>
-          <MenuItem onClick={() => onAdd && onAdd(_id)}>Add</MenuItem>
-          <MenuItem onClick={handleMenuClick}>Import</MenuItem>
-          <MenuItem onClick={handleMenuClick}>Share</MenuItem>
+          {/* <MenuItem onClick={() => onAdd && onAdd(_id)}>Add</MenuItem> */}
+          {/* <MenuItem onClick={handleMenuClick}>Import</MenuItem>
+          <MenuItem onClick={handleMenuClick}>Share</MenuItem> */}
+          <MenuItem onClick={() => onDelete && onDelete({id: _id, name})}>Delete</MenuItem>
         </ControlledMenu>
       </div>
     </>

@@ -1,19 +1,20 @@
-// import CircularProgress from '@material-ui/core/CircularProgress';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
-export function Loading(props) {
+/**
+ *
+ */
+export function Loader(props) {
   return (
     <CircularProgress {...props}/>
   );
 }
 
 
-export function CenteredLoading(props) {
+export function CenteredLoader(props) {
 
   return (
     <div className={'flex flex-col flex-grow justify-center items-center w-full'} {...props}>
-      <Loading />
+      <Loader />
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import { useLocalStorage } from '@root/shared/features/local-storage'; //https://github.com/streamich/react-use/blob/master/docs/useLocalStorage.md
+import { useLocalStorage } from '@root/shared/features/local-storage';
 import { useRef } from 'react';
 import { createEditor } from 'slate';
 import { withReact } from 'slate-react';
-import { CONTENT_KEY, DEFAULT_INIT_VALUE, TITLE_KEY } from './constants';
+import { CONTENT_KEY, DEFAULT_CONTENT_VALUE, TITLE_KEY } from './constants';
 
 export const useEditor = () => {
   const editorRef = useRef() as any;
@@ -10,8 +10,17 @@ export const useEditor = () => {
   return editorRef.current;
 };
 
+/**
+ * handle content in Editor
+ * @return [contentValue, setContentValue, resetContent]
+ */
 export function useContentInLocalStorage() {
-  return useLocalStorage(CONTENT_KEY, DEFAULT_INIT_VALUE);
+  const queried = useLocalStorage(CONTENT_KEY, DEFAULT_CONTENT_VALUE);
+  const resetContent = () => {
+    queried[1](DEFAULT_CONTENT_VALUE);
+  };
+  queried[2] = resetContent;
+  return queried;
 }
 
 export function useTitleInLocalStorage() {

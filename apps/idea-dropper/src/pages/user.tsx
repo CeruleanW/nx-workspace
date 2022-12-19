@@ -1,9 +1,13 @@
 import { useSession } from '@idea/features/auth';
 import React from 'react';
-import { CenteredLoading } from '@root/shared/components/atomics';
+import { CenteredLoader } from '@root/shared/components/atomics';
 import { UserProfile } from '../components/molecule/UserProfile';
 import { HomeBtn } from '../components/molecule/HomeBtn';
 
+/**
+ *
+ * @returns 
+ */
 export default function User() {
   const { data: session } = useSession();
   const { user } = session || {};

@@ -8,14 +8,18 @@ export default async (req, res) => {
   // const myPassword = getPassword(req.cookies);
 
   try {
-    const { db } = await connectToDatabase();
-    const boxes = await db
-      .collection(BOX_COLLECTION)
-      .find({})
-      .sort({ 'last-access-date': -1 })
-      .limit(20)
-      .toArray();
-    res.status(200).json(boxes);
+    if (req.method === 'GET') {
+      const { db } = await connectToDatabase();
+      const boxes = await db
+        .collection(BOX_COLLECTION)
+        .find({})
+        .sort({ 'last-access-date': -1 })
+        .limit(20)
+        .toArray();
+      res.status(200).json(boxes);
+    } else if (req.method === 'POST') {
+
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ error });

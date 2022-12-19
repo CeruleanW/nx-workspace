@@ -12,6 +12,9 @@ export type BoxResponseDTO = {
   tags?: string[];
 };
 
+/**
+ * Card Response DTO, i.e. Card type
+ */
 export type CardResponseDTO = {
   _id: string;
   title: string;
@@ -21,6 +24,16 @@ export type CardResponseDTO = {
   owner: string;
   content: any;
   boxes?: string[];
+};
+
+export type UpdateCardDTO = {
+  _id: string;
+  title?: string;
+  owner?: string;
+  content?: string;
+  boxes?: string[];
+  shared_with?: string;
+  tags?: string[];
 };
 
 export type CreateCardDTO = {
@@ -41,6 +54,7 @@ export type CreateBoxDTO = {
   owner: string;
   shared_with?: string[];
   tags?: string[];
+  draw_seed?: number;
   // draw_sequence?: number[];
   // draw_pointer?: number;
 };

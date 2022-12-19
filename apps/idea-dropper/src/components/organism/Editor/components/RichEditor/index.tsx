@@ -7,18 +7,21 @@ import {
 import { Editable, Slate, withReact } from 'slate-react';
 import { Toolbar } from '../Toolbar';
 import { HOTKEYS } from './constants';
-import { DEFAULT_INIT_VALUE, CONTENT_KEY } from '../../constants';
+import { DEFAULT_CONTENT_VALUE, CONTENT_KEY } from '../../constants';
 import { useLocalStorage } from '@root/shared/features/local-storage';
 import { Button } from '@root/shared/components/atomics/Button';
 
-export const RichTextEditor = ({value,  editor, localStorageCallbacks, ...optionals}) => {
+/**
+ *
+ */
+export const RichTextEditor = ({value,  editor, callbacks, ...optionals}) => {
   // Hooks
   const renderElement = useCallback(props => <Element {...props} />, []);
   const renderLeaf = useCallback(props => <Leaf {...props} />, []);
 
 
   // Props
-  const {setValue, remove,} = localStorageCallbacks || {};
+  const {setValue, remove,} = callbacks || {};
 
   const handleKeyDown = event => {
     for (const hotkey in HOTKEYS) {
@@ -35,7 +38,7 @@ export const RichTextEditor = ({value,  editor, localStorageCallbacks, ...option
       op => 'set_selection' !== op.type
     )
     if (isAstChange) {
-      // Save the value to Local Storage.
+      // Save the changed value
       setValue(value);
     }
   };

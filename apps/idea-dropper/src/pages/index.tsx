@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { APPNAME } from '../lib/CONSTANTS';
 import { Button } from '@root/shared/components/atomics';
 import { useSession, signIn, signOut } from '../features/auth';
-import { CenteredLoading } from '@root/shared/components/atomics';
+import { CenteredLoader } from '@root/shared/components/atomics';
 import { useRouter } from 'next/router'
 
 /**

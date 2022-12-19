@@ -4,9 +4,11 @@ import './styles.css';
 import { AppProvider } from '../providers';
 import { APPNAME } from '../lib/CONSTANTS';
 import { NotificationGroup } from '@root/shared/features/notification';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
-
+/**
+ *
+ */
 function CustomApp({ Component, pageProps }: AppProps) {
 
   // useEffect(() => {

@@ -1,5 +1,8 @@
 import { useLocalStorage as useReactUseLocalStorage} from 'react-use';
 
+/**
+ * https://github.com/streamich/react-use/blob/master/docs/useLocalStorage.md
+ */
 export function useLocalStorage(key, defaultValue) {
   const [value, setValue, remove] = useReactUseLocalStorage(key, defaultValue);
 
@@ -7,7 +10,7 @@ export function useLocalStorage(key, defaultValue) {
 }
 
 /**
- * @deprecated should use useLocalStorage
+ *
  */
 export function setToLocalStorage(key: string, value: object) {
   if (!key) {

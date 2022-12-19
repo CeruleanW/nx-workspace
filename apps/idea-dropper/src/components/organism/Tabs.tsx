@@ -1,6 +1,8 @@
 import MuiTabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
+/**
+ *
+ */
 export function Tabs({ value, onChange, ...optionals }) {
   return (
     <div>

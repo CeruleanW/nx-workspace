@@ -1,30 +1,38 @@
 import { processMainData } from '../../lib/main/processors';
 import { BoxCard } from '../molecule/BoxCard';
 import IconButton from '@mui/material/IconButton';
-import { useAsyncFn } from 'react-use';
-import { addBox, CreateBoxDTO, drawCard } from '../../features/idea-server';
-import { useUser } from '../../hooks';
+import { addBox, CreateBoxDTO, drawCard, shakeBox } from '../../features/idea-server';
+import { useUser, useModal } from '../../hooks';
 import Dialog from '@mui/material/Dialog';
 import { useState } from 'react';
 import { Icon } from '@root/shared/components';
-import { toast } from 'react-toastify';
 import { useSWRConfig } from 'swr';
 import { AddBoxDialog } from '../organism/AddBoxDialog';
+import { DeleteBoxDialog } from '../organism/DeleteBoxDialog';
+import { EditCardDialog } from '../organism/EditCardDialog';
+import { ModalGroup } from '../organism/Modal';
 
 /**
- *
+ * display a list of boxes
  */
 export function BoxPanel({ data, ...optionals }) {
   // Props
   const processed = processMainData(data);
 
   // Hooks
-  // const [saveState, executeSave] = useAsyncFn((d) => addBox(d));
   const { data: userData, error: userError } = useUser();
   const { mutate } = useSWRConfig();
+  // const isDialogOpened = useModal((state) => state.isDialogOpened);
+  // const operation = useModal((state) => state.operation);
+  const setOperation = useModal((state) => state.setOperation);
+  const openDialog = useModal((state) => state.openDialog);
+  const closeDialog = useModal((state) => state.closeDialog);
+  const setBoxID = useModal((state) => state.setBoxID);
+  const setModalData = useModal((state) => state.setData);
 
   // Local state
-  const [isDialogOpened, setIsDialogOpened] = useState(false);
+  // const [isDialogOpened, setIsDialogOpened] = useState(false);
+  const [selectedBox, setSelectedBox] = useState({ operation: null, id: null });
 
   if (userError) {
     return null;
@@ -36,17 +44,12 @@ export function BoxPanel({ data, ...optionals }) {
 
   // Handlers
   const handleAddBoxClick = () => {
-    setIsDialogOpened(true);
+    // setIsDialogOpened(true);
+    openDialog();
+    setOperation('add');
+    setBoxID(null);
+    // setSelectedBox({id: null, operation: 'add'});
   };
-
-  const handleAddBoxSubmit = (data) => {
-    console.debug('form data', data);
-    const { name } = data || {};
-
-    const input: CreateBoxDTO = { name, owner: userData._id };
-    console.debug('submit data', input);
-    addBox(input).then(() => toast.success(`Add box ${name}`)).catch(() => toast.error(`Failed to add a box`));
-  }
 
   /**
    * Draw a card from given box
@@ -57,15 +60,26 @@ export function BoxPanel({ data, ...optionals }) {
     const card = await drawCard(boxID);
     console.debug('card', card);
     // open a modal for showing the card
+    setOperation('editCard');
+    setModalData(card);
+    openDialog();
   };
 
-  const handleShake = () => {
+  const handleShake = async (boxID: string) => {
+    console.debug('Shake the box');
+    await shakeBox(boxID);
+  };
 
+  const handleDelete = (data) => {
+    setOperation('delete');
+    setModalData(data);
+    openDialog();
   };
 
   const menuClickHandlers = {
     onDraw: handleDraw,
     onShake: handleShake,
+    onDelete: handleDelete,
   };
 
   return (
@@ -79,7 +93,7 @@ export function BoxPanel({ data, ...optionals }) {
           <Icon name="solid-circle-plus" size={48} />
         </IconButton>
       </div>
-      <div data-cy={'box-card-list'} className='flex gap-x-8 items-start'>
+      <div data-cy={'box-card-list'} className="flex gap-x-8 items-start">
         {processed?.map((item) => (
           <BoxCard
             key={`${item?._id}`}
@@ -90,23 +104,30 @@ export function BoxPanel({ data, ...optionals }) {
           />
         ))}
       </div>
-      <Dialog open={isDialogOpened} onClose={() => setIsDialogOpened(false)}>
-        <AddBoxDialog onHide={() => setIsDialogOpened(false)} onConfirm={() => setIsDialogOpened(false)} data={userData} />
-        {/* <DialogTitle>Create a box</DialogTitle>
-        <div className='p-4' >
-          <div className='my-2' >
-            <Controller
-              name="name"
-              control={control}
-              render={({ field }) => <TextField placeholder="Box name" {...field} />}
-            />
-          </div>
-          <div className='flex gap-x-2'>
-            <Button onClick={handleSubmit(handleAddBoxSubmit)} >Save</Button>
-            <Button variant='secondary' onClick={() => setIsDialogOpened(false)}>Cancel</Button>
-          </div>
-        </div> */}
-      </Dialog>
+      <ModalGroup />
+      {/* <Dialog open={isDialogOpened} onClose={() => setIsDialogOpened(false)}>
+        {!selectedBox?.operation || selectedBox?.operation == 'add' ? (
+          <AddBoxDialog
+            onHide={() => setIsDialogOpened(false)}
+            onConfirm={() => setIsDialogOpened(false)}
+            data={userData}
+          />
+        ) : null}
+        {selectedBox?.operation === 'delete' ? (
+          <DeleteBoxDialog
+            onHide={() => setIsDialogOpened(false)}
+            onConfirm={() => setIsDialogOpened(false)}
+            data={selectedBox}
+          />
+        ) : null}
+        {selectedBox?.operation === 'edit' ? (
+          <EditCardDialog
+            onHide={() => setIsDialogOpened(false)}
+            onConfirm={() => setIsDialogOpened(false)}
+            data={selectedBox}
+          />
+        ) : null}
+      </Dialog> */}
     </>
   );
 }

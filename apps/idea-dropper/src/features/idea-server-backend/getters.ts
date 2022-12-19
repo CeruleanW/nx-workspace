@@ -33,4 +33,3 @@ export async function getAllCards() {
   const cursor = collection.find();
   return cursor.toArray();
 }
-

@@ -1,7 +1,7 @@
 import { useMainPageData } from '../hooks';
 import { ErrorMsg } from '@root/shared/components/atomics/ErrorMsg';
 import PageTemplate from '@root/shared/components/template/PageTemplate';
-import { CenteredLoading } from '@root/shared/components/atomics/Loading';
+import { CenteredLoader } from '@root/shared/components/atomics/Loading';
 import { processMainData } from '../lib/main/processors';
 import { BoxCard } from '../components/molecule/BoxCard';
 import { Tabs } from '../components/organism/Tabs';
@@ -31,7 +31,7 @@ export default function Main() {
   }
 
   if (!data) {
-    return <CenteredLoading />;
+    return <CenteredLoader />;
   }
 
   // console.debug('Main data', data);

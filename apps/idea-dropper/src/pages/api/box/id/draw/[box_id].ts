@@ -1,4 +1,4 @@
-import { CARD_COLLECTION } from './../../../../features/idea-server-backend/collections';
+import { CARD_COLLECTION } from '../../../../../features/idea-server-backend/collections';
 import { connectToDatabase } from '@root/shared/features/mongodb';
 import { ObjectId } from 'mongodb';
 import {
@@ -13,9 +13,8 @@ import {getCollection} from '@root/shared/features/mongodb';
  */
 export default async (req, res) => {
   try {
-    if (req.method === 'POST') {
-
-    } else if (req.method === 'GET') { // draw a card from box
+    if (req.method === 'GET') { // draw a card from box
+      console.debug('draw a card from box');
       const { db } = await connectToDatabase();
       // authentication - if fails, redirect to login page
       const { box_id } = req.query || {};
@@ -23,12 +22,13 @@ export default async (req, res) => {
 
       const box = await db
         .collection(BOX_COLLECTION)
-        .findOne({ _id: new ObjectId(box_id) });
-      const { _id, shared_with, tags, cards, draw_pointer, draw_sequence } =
+        .findOne({ _id: boxID });
+      const { cards, draw_pointer, draw_seed } =
         box || {};
-      // draw a card from this box
+        console.debug('draw_seed', draw_seed);
+
       const nextCardID: ObjectId = getNextDrawCardID(
-        draw_sequence,
+        draw_seed,
         draw_pointer,
         cards
       );
@@ -54,14 +54,7 @@ export default async (req, res) => {
           .updateOne({ _id: boxID }, { $set: { draw_pointer: 0 } });
       }
 
-      res.json(card);
-    } else if (req.method === 'DELETE') { // delete a box
-      const boxCollection = await getCollection(BOX_COLLECTION);
-      //
-      const { box_id } = req.query || {};
-      const boxID = new ObjectId(box_id);
-      const result = await boxCollection.deleteOne({ _id: boxID});
-      res.json(result);
+      return res.json(card);
     }
   } catch (error) {
     console.error(error);

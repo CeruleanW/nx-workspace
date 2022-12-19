@@ -1,4 +1,4 @@
-export const DEFAULT_INIT_VALUE = [
+export const DEFAULT_CONTENT_VALUE = [
   {
     type: 'paragraph',
     children: [

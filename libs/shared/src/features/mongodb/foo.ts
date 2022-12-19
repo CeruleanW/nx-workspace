@@ -1,4 +1,4 @@
-import { Db, MongoClient, MongoClientOptions } from 'mongodb';
+import { Collection, Db, MongoClient, MongoClientOptions } from 'mongodb';
 
 const { MONGODB_URI, MONGODB_DB } = process?.env || {
   MONGODB_URI: undefined,
@@ -76,4 +76,10 @@ export function iterateFunc(doc) {
 
 export function errorFunc(error) {
   console.log(error);
+}
+
+export async function getCollection(name: string): Promise<Collection<any>> {
+  const { db } = await connectToDatabase();
+  const result = db.collection(name);
+  return result;
 }

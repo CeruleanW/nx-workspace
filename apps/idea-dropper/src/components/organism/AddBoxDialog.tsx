@@ -1,22 +1,13 @@
-import { processMainData } from '../../lib/main/processors';
-import { BoxCard } from '../molecule/BoxCard';
-import IconButton from '@mui/material/IconButton';
-import { useAsyncFn } from 'react-use';
-import { addBox, CreateBoxDTO, drawCard } from '../../features/idea-server';
-import { useUser } from '../../hooks';
-import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useState } from 'react';
-import { Icon } from '@root/shared/components';
-import { TextField, Button } from '@root/shared/components';
-import { useForm, Controller } from 'react-hook-form';
+import { Button, TextField } from '@root/shared/components';
+import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useSWRConfig } from 'swr';
-import { ALL_BOX } from '../../features/idea-server';
+import { addBox, ALL_BOX, CreateBoxDTO } from '../../features/idea-server';
 
 
 /**
- *
+ * UI Modal for adding a box
  */
 export function AddBoxDialog({ onConfirm, onHide, data, ...optionals }) {
   // Hooks
