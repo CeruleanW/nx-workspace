@@ -105,29 +105,6 @@ export function BoxPanel({ data, ...optionals }) {
         ))}
       </div>
       <ModalGroup />
-      {/* <Dialog open={isDialogOpened} onClose={() => setIsDialogOpened(false)}>
-        {!selectedBox?.operation || selectedBox?.operation == 'add' ? (
-          <AddBoxDialog
-            onHide={() => setIsDialogOpened(false)}
-            onConfirm={() => setIsDialogOpened(false)}
-            data={userData}
-          />
-        ) : null}
-        {selectedBox?.operation === 'delete' ? (
-          <DeleteBoxDialog
-            onHide={() => setIsDialogOpened(false)}
-            onConfirm={() => setIsDialogOpened(false)}
-            data={selectedBox}
-          />
-        ) : null}
-        {selectedBox?.operation === 'edit' ? (
-          <EditCardDialog
-            onHide={() => setIsDialogOpened(false)}
-            onConfirm={() => setIsDialogOpened(false)}
-            data={selectedBox}
-          />
-        ) : null}
-      </Dialog> */}
     </>
   );
 }

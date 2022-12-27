@@ -57,8 +57,8 @@ export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
           state={isOpen ? 'open' : 'closed'}
           anchorRef={cardActionRef}
         >
-          <MenuItem onClick={() => onDraw && onDraw(_id)}>Draw</MenuItem>
-          <MenuItem onClick={() => onShake && onShake(_id)}>Shake</MenuItem>
+          <MenuItem onClick={() => onDraw && onDraw(_id)} disabled={!isFilledArray(cards)} >Draw</MenuItem>
+          <MenuItem onClick={() => onShake && onShake(_id)} disabled={!isFilledArray(cards)} >Shake</MenuItem>
           {/* <MenuItem onClick={() => onAdd && onAdd(_id)}>Add</MenuItem> */}
           {/* <MenuItem onClick={handleMenuClick}>Import</MenuItem>
           <MenuItem onClick={handleMenuClick}>Share</MenuItem> */}

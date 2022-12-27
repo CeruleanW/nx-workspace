@@ -4,18 +4,28 @@ import { createEditor } from 'slate';
 import { withReact } from 'slate-react';
 import { CONTENT_KEY, DEFAULT_CONTENT_VALUE, TITLE_KEY } from './constants';
 
+
+
 export const useEditor = () => {
   const editorRef = useRef() as any;
   if (!editorRef.current) editorRef.current = withReact(createEditor());
-  return editorRef.current;
+  const editor = editorRef.current;
+
+  const resetEditorState = () => {
+    const point = { path: [0, 0], offset: 0 };
+    editor.selection = { anchor: point, focus: point }; // clean up selection
+    editor.history = { redos: [], undos: [] }; // clean up history
+    editor.children = DEFAULT_CONTENT_VALUE;
+  }
+  return {editor, resetEditor: resetEditorState};
 };
 
 /**
  * handle content in Editor
  * @return [contentValue, setContentValue, resetContent]
  */
-export function useContentInLocalStorage() {
-  const queried = useLocalStorage(CONTENT_KEY, DEFAULT_CONTENT_VALUE);
+export function useContentInLocalStorage(): [any, Function, Function,] {
+  const queried = useLocalStorage(CONTENT_KEY, DEFAULT_CONTENT_VALUE) as [any, Function, Function];
   const resetContent = () => {
     queried[1](DEFAULT_CONTENT_VALUE);
   };

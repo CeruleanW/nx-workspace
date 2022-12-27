@@ -3,7 +3,7 @@ import { useLocalStorage as useReactUseLocalStorage} from 'react-use';
 /**
  * https://github.com/streamich/react-use/blob/master/docs/useLocalStorage.md
  */
-export function useLocalStorage(key, defaultValue) {
+export function useLocalStorage(key: string, defaultValue) {
   const [value, setValue, remove] = useReactUseLocalStorage(key, defaultValue);
 
   return [value, setValue, remove];

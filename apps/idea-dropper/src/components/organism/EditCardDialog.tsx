@@ -6,7 +6,8 @@ import { useSWRConfig } from 'swr';
 import { ALL_BOX, CreateBoxDTO, UpdateCardDTO, updateCard } from '../../features/idea-server';
 import { EditorContent } from './Editor';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import {IconButton} from '@root/shared/components/atomics/IconButton';
+import {Icon} from '@root/shared/components/atomics/Icon';
 
 /**
  * UI Modal for editing cards
@@ -36,7 +37,8 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
 
   return (
     <>
-      <DialogTitle>Edit Card</DialogTitle>
+        <DialogTitle className='flex justify-between'><span>Edit Card</span> <IconButton><Icon name=''/> </IconButton></DialogTitle>
+
       <div className="p-4 w-full">
         <EditorContent userID={userID} onSubmit={handleConfirm} defaultValues={restData} />
       </div>

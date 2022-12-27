@@ -14,6 +14,9 @@ import { useForm, Controller } from 'react-hook-form';
 import { CenteredLoader } from '@root/shared/components/atomics/Loading';
 import { BoxSelector } from '../../molecule/BoxSelector';
 import { CardResponseDTO, UpdateCardDTO } from '../../../features/idea-server';
+import { isFilledArray } from '@root/shared/utils';
+
+
 
 type Box = {
   _id: string;
@@ -28,7 +31,7 @@ type OptionalsProps = {
 };
 
 /**
- * decouple from local storage
+ * decouple editor state from local storage
  */
 export function EditorContent({
   userID,
@@ -38,15 +41,17 @@ export function EditorContent({
   const {
     defaultValues = { title: '', content: DEFAULT_CONTENT_VALUE, boxes: [] },
     tags = [],
+    containerClassName = "mx-auto w-10/12 flex flex-col",
     ...rest
   } = optionals;
   // Hooks
   const [saveState, executeSave] = useAsyncFn((data) => onSubmit(data));
-  const editor = useEditor();
+  const {editor, resetEditor} = useEditor();
   const { handleSubmit, setValue, reset, control } = useForm({
     defaultValues,
   });
 
+  // Handlers
   const handleSave = (data) => {
     console.debug('submit data', data);
     // inputs
@@ -71,21 +76,23 @@ export function EditorContent({
 
   const handleDiscard = () => {
     reset();
-    editor.children = DEFAULT_CONTENT_VALUE;
+    resetEditor();
   };
 
   const handleSelectBoxChange = (options) => {
+    if (!isFilledArray) return;
     const boxesValue = options.map((opt) => opt.value);
-    console.debug('boxesValue', boxesValue);
+    // console.debug('boxesValue', boxesValue);
     setValue('boxes', boxesValue);
   };
+
 
   if (saveState.loading) {
     return <CenteredLoader />;
   }
 
   return (
-    <div className="mx-auto w-10/12 flex flex-col">
+    <div className={containerClassName}>
       <ErrorBoundary>
         <Controller
           name="title"
@@ -100,7 +107,6 @@ export function EditorContent({
         <Controller name="boxes" control={control} render={({ field: { onChange, onBlur, value } }) => (
           <BoxSelector boxes={tags} onChange={handleSelectBoxChange} value={value} />
         )} />
-        {/* <BoxSelector boxes={tags} onChange={handleSelectBoxChange} /> */}
         <Paper className="w-full flex-grow">
           <Controller
             name="content"
@@ -143,8 +149,8 @@ export function Editor({
   const { tags = [], title = '', ...rest } = optionals;
   // Hooks
   const [saveState, executeSave] = useAsyncFn((data) => insertCard(data));
-  const editor = useEditor();
-  const { handleSubmit, setValue } = useForm({
+  const {editor, resetEditor} = useEditor();
+  const { handleSubmit, setValue, reset } = useForm({
     defaultValues: {
       boxes: tags,
       title,
@@ -157,9 +163,9 @@ export function Editor({
   const [titleValue, setTitleValue] = useState('');
 
   // Props
-  const boxOptions = tags.map((tag) => {
-    return { value: tag._id, label: tag.name };
-  });
+  // const boxOptions = tags.map((tag) => {
+  //   return { value: tag._id, label: tag.name };
+  // });
 
   const handleSave = (data) => {
     console.debug('submit data', data);
@@ -174,18 +180,18 @@ export function Editor({
     executeSave({ cardData })
       .then(() => {
         toast.success(`Added card ${title}`);
+        handleDiscard();
       })
       .catch((error) => {
         console.error(error);
         toast.error(`Failed to add card ${title}`);
       });
-    handleDiscard();
   };
 
   const handleDiscard = () => {
     removeContent();
     setTitleValue('');
-    editor.children = DEFAULT_CONTENT_VALUE;
+    resetEditor();
   };
 
   const handleSelectBoxChange = (options) => {
@@ -207,11 +213,11 @@ export function Editor({
         />
         <BoxSelector boxes={tags} onChange={handleSelectBoxChange} />
         <Paper className="w-full flex-grow">
-          <RichTextEditor
+          {editor ? <RichTextEditor
             value={contentValue}
             editor={editor}
             callbacks={{ setValue: setContentValue, remove: removeContent }}
-          />
+          /> : null}
         </Paper>
         <div className="flex gap-x-4 mt-4">
           <Button type="submit" onClick={handleSubmit(handleSave)}>

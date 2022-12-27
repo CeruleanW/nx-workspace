@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; //
 import '@fortawesome/fontawesome-free-solid';
+import { faBars, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import {
   FaTools,
   FaRegSquare,
