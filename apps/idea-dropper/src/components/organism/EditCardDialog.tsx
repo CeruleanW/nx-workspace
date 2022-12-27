@@ -3,11 +3,19 @@
 // import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useSWRConfig } from 'swr';
-import { ALL_BOX, CreateBoxDTO, UpdateCardDTO, updateCard } from '../../features/idea-server';
+import {
+  ALL_BOX,
+  CreateBoxDTO,
+  UpdateCardDTO,
+  updateCard,
+} from '../../features/idea-server';
 import { EditorContent } from './Editor';
 import DialogTitle from '@mui/material/DialogTitle';
-import {IconButton} from '@root/shared/components/atomics/IconButton';
-import {Icon} from '@root/shared/components/atomics/Icon';
+import { IconButton } from '@root/shared/components/atomics/IconButton';
+import { Icon } from '@root/shared/components/atomics/Icon';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { Menu, MenuItem, MenuButton } from '@root/shared/components/molecule/Menu';
+import { EditCardMenu } from './EditCardMenu';
 
 /**
  * UI Modal for editing cards
@@ -19,7 +27,7 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
   const { userID, ...restData } = data || {};
 
   const handleConfirm = async (data) => {
-    const { cardData } = data;
+    const { cardData } = data || {};
     const { _id } = restData;
     const { title, content, boxes } = cardData;
 
@@ -37,10 +45,16 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
 
   return (
     <>
-        <DialogTitle className='flex justify-between'><span>Edit Card</span> <IconButton><Icon name=''/> </IconButton></DialogTitle>
-
+      <DialogTitle className="flex justify-between">
+        <span>Edit Card</span>
+        <EditCardMenu data={data}/>
+      </DialogTitle>
       <div className="p-4 w-full">
-        <EditorContent userID={userID} onSubmit={handleConfirm} defaultValues={restData} />
+        <EditorContent
+          userID={userID}
+          onSubmit={handleConfirm}
+          defaultValues={restData}
+        />
       </div>
     </>
   );

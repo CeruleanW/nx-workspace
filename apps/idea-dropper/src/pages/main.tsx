@@ -35,7 +35,7 @@ export default function Main() {
   }
 
   // console.debug('Main data', data);
-  const processed = processMainData(data);
+  // const processed = processMainData(data);
   const handleChange = (event, newValue) => {
     setTab(newValue);
   };

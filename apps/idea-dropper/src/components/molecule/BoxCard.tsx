@@ -37,9 +37,9 @@ export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
     setOpen(!isOpen);
   }
 
-  const handleMenuClick = (e) => {
-    console.debug('Menu clicked', e);
-  };
+  // const handleMenuClick = (e) => {
+  //   console.debug('Menu clicked', e);
+  // };
 
   useClickAway(cardActionRef, (e) => {
     // console.debug('OUTSIDE CLICKED', e);

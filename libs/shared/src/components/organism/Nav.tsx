@@ -12,7 +12,7 @@ export function Nav(props) {
     <StyledNav className="w-full flex p-3">
       <button className="h-full">
         <FontAwesomeIcon
-          icon={faBars as any}
+          icon={faBars}
           size="1x"
           fixedWidth
           onClick={() => setIsMenuOpened(!isMenuOpened)}
@@ -21,7 +21,7 @@ export function Nav(props) {
       <p className="flex-auto text-center text-2xl m-0">{title}</p>
       <button className="h-full">
         <FontAwesomeIcon
-          icon={faEllipsisH as any}
+          icon={faEllipsisH}
           size="1x"
           fixedWidth
           onClick={() => console.log('ellipsis clicked')}

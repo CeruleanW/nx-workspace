@@ -9,6 +9,9 @@ const A = styled.a`
   }
 `;
 
+/**
+ *
+ */
 export function Footer({ ...optionals }) {
   const { url, owner, ...rest } = optionals;
 

@@ -90,6 +90,13 @@ export function createBoxDoc(data: CreateBoxDTO): BoxDocument {
   return result;
 }
 
+// delete a card
+export async function deleteCard(cardId: string) {
+  const cardCollection = await getCardCollection();
+  const result = await cardCollection.deleteOne({ _id: new ObjectId(cardId) });
+  return result;
+}
+
 export async function deleteAllCards() {
   const cardCollection = await getCardCollection();
   const result = await cardCollection.deleteMany({});

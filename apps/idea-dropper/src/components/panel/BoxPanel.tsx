@@ -26,7 +26,7 @@ export function BoxPanel({ data, ...optionals }) {
   // const operation = useModal((state) => state.operation);
   const setOperation = useModal((state) => state.setOperation);
   const openDialog = useModal((state) => state.openDialog);
-  const closeDialog = useModal((state) => state.closeDialog);
+  // const closeDialog = useModal((state) => state.closeDialog);
   const setBoxID = useModal((state) => state.setBoxID);
   const setModalData = useModal((state) => state.setData);
 

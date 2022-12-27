@@ -18,6 +18,7 @@ export default async (req, res) => {
       res.json(foundCard);
     } else if (req.method === 'POST') {
     } else if (req.method === 'DELETE') {
+      console.debug('delete card request', cardid);
 
     } else if (req.method === 'PATCH') {
       const result = await updateCard(req?.body);

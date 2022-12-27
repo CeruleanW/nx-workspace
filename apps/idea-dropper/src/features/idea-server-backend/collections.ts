@@ -10,10 +10,10 @@ export const CARD_COLLECTION = 'card';
 
 export async function getCardCollection() {
   const { db } = await connectToDatabase();
-  const result = db.collection(CARD_COLLECTION);
+  const result = db.collection<{}>(CARD_COLLECTION);
   return result;
 }
 
-export async function getBoxCollection(): Promise<Collection<any>> {
+export async function getBoxCollection(): Promise<Collection<{}>> {
   return getCollection(BOX_COLLECTION);
 }

@@ -40,7 +40,10 @@ export async function addBox(data: CreateBoxDTO) {
   return await post(BOX, data);
 }
 
-export async function deleteCard(cardId) {}
+export async function deleteCard(cardId: string) {
+  const url = `${CARD}/id/${cardId}`;
+  return await del(url);
+}
 
 export async function deleteBox(boxId: string) {
   const url = `${BOX}/id/${boxId}`;

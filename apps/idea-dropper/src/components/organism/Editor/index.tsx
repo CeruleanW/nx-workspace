@@ -17,7 +17,6 @@ import { CardResponseDTO, UpdateCardDTO } from '../../../features/idea-server';
 import { isFilledArray } from '@root/shared/utils';
 
 
-
 type Box = {
   _id: string;
   name: string;
