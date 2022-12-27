@@ -1,16 +1,13 @@
 import { processMainData } from '../../lib/main/processors';
 import { BoxCard } from '../molecule/BoxCard';
 import IconButton from '@mui/material/IconButton';
-import { addBox, CreateBoxDTO, drawCard, shakeBox } from '../../features/idea-server';
+import { addBox, ALL_BOX, CreateBoxDTO, drawCard, shakeBox } from '../../features/idea-server';
 import { useUser, useModal } from '../../hooks';
-import Dialog from '@mui/material/Dialog';
 import { useState } from 'react';
 import { Icon } from '@root/shared/components';
 import { useSWRConfig } from 'swr';
-import { AddBoxDialog } from '../organism/AddBoxDialog';
-import { DeleteBoxDialog } from '../organism/DeleteBoxDialog';
-import { EditCardDialog } from '../organism/EditCardDialog';
 import { ModalGroup } from '../organism/Modal';
+import { toast } from 'react-toastify';
 
 /**
  * display a list of boxes
@@ -56,18 +53,25 @@ export function BoxPanel({ data, ...optionals }) {
    */
   const handleDraw = async (boxID: string) => {
     console.debug('Draw a card from box', boxID);
-    // send a request to draw a card from this box
-    const card = await drawCard(boxID);
-    console.debug('card', card);
-    // open a modal for showing the card
-    setOperation('editCard');
-    setModalData(card);
-    openDialog();
+    try {
+      // send a request to draw a card from this box
+      const card = await drawCard(boxID);
+      console.debug('card', card);
+      // open a modal for showing the card
+      setOperation('editCard');
+      setModalData(card);
+      openDialog();
+    } catch (error) {
+      console.error(error);
+      toast.error(`Failed to draw a card. ${error?.message}`);
+    }
+
   };
 
   const handleShake = async (boxID: string) => {
     console.debug('Shake the box');
     await shakeBox(boxID);
+    mutate(ALL_BOX);
   };
 
   const handleDelete = (data) => {

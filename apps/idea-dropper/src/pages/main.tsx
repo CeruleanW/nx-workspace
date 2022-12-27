@@ -7,7 +7,7 @@ import { BoxCard } from '../components/molecule/BoxCard';
 import { Tabs } from '../components/organism/Tabs';
 import { useState } from 'react';
 import { TabPanel } from '../components/organism/TabPanel';
-import { Editor } from '../components/organism/Editor';
+import { EditorPanel } from '../components/organism/Editor';
 import { Board } from '../components/organism/Board';
 // import { Nav } from '@root/shared/components/organism/Nav';
 import { MenuAppBar } from '../components/organism/AppBar';
@@ -50,7 +50,7 @@ export default function Main() {
               <BoxPanel data={boxes}></BoxPanel>
             </TabPanel>
             <TabPanel value={tab} index={1}>
-              <Editor tags={boxes} userID={user?._id} />
+              <EditorPanel tags={boxes} userID={user?._id} />
             </TabPanel>
             <TabPanel value={tab} index={2}>
               <Board />

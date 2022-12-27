@@ -4,12 +4,14 @@ import {
   CARD_COLLECTION,
   findCardById,
   updateCard,
+  deleteCard,
+  removeCardFromBoxes,
 } from '@idea/features/idea-server-backend';
-import {inspect} from '@root/shared/utils';
+import { inspect } from '@root/shared/utils';
 
 //request a card by its id
 export default async (req, res) => {
-  const { cardid } = req.query || {};
+  const { cardid }: { cardid: string; [x: string]: any } = req.query || {};
   const session = await getSession({ req });
   if (session) {
     const { db } = await connectToDatabase();
@@ -19,7 +21,13 @@ export default async (req, res) => {
     } else if (req.method === 'POST') {
     } else if (req.method === 'DELETE') {
       console.debug('delete card request', cardid);
+      const result = await deleteCard(cardid);
+      if (result) {
+        // remove card from boxes
+        await removeCardFromBoxes(cardid);
+      }
 
+      return res.status(200).json(result);
     } else if (req.method === 'PATCH') {
       const result = await updateCard(req?.body);
       return res.status(200).json(result);

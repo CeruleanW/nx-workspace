@@ -3,7 +3,6 @@ import {
 } from 'slate';
 import { useSlate } from 'slate-react';
 import { ToolbarContainer } from '.';
-import { Icon } from "./Icon";
 import { Button } from './Button';
 import { ToolbarItemIcon } from './ToolbarItemIcon';
 

@@ -8,6 +8,7 @@ import {
   FaLayerGroup,
   FaPlusCircle,
 } from 'react-icons/fa'; // https://react-icons.github.io/react-icons/
+import { GoNote } from "react-icons/go";
 
 export function Icon({ name, ...rest }) {
   if (name === 'tools') {
@@ -20,6 +21,8 @@ export function Icon({ name, ...rest }) {
     return <FaLayerGroup {...rest} />;
   } else if (name === 'solid-circle-plus') {
     return <FaPlusCircle {...rest} />;
+  } else if (name === 'note') {
+    return <GoNote {...rest} />;
   } else {
     return <FontAwesomeIcon icon={name} {...rest} />;
   }

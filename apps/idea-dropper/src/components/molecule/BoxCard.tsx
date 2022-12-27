@@ -23,6 +23,7 @@ export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
   const { onDraw, onShake, onAdd, onImport, onShare, onDelete } = onMenuClicks || {};
 
   const { _id, shared_with, tags, cards, draw_pointer, draw_sequence } = data as BoxResponseDTO || {};
+  const numOfCards = cards ? cards.length : 0;
   // const nextCardID = getNextDrawCardID(draw_sequence, draw_pointer, cards);
   const isShared = isFilledArray(shared_with);
 
@@ -51,19 +52,27 @@ export function BoxCard({ name, data, onMenuClicks, ...optionals }) {
       <div ref={cardActionRef} data-cy={'box-card-container'}>
         <StyledCard onClick={handleClick} data-cy={'box-card'} className={'flex flex-col justify-between p-4'}>
           <Typography className='text-lg font-semibold' >{name}</Typography>
-          <div className='flex justify-end' >{isShared ? <Icon name={'fa-solid fa-users'} /> : null}</div>
+          <div className='flex justify-end' >
+            {isShared ? <Icon name={'fa-solid fa-users'} /> : null}
+            <div className='flex items-center gap-x-1'>
+              <span>{numOfCards}</span>
+              <Icon name={'note'} />
+            </div>
+          </div>
         </StyledCard>
-        <ControlledMenu
+        {/* <ControlledMenu
           state={isOpen ? 'open' : 'closed'}
           anchorRef={cardActionRef}
-        >
+        > */}
+        <Menu anchorEl={cardActionRef.current} open={isOpen} onClose={() => setOpen(false)}>
           <MenuItem onClick={() => onDraw && onDraw(_id)} disabled={!isFilledArray(cards)} >Draw</MenuItem>
           <MenuItem onClick={() => onShake && onShake(_id)} disabled={!isFilledArray(cards)} >Shake</MenuItem>
           {/* <MenuItem onClick={() => onAdd && onAdd(_id)}>Add</MenuItem> */}
           {/* <MenuItem onClick={handleMenuClick}>Import</MenuItem>
           <MenuItem onClick={handleMenuClick}>Share</MenuItem> */}
-          <MenuItem onClick={() => onDelete && onDelete({id: _id, name})}>Delete</MenuItem>
-        </ControlledMenu>
+          <MenuItem onClick={() => onDelete && onDelete({ id: _id, name })}>Delete</MenuItem>
+        </Menu>
+        {/* </ControlledMenu> */}
       </div>
     </>
   );

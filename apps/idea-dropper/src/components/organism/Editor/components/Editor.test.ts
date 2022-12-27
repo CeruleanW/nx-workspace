@@ -1,4 +1,4 @@
-import { Editor } from './index';
+import { EditorPanel } from './EditorPanel';
 import { renderHook, act } from '@testing-library/react-hooks';
 
 // Editor

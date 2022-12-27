@@ -11,10 +11,6 @@ import {
 } from '../../features/idea-server';
 import { EditorContent } from './Editor';
 import DialogTitle from '@mui/material/DialogTitle';
-import { IconButton } from '@root/shared/components/atomics/IconButton';
-import { Icon } from '@root/shared/components/atomics/Icon';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import { Menu, MenuItem, MenuButton } from '@root/shared/components/molecule/Menu';
 import { EditCardMenu } from './EditCardMenu';
 
 /**
@@ -47,7 +43,7 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
     <>
       <DialogTitle className="flex justify-between">
         <span>Edit Card</span>
-        <EditCardMenu data={data}/>
+        <EditCardMenu data={data} onConfirm={onConfirm} />
       </DialogTitle>
       <div className="p-4 w-full">
         <EditorContent

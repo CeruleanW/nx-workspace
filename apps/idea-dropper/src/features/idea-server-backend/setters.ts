@@ -97,6 +97,16 @@ export async function deleteCard(cardId: string) {
   return result;
 }
 
+// remove a card from the cards prop in all boxes
+export async function removeCardFromBoxes(cardId: string) {
+  const boxCollection = await getBoxCollection();
+  const result = await boxCollection.updateMany(
+    {},
+    { $pull: { cards: new ObjectId(cardId) } }
+  );
+  return result;
+}
+
 export async function deleteAllCards() {
   const cardCollection = await getCardCollection();
   const result = await cardCollection.deleteMany({});

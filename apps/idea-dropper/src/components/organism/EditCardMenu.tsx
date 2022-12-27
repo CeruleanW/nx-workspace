@@ -7,35 +7,49 @@ import {
   MenuButton,
 } from '@root/shared/components/molecule/Menu';
 import { useRef, useState } from 'react';
-import {deleteCard} from '../../features/idea-server';
+import { ALL_BOX, deleteCard } from '../../features/idea-server';
+import { toast } from 'react-toastify';
+import { useSWRConfig } from 'swr';
 
-export function EditCardMenu({data, ...optionals}) {
+export function EditCardMenu({ data, ...optionals }) {
+  // Props
+  const {onConfirm, ...rest} = optionals;
+  const { _id } = data || {};
+
+  const { mutate } = useSWRConfig();
+
   // Local states
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const closeMenu = () => setOpen(false);
 
   const handleDelete = () => {
     console.log('delete');
-    const {_id} = data || {};
-    deleteCard(_id);
+    deleteCard(_id)
+      .then(() => {
+        toast.success('Card deleted');
+        onConfirm && onConfirm();
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error('Failed to delete card');
+      }).finally(() => {
+        mutate(ALL_BOX);
+      });
   };
 
   return (
     <div>
       <div ref={anchorRef}>
-        <IconButton
-          onClick={() => setOpen(!open)}
-        >
+        <IconButton onClick={() => setOpen(!open)}>
           <Icon name={faEllipsisH} />
         </IconButton>
       </div>
-      <Menu
-        anchorEl={anchorRef.current}
-        open={open}
-        onClose={() => setOpen(!open)}
-      >
-        <MenuItem onClick={handleDelete}>Delete</MenuItem>
-        {/* <MenuItem>Close Window</MenuItem> */}
+      <Menu anchorEl={anchorRef.current} open={open} onClose={closeMenu}>
+        <MenuItem onClick={handleDelete} disabled={!_id}>
+          Delete
+        </MenuItem>
+        <MenuItem onClick={closeMenu}>Close</MenuItem>
       </Menu>
     </div>
   );
