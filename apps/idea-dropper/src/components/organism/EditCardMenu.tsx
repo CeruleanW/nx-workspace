@@ -11,9 +11,12 @@ import { ALL_BOX, deleteCard } from '../../features/idea-server';
 import { toast } from 'react-toastify';
 import { useSWRConfig } from 'swr';
 
+/**
+ *
+ */
 export function EditCardMenu({ data, ...optionals }) {
   // Props
-  const {onConfirm, ...rest} = optionals;
+  const { onConfirm, ...rest } = optionals;
   const { _id } = data || {};
 
   const { mutate } = useSWRConfig();
@@ -49,7 +52,7 @@ export function EditCardMenu({ data, ...optionals }) {
         <MenuItem onClick={handleDelete} disabled={!_id}>
           Delete
         </MenuItem>
-        <MenuItem onClick={closeMenu}>Close</MenuItem>
+        {/* <MenuItem onClick={closeMenu}>Close</MenuItem> */}
       </Menu>
     </div>
   );

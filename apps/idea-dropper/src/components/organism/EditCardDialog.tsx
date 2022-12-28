@@ -12,6 +12,8 @@ import {
 import { EditorContent } from './Editor';
 import DialogTitle from '@mui/material/DialogTitle';
 import { EditCardMenu } from './EditCardMenu';
+import { CloseIcon } from '@root/shared/components/atomics/Icon';
+import { IconButton } from '@root/shared/components/atomics/IconButton'
 
 /**
  * UI Modal for editing cards
@@ -40,10 +42,15 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
   };
 
   return (
-    <>
+    <div data-cy={'edit-card-dialog'}>
       <DialogTitle className="flex justify-between">
         <span>Edit Card</span>
-        <EditCardMenu data={data} onConfirm={onConfirm} />
+        <div className='flex gap-x-1 items-center'>
+          <EditCardMenu data={data} onConfirm={onConfirm} />
+          <IconButton onClick={onHide}>
+            <CloseIcon />
+          </IconButton>
+        </div>
       </DialogTitle>
       <div className="p-4 w-full">
         <EditorContent
@@ -52,6 +59,6 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
           defaultValues={restData}
         />
       </div>
-    </>
+    </div>
   );
 }

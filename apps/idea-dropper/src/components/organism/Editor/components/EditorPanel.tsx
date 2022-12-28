@@ -113,7 +113,7 @@ export function EditorPanel({
             callbacks={{ setValue: setContentValue, remove: removeContent }}
           /> : null}
         </Paper>
-        <div className="flex gap-x-4 mt-4">
+        <div className="flex gap-x-4 mt-4 justify-start">
           <Button type="submit" onClick={handleSubmit(handleSave)}>
             Save
           </Button>

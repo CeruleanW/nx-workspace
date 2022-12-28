@@ -34,6 +34,7 @@ export function EditorContent({
   onSubmit,
   ...optionals
 }: { userID: string } & Partial<OptionalsProps>) {
+  // Props
   const {
     defaultValues = { title: '', content: DEFAULT_CONTENT_VALUE, boxes: [] },
     tags = [],
@@ -122,7 +123,7 @@ export function EditorContent({
             )}
           />
         </Paper>
-        <div className="flex gap-x-4 mt-4">
+        <div className="flex gap-x-4 mt-4 justify-end">
           <Button type="submit" onClick={handleSubmit(handleSave)}>
             Save
           </Button>

@@ -10,6 +10,9 @@ import {
 } from 'react-icons/fa'; // https://react-icons.github.io/react-icons/
 import { GoNote } from "react-icons/go";
 
+
+import MuiCloseIcon from '@mui/icons-material/Close';
+
 export function Icon({ name, ...rest }) {
   if (name === 'tools') {
     return <FaTools {...rest} />;
@@ -27,3 +30,5 @@ export function Icon({ name, ...rest }) {
     return <FontAwesomeIcon icon={name} {...rest} />;
   }
 }
+
+export const CloseIcon = MuiCloseIcon;
