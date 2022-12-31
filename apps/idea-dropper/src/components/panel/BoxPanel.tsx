@@ -100,7 +100,7 @@ export function BoxPanel({ data, ...optionals }) {
       <div data-cy={'box-card-list'} className="flex gap-x-8 items-start">
         {processed?.map((item) => (
           <BoxCard
-            key={`${item?._id}`}
+            key={`box-card-item-${item?._id}`}
             name={item?.name}
             data={item}
             className={'max-h-36 min-w-max w-32'}

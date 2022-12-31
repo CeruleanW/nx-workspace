@@ -2,6 +2,7 @@
 import { useAllBoxes, useUserByEmail } from '../features/idea-server';
 import { useSession } from '../features/auth';
 import create from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 /**
  * user data
@@ -46,7 +47,7 @@ const DEFAULT_MODAL_STATE: ModalState = {
   data: null,
 };
 
-export const useModal = create<ModalState & ModalActions>((set) => ({
+const modalStore = (set) => ({
   ...DEFAULT_MODAL_STATE,
   openDialog: () => set({ isDialogOpened: true }),
   closeDialog: () => set({ isDialogOpened: false }),
@@ -55,4 +56,8 @@ export const useModal = create<ModalState & ModalActions>((set) => ({
   setBoxID: (payload) => set((state) => ({ boxID: payload })),
   reset: () => set(DEFAULT_MODAL_STATE),
   setData: (payload) => set((state) => ({ data: payload })),
-}))
+});
+
+export const useModal = create<ModalState & ModalActions>(modalStore);
+
+export const selectSetModalData = (state) => state.setData;

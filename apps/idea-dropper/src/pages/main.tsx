@@ -37,6 +37,7 @@ export default function Main() {
   // console.debug('Main data', data);
   // const processed = processMainData(data);
   const handleChange = (event, newValue) => {
+    console.log("🚀 ~ file: main.tsx:40 ~ handleChange ~ newValue", newValue)
     setTab(newValue);
   };
 

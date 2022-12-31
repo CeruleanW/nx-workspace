@@ -31,7 +31,7 @@ export async function insertCard(data: CreateCardDTO): Promise<any> {
  */
 export async function updateCard(data: Partial<UpdateCardDTO>) {
   const {_id} = data || {};
-  const url = `${CARD}/${_id}`;
+  const url = `${CARD}/id/${_id}`;
   return await patch(url, data);
 }
 

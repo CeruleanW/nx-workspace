@@ -1,7 +1,7 @@
 // import DialogTitle from '@mui/material/DialogTitle';
 // import { Button, TextField, Typography } from '@root/shared/components';
 // import { Controller, useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useSWRConfig } from 'swr';
 import {
   ALL_BOX,
@@ -14,15 +14,19 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { EditCardMenu } from './EditCardMenu';
 import { CloseIcon } from '@root/shared/components/atomics/Icon';
 import { IconButton } from '@root/shared/components/atomics/IconButton'
+import { useModal, selectSetModalData } from '../../hooks';
 
 /**
  * UI Modal for editing cards
  */
 export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
+  const { userID, ...restData } = data || {};
+
   // Hooks
   // const { handleSubmit, control } = useForm();
   const { mutate } = useSWRConfig();
-  const { userID, ...restData } = data || {};
+  const setModalData = useModal(selectSetModalData);
+  const closeDialog = useModal((state) => state.closeDialog);
 
   const handleConfirm = async (data) => {
     const { cardData } = data || {};
@@ -36,8 +40,13 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
       boxes,
     };
     console.debug('update data', updateData);
-    const { data: updatedCard } = await updateCard(updateData);
+    await updateCard(updateData);
+
+    // update states
+    setModalData({...data, ...updateData});
     mutate(ALL_BOX);
+
+    // callback
     onConfirm();
   };
 

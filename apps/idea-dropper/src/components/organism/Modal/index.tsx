@@ -1,6 +1,6 @@
 import Dialog from '@mui/material/Dialog';
-import { useState } from 'react';
-import { Icon } from '@root/shared/components';
+// import { useState } from 'react';
+// import { Icon } from '@root/shared/components';
 import { useSWRConfig } from 'swr';
 import { AddBoxDialog } from '../AddBoxDialog';
 import { DeleteBoxDialog } from '../DeleteBoxDialog';
@@ -13,9 +13,12 @@ import { useModal, useUser } from '../../../hooks';
 export function ModalGroup(props) {
   const isDialogOpened = useModal((state) => state.isDialogOpened);
   const operation = useModal((state) => state.operation);
-  const openDialog = useModal((state) => state.openDialog);
+  // const openDialog = useModal((state) => state.openDialog);
   const closeDialog = useModal((state) => state.closeDialog);
   const modalData = useModal((state) => state.data);
+  const modalItemId = modalData?._id;
+  // console.log("file: index.tsx:19 ~ ModalGroup ~ modalData", modalData);
+
   const { data: userData, error: userError } = useUser();
 
   return (
@@ -39,6 +42,7 @@ export function ModalGroup(props) {
           onHide={closeDialog}
           onConfirm={closeDialog}
           data={{...modalData, userID: userData?.id}}
+          key={`edit-card-dialog-${modalItemId}`}
         />
       ) : null}
     </Dialog>

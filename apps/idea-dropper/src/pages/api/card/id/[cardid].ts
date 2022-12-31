@@ -34,7 +34,7 @@ export default async (req, res) => {
     }
     res.send('No handler for this request method');
   } else {
-    res.send({
+    res.status(500).send({
       error:
         'This is protected content. You must be signed in to access this api route',
     });
