@@ -12,7 +12,7 @@ import { SocialMedia } from '../../components/molecules/SocialMedia';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { usePersonalData } from '../../hooks';
-import { Loading } from '@root/shared/components/atomics';
+import { CenteredLoader } from '@root/shared/components/atomics';
 import { ErrorBoundary } from '@root/shared/features/error-handling';
 import { ContactForm } from './ContactForm';
 
@@ -98,7 +98,7 @@ export default function Contact() {
   }
 
   if (isLoading) {
-    return <Loading />;
+    return <CenteredLoader />;
   }
 
   return (

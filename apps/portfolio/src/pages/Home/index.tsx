@@ -5,7 +5,6 @@ import { ProjectsCarousel } from '../../components/organisms/ProjectsCarousel';
 import { motion } from 'framer-motion';
 import styles from '../../styles/pages/Home.module.scss';
 import { useProjectsData } from '../../hooks';
-import { Loading } from '@root/shared/components/atomics/Loading';
 import { Header } from './Header';
 import { ProfileImg } from './ProfileImg';
 import { HeroImg } from './HeroImg';

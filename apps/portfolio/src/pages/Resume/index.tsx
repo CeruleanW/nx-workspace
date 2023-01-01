@@ -1,7 +1,7 @@
 import { MainResume } from './MainResume';
 import { useResumeData } from './hooks';
 import { ErrorMsg } from '@root/shared/components/atomics/ErrorMsg';
-import { Loading } from '@root/shared/components/atomics';
+import { CenteredLoader } from '@root/shared/components/atomics';
 
 const version = 'back-end';
 
@@ -15,7 +15,7 @@ export function Resume(props) {
   }
 
   if (isLoading) {
-    return <Loading />;
+    return <CenteredLoader />;
   }
 
   // console.debug('resumeData', resumeData);

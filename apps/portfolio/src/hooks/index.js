@@ -19,7 +19,7 @@ export function useProjectDataByID(id) {
 
 export function usePersonalData() {
   // console.debug('test', process.env.NODE_ENV);
-  const fetcher = process.env?.NODE_ENV === 'development' ? fetchLocalPersonalData : fetchPersonalData;
+  const fetcher = process.env?.NODE_ENV === 'development' ? fetchPersonalData : fetchPersonalData;
   const { data, error } = useSWR(PERSONAL_DATA_LINK, fetcher);
   return { data, error, isLoading: !data && !error };
 }

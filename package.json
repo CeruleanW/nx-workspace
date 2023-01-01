@@ -47,6 +47,7 @@
     "date-fns": "^2.28.0",
     "env-cmd": "^10.1.0",
     "express": "^4.17.3",
+    "firebase": "^9.15.0",
     "framer-motion": "^3.2.1",
     "fuse.js": "^6.5.3",
     "idb": "^7.0.0",
