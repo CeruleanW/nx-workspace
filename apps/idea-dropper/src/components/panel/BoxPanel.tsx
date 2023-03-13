@@ -4,10 +4,11 @@ import IconButton from '@mui/material/IconButton';
 import { addBox, ALL_BOX, CreateBoxDTO, drawCard, shakeBox } from '../../features/idea-server';
 import { useUser, useModal } from '../../hooks';
 import { useState } from 'react';
-import { Icon } from '@root/shared/components';
+import { Icon, Loader } from '@root/shared/components';
 import { useSWRConfig } from 'swr';
 import { ModalGroup } from '../organism/Modal';
 import { toast } from 'react-toastify';
+import { ErrorMsg } from '../../features/error-handling';
 
 /**
  * display a list of boxes
@@ -17,13 +18,11 @@ export function BoxPanel({ data, ...optionals }) {
   const processed = processMainData(data);
 
   // Hooks
-  const { data: userData, error: userError } = useUser();
+  const { data: userData, error: userError, isLoading } = useUser();
+  console.log("file: BoxPanel.tsx:21 ~ BoxPanel ~ userData:", userData)
   const { mutate } = useSWRConfig();
-  // const isDialogOpened = useModal((state) => state.isDialogOpened);
-  // const operation = useModal((state) => state.operation);
   const setOperation = useModal((state) => state.setOperation);
   const openDialog = useModal((state) => state.openDialog);
-  // const closeDialog = useModal((state) => state.closeDialog);
   const setBoxID = useModal((state) => state.setBoxID);
   const setModalData = useModal((state) => state.setData);
 
@@ -32,20 +31,18 @@ export function BoxPanel({ data, ...optionals }) {
   const [selectedBox, setSelectedBox] = useState({ operation: null, id: null });
 
   if (userError) {
-    return null;
+    return <ErrorMsg text={userError?.message} />;
   }
 
-  if (!userData) {
-    return null;
+  if (isLoading) {
+    return <Loader />;
   }
 
   // Handlers
   const handleAddBoxClick = () => {
-    // setIsDialogOpened(true);
     openDialog();
     setOperation('add');
     setBoxID(null);
-    // setSelectedBox({id: null, operation: 'add'});
   };
 
   /**

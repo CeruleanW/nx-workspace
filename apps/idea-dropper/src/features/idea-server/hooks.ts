@@ -17,5 +17,6 @@ export function useAllBoxes(enabled = true) {
 export function useUserByEmail(userEmail: string) {
   const url = `${USER_BY_EMAIL}/${encodeURIComponent(userEmail)}`;
   const result = useSWR<any>(url ? url : null, getData);
+  // console.log("file: hooks.ts:20 ~ useUserByEmail ~ result:", result)
   return result;
 }

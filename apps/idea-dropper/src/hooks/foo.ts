@@ -2,14 +2,15 @@
 import { useAllBoxes, useUserByEmail } from '../features/idea-server';
 import { useSession } from '../features/auth';
 import create from 'zustand';
-import { devtools } from 'zustand/middleware';
+// import { devtools } from 'zustand/middleware';
 
 /**
- * user data
+ * use user data
  */
 export function useUser() {
   const { data: session } = useSession();
   const userEmail = session?.user?.email;
+  console.log("file: foo.ts:13 ~ useUser ~ userEmail:", userEmail);
   return useUserByEmail(userEmail);
 }
 
@@ -20,7 +21,7 @@ export function useMainPageData(enabled = true) {
   const {data: userData, error: userError} = useUser();
   // console.debug('userData', userData);
 
-  const { data, error:boxesError } = useAllBoxes(enabled);
+  const { data, error:boxesError, ...rest } = useAllBoxes(enabled);
   return { data, boxes: data, user: userData, error: boxesError || userError};
 }
 

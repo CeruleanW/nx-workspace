@@ -6,7 +6,6 @@ import { HomeBtn } from '../components/molecule/HomeBtn';
 
 /**
  *
- * @returns 
  */
 export default function User() {
   const { data: session } = useSession();
@@ -16,7 +15,7 @@ export default function User() {
   //   return <CenteredLoading />;
   // }
 
-  console.debug('session', session);
+  // console.debug('session', session);
   return (
     <div className={'p-4'}>
       <UserProfile user={user} />

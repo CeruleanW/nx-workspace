@@ -28,16 +28,14 @@ export default function Main() {
 
   if (error) {
     return <ErrorMsg text={error?.message} />;
-  }
-
-  if (!data) {
+  } else if (!data) {
     return <CenteredLoader />;
   }
 
   // console.debug('Main data', data);
   // const processed = processMainData(data);
   const handleChange = (event, newValue) => {
-    console.log("🚀 ~ file: main.tsx:40 ~ handleChange ~ newValue", newValue)
+    // console.log("🚀 ~ file: main.tsx:40 ~ handleChange ~ newValue", newValue)
     setTab(newValue);
   };
 

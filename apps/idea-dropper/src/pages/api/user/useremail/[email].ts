@@ -3,8 +3,6 @@ import { USERS_COLLECTION } from '../../../../features/idea-server-backend';
 
 /**
  *
- * @param req
- * @param res
  */
 const handler = async (req, res) => {
   const { db } = await connectToDatabase();

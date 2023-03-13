@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth';
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import {connectToDatabase} from '@root/shared/features/mongodb';
 
 export default NextAuth({
   providers: [
@@ -27,5 +29,6 @@ export default NextAuth({
     // }),
   ],
   // Optional SQL or MongoDB database to persist users
-  database: process.env.DATABASE_URL
+  database: process.env.DATABASE_URL,
+  // adapter: MongoDBAdapter(connectToDatabase),
 })

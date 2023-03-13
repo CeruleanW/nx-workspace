@@ -54,3 +54,7 @@ export async function drawCard(boxID: string) {
   return await getData(url);
 }
 export async function drawCards(boxId, num) {}
+
+export async function registerUser() {
+
+}

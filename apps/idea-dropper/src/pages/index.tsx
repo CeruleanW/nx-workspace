@@ -8,7 +8,7 @@ import { CenteredLoader } from '@root/shared/components/atomics';
 import { useRouter } from 'next/router'
 
 /**
- *
+ * App page, show login
  */
 export default function Home() {
   // Hooks
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
         <main className='max-w-full flex-auto flex flex-col justify-center'>
-          <h1 className='title'>{APPNAME}</h1>
+          <h1 className='title' data-cy='app-name' >{APPNAME}</h1>
           <div className='mt-10'>
             <p className='text-center'>Drop your ideas in the box</p>
             <p className='text-center'>Draw your ideas for inspiration </p>
