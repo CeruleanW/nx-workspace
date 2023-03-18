@@ -44,7 +44,6 @@ const opts: MongoClientOptions = {
 
 /**
  * requires environment variable MONGODB_URI and MONGODB_DB
- * @returns
  */
 export async function connectToDatabase(): Promise<MongoDBInstance> {
   console.log('Connecting to Database...', MONGODB_URI);
@@ -58,13 +57,6 @@ export async function connectToDatabase(): Promise<MongoDBInstance> {
       client,
       db: client.db(MONGODB_DB),
     };
-
-    // cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
-    //   return {
-    //     client,
-    //     db: client.db(MONGODB_DB),
-    //   };
-    // });
   }
   cached.conn = await cached.promise;
   return cached.conn;
@@ -82,4 +74,9 @@ export async function getCollection(name: string): Promise<Collection<any>> {
   const { db } = await connectToDatabase();
   const result = db.collection(name);
   return result;
+}
+
+export async function getMongoClient() {
+  const { client } = await connectToDatabase();
+  return client;
 }

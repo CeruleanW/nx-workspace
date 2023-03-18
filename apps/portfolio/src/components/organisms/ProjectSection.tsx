@@ -36,9 +36,8 @@ function ProjectText(props) {
 
   return (
     <div
-      className={`text-center max-w-full mt-8 lg:max-w-screen-sm  ${
-        isRightNarrow ? 'lg:ml-14' : 'order-first lg:mr-14'
-      }`}
+      className={`text-center max-w-full mt-8 lg:max-w-screen-sm  ${isRightNarrow ? 'lg:ml-14' : 'order-first lg:mr-14'
+        }`}
     >
       <motion.div {...scaleAni}>
         <h2 className={`text-center text-2xl lg:text-left`}>
@@ -76,17 +75,20 @@ function ProjectText(props) {
   );
 }
 
+/**
+ *  Structure:
+ * - title
+ *  - function
+ *  - explanations of projects to illustrate how you handle problems
+ */
 export default function ProjectSection(props) {
-  // Structure:
-  // - title
-  // - function
-  // - explanations of projects to illustrate how you handle problems
+  const { className, ...rest } = props;
 
   return (
-    <section className={`${props.className} `}>
+    <section className={`${className} `} data-cy={'project-section'} >
       <div className='flex flex-col lg:flex-row justify-center items-center mt-10 lg:mt-4 max-w-full flex-grow'>
-        <ProjectCard {...props} />
-        <ProjectText {...props} />
+        <ProjectCard {...rest} />
+        <ProjectText {...rest} />
       </div>
     </section>
   );

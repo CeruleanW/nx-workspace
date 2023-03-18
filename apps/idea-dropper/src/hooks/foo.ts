@@ -8,21 +8,22 @@ import create from 'zustand';
  * use user data
  */
 export function useUser() {
-  const { data: session } = useSession();
+  const { data: session, status, ...rest} = useSession();
   const userEmail = session?.user?.email;
-  console.log("file: foo.ts:13 ~ useUser ~ userEmail:", userEmail);
-  return useUserByEmail(userEmail);
+  // console.log("file: foo.ts:13 ~ useUser ~ userEmail:", userEmail);
+  const emailResult = useUserByEmail(userEmail);
+  return {...emailResult, sessionStatus: status};
 }
 
 /**
  * fetch
  */
 export function useMainPageData(enabled = true) {
-  const {data: userData, error: userError} = useUser();
+  const {data: userData, error: userError, sessionStatus} = useUser();
   // console.debug('userData', userData);
 
   const { data, error:boxesError, ...rest } = useAllBoxes(enabled);
-  return { data, boxes: data, user: userData, error: boxesError || userError};
+  return { data, boxes: data, user: userData, error: boxesError || userError, ...rest};
 }
 
 type ModalState = {

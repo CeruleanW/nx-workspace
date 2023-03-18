@@ -19,7 +19,7 @@ export function BoxPanel({ data, ...optionals }) {
 
   // Hooks
   const { data: userData, error: userError, isLoading } = useUser();
-  console.log("file: BoxPanel.tsx:21 ~ BoxPanel ~ userData:", userData)
+  // console.log("file: BoxPanel.tsx:21 ~ BoxPanel ~ userData:", userData);
   const { mutate } = useSWRConfig();
   const setOperation = useModal((state) => state.setOperation);
   const openDialog = useModal((state) => state.openDialog);
@@ -94,7 +94,7 @@ export function BoxPanel({ data, ...optionals }) {
           <Icon name="solid-circle-plus" size={48} />
         </IconButton>
       </div>
-      <div data-cy={'box-card-list'} className="flex gap-x-8 items-start">
+      <div data-cy={'box-card-list'} className="flex gap-x-8 gap-y-8 items-start flex-wrap">
         {processed?.map((item) => (
           <BoxCard
             key={`box-card-item-${item?._id}`}

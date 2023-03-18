@@ -12,3 +12,14 @@ export type BoxDocument = {
   owner: ObjectId;
   [x: string]: any
 };
+
+export type UserDocument = {
+  id?: ObjectId;
+  username: string;
+  email: string;
+  password: string;
+  created_date: string;
+  last_login_date: string;
+  type?: string;
+  [x: string]: any;
+};
