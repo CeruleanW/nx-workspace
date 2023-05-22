@@ -1,13 +1,15 @@
 import axios from 'axios';
 import yaml from 'js-yaml';
 // import { PERSONAL_DATA_LINK, PROJECTS_DATA_LINK } from './apis';
-import {getPersonalDataFileUrl, getProjectsDataFileUrl} from '../features/firebase';
+import {
+  getPersonalDataFileUrl,
+  getProjectsDataFileUrl,
+} from '../features/firebase';
+
+const LOCAL_PERSONAL_DATA = 'http://localhost:4200/static/personal-data.yaml';
 
 export async function fetchLocalPersonalData() {
-  getPersonalDataFileUrl().then(fulfilled => {
-    console.debug('fetchPersonalData getPersonalDataFileUrl', fulfilled);
-  })
-  const res = await axios.get('http://localhost:4200/static/personal-data.yaml');
+  const res = await axios.get(LOCAL_PERSONAL_DATA);
   return yaml.load(res.data);
 }
 

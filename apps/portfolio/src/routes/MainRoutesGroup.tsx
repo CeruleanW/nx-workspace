@@ -6,9 +6,9 @@ import { Projects } from '../pages/Projects';
 import { Resume } from '../pages/Resume';
 import { PAGE_ROUTES } from './constants';
 import { lazy } from 'react';
+import {Contact} from '../pages/Contact';
 
 const AboutMe = lazy(() => import('../pages/AboutMe'));
-const Contact = lazy(() => import('../pages/Contact'));
 
 export function MainRoutesGroup() {
   return (

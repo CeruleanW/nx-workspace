@@ -4,7 +4,6 @@ import SeeMyProject from '../../components/molecules/More';
 import { ProjectsCarousel } from '../../components/organisms/ProjectsCarousel';
 import { motion } from 'framer-motion';
 import styles from '../../styles/pages/Home.module.scss';
-import { useProjectsData } from '../../hooks';
 import { Header } from './Header';
 import { ProfileImg } from './ProfileImg';
 import { HeroImg } from './HeroImg';

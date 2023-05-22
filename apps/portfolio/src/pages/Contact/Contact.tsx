@@ -70,7 +70,7 @@ function createHeader() {
   return myHeaders;
 }
 
-export default function Contact() {
+export function Contact() {
   const { data, isLoading, error } = usePersonalData();
   const classes = useStyles();
 
@@ -139,3 +139,5 @@ export default function Contact() {
     </ErrorBoundary>
   );
 }
+
+export default Contact;

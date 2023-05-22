@@ -15,6 +15,7 @@ import { ProviderGroup } from './providers';
 
 LogRocket.init('5bsway/portfolio');
 
+
 export default function App() {
   useEffect(() => {
     easterEgg();
@@ -29,7 +30,7 @@ export default function App() {
           <Nav routes={PAGE_ROUTES} pageTitles={PAGE_TITLES}>
             <Route
               path="/"
-              render={({ location }) => (
+              children={({ location }) => (
                 <NavTabs
                   routes={PAGE_ROUTES}
                   value={location.pathname}

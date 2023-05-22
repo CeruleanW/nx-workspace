@@ -19,7 +19,7 @@ links:
     - wordpress: https://asheryang.epizy.com/wordpress/
   twitter: &twitter https://twitter.com/yi_xpress/
   linkedin: &linkedin https://www.linkedin.com/in/yiyang-tech/
-self-link: https://personal-data-asher.herokuapp.com/static/personal-data.yaml #the link to this file
+self-link: gs://asher-personal-data.appspot.com/data/personal-data.yaml #the link to this file
 projects:
   - name: Plant Light Meter (working title)
     intro: A mobile app measures and displays the light intensity to help you find the right location for your indoor plants
@@ -394,7 +394,7 @@ resumeVersions:
   - version: back-end
     summary:
       version:
-        short: Adaptive software developer with 1+ year professional experience in building Web & Mobile applications in the IoT industry. Specialized in JavaScript and Java and skilled in both Front-end and Back-end. Passionate about providing a smooth and efficient user experience.
+        short: Adaptive software developer with 2 years professional experience in building Web & Mobile applications in the IoT industry. Specialized in JavaScript and Java and skilled in both Front-end and Back-end. Passionate about providing a smooth and efficient user experience.
     experience: &general-experience
       - job-title: Software Developer
         company:
