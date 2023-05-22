@@ -2,8 +2,8 @@ import { useMainPageData } from '../hooks';
 import { ErrorMsg } from '@root/shared/components/atomics/ErrorMsg';
 import PageTemplate from '@root/shared/components/template/PageTemplate';
 import { CenteredLoader } from '@root/shared/components/atomics/Loading';
-import { processMainData } from '../lib/main/processors';
-import { BoxCard } from '../components/molecule/BoxCard';
+// import { processMainData } from '../lib/main/processors';
+// import { BoxCard } from '../components/molecule/BoxCard';
 import { Tabs } from '../components/organism/Tabs';
 import { useState } from 'react';
 import { TabPanel } from '../components/organism/TabPanel';
@@ -59,3 +59,5 @@ export function MainPage() {
     </>
   )
 }
+
+export default MainPage
