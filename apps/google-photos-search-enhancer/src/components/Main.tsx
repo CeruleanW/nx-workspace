@@ -50,7 +50,6 @@ export function Main() {
   const classes = useStyles() as any;
   const dispatch = useDispatch();
 
-
   const isSearching = useFeedback().isSearching;
   const displayedPhotos = useSelector(selectDisplayedPhotos);
   const snackbar = useSelector(selectSnackbar);

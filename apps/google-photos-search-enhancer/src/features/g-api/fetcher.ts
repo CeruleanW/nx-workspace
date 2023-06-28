@@ -11,7 +11,6 @@ import { extractPropsInMediaItems } from './processor';
  * return the setted time stamp
  * Default: include archived items
  * @param accessToken
- * @param url
  * @returns
  */
 export async function requestAllMediaItems(
@@ -46,8 +45,6 @@ export async function requestAllMediaItems(
 /**
  *
  * @param accessToken
- * @param pageToken
- * @param url
  * @returns JSON
  */
 export async function requestAPageOfMediaItems(

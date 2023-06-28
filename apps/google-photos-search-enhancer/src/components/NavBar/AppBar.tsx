@@ -9,7 +9,6 @@ import { Title } from '../Title';
 
 
 export function AppBar({ onOpenDrawer, ...optionals }) {
-  // Styles
   // States
   const [lastUpdateTime, setLastUpdateTime] = useState('');
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);

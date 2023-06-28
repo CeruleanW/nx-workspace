@@ -24,14 +24,12 @@ export function GoogleBtn(props) {
 
   /**
    * get the access token from Google
-   * @param response
    */
   const login = (response) => {
     const {accessToken} = response || {};
     if (accessToken) {
       console.debug('get login token: ', accessToken);
       updateIsLogined(true);
-      // updateAccessToken(accessToken);
       setAxiosDefaultAuthHeader(accessToken);
       // start request
       updateMediaItemsInStorage();
