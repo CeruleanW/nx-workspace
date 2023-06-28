@@ -5,6 +5,9 @@ import { CenteredLoader } from '@root/shared/components/atomics';
 
 const version = 'back-end';
 
+/**
+ *
+ */
 export function Resume(props) {
   const { data: resumeData, isLoading, error } = useResumeData();
 

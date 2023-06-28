@@ -1,4 +1,4 @@
-import Heading from '../atomics/Heading';
+import Heading from '../../../../../libs/shared/src/components/atomics/Heading';
 import { Skill } from '../atomics/SkillItem';
 import styles from '../../styles/components/components.module.scss';
 

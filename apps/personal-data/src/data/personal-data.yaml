@@ -128,6 +128,7 @@ technical-skills:
     - CSS3
     - HTML5
     - Next.js
+    - Data Visualization
     - Styled components
     - Sass
     - Canvas
@@ -135,14 +136,14 @@ technical-skills:
     - Babel
     - Material UI
   back-end: &back-end-skills
-    - Node.js
-    - NestJS
     - Java (8+)
     - SQL
     - Docker
     - PostgreSQL
+    - Node.js (NestJS)
     - MongoDB
-    - Express.js
+    - Azure
+    - TypeORM
     - Python
     - Google Cloud Platform
     - Tomcat
@@ -271,16 +272,16 @@ resume:
       degree: Honours degree
       organization: York University
       from: 09/2018
-      to: 02/2021
+      to: 01/2021
       location: Toronto, Canada
       gpa: 3.85/4.0
       statements:
         - keypoint: Academic
-          description: "Dean’s Circle of Scholars: average overall GPA of 8.38/9.0 & International Excellence Scholarship"
+          description: "Dean’s Circle of Scholars: Maintained a GPA of 8.38/9.0 & International Excellence Scholarship"
       school-projects:
         features:
           - keypoint: Content Searching
-            description: In a local search engine project, recommended the Okapi BM25 ranking algorithm to the team, and implemented data preprocessing and formatting. The program can return relevant results in the required format in 0.5 seconds on average in a clear object-oriented architecture, which led to an A in this course.
+            description: Recommended and implemented the Okapi BM25 ranking algorithm for a local search engine project. Developed data preprocessing and formatting techniques, resulting in relevant search results in the required format within 0.5 seconds on average. Achieved an A grade in the course.
           - keypoint: Secured Web System
             description: Led four team members to create a role-based access control system in Java, using Java Servlet, Apache Tomcat, XML to satisfy the requirement that disallowing unauthorized accesses to protected resources.
           - keypoint: User Interface & Experience
@@ -394,7 +395,7 @@ resumeVersions:
   - version: back-end
     summary:
       version:
-        short: Adaptive software developer with 2 years professional experience in building Web & Mobile applications in the IoT industry. Specialized in JavaScript and Java and skilled in both Front-end and Back-end. Passionate about providing a smooth and efficient user experience.
+        short: Results-driven software engineer with 2 years of experience in building web and mobile applications in the IoT industry. Proficient in JavaScript and Java, with expertise in both front-end and back-end. Eager to leverage technical expertise and collaborative mindset to contribute as a Software Engineer.
     experience: &general-experience
       - job-title: Software Developer
         company:
@@ -404,18 +405,14 @@ resumeVersions:
           from: 05/2021
           to: Present
         features:
-          - keypoint: Data Pipeline
-            description: "To reduce cloud resource consumption and cost, built and deployed a dedicated Node.js data pipeline to pull data from Google Cloud to a PostgreSQL database"
+          - keypoint: State Management
+            description: "Led the development of an Android app that utilizes a controlled finite state machine to ensure stable and uninterrupted USB serial communication with Kaidu scanners. This robust solution facilitated reliable data collection and seamless uploading, ensuring the integrity of the process."
+          - keypoint: Message-Oriented Middleware
+            description: "Investigated and deployed the Azure IoT Hub as a Message-Oriented Middleware to route messages from IoT devices to PostgreSQL database."
           - keypoint: API Development
-            description: "Built and maintained various RESTful API endpoints in the NestJS server to access and manage IoT device configurations and statuses"
-          - keypoint: Cloud service
-            description: "Investigated Azure cloud services to recommend and apply a suitable cloud solution for the cloud migration"
+            description: "Built and maintained a range of RESTful API endpoints in a NestJS server communicating with IoT cloud services and database, to access and manage IoT device statuses and configurations."
           - keypoint: Mobile Development
             description: "Designed and built mobile apps from scratch using React Native to let users configure and update IoT devices in a smooth and efficient way. To reduce the error rate of Bluetooth (BLE) from 33% to less than 5% under specified conditions, refactored the code and ran testing for it."
-          - keypoint: Data Visualization
-            description: "Revamped the customer traffic map from rendering circles to rendering dynamic heat maps to provide more informative insights for users. Used a WebGL-based visualization solution and implemented a trilateration algorithm for the positioning problem."
-          # - keypoint: Agile method
-          #   description: "Worked in a fast-paced, startup culture by following Agile Methodology and managing tasks using JIRA"
       - job-title: Software Developer (contract)
         company:
           company-name: &name-alias An early-stage startup
@@ -451,6 +448,12 @@ resumeVersions:
           - keypoint: Task Optimization
             description: "Created customized Pivot Tables in Excel for tracing daily data of merchandising events, which reduced 40% of task time and greatly improved data inconsistency."
     side-projects:
+      - title: Idea Dropper
+        features:
+          - keypoint: Product Design
+            description: "Designed and developed a user-friendly card and box system for creative idea brainstorming, allowing users to edit and randomly retrieve stored cards, using Next.js and MongoDB"
+        demo: https://idea-dropper.vercel.app/
+        repo: https://github.com/CeruleanW/nx-workspace/tree/master/apps/idea-dropper
       - title: Google Photos Search Enhancer
         features:
           - keypoint: Web Application Development

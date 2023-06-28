@@ -1,6 +1,6 @@
 # Asher's Workspace
 
-This project was generated using [Nx](https://nx.dev).
+This repository contains multiple web applications. Most apps use the React ( JavaScript library )
 
 ## Projects
 
@@ -21,4 +21,10 @@ yarn start:starter
 ## Development
 
 ### Import libraries
+
 See the `paths` prop in `tsconfig.base.json`;
+
+
+## Dependencies
+
+- [Nx](https://nx.dev)

@@ -6,7 +6,7 @@ import MyStory from '../components/organisms/MyStory';
 import MySkills from '../components/organisms/SkillsGroup';
 import { FULLNAME } from '../lib/constants';
 import styles from '../styles/pages/AboutMe.module.scss';
-import { H1 } from '../components/atomics/Heading';
+import { H1 } from '../../../../libs/shared/src/components/atomics/Heading';
 
 function MyImage() {
   return (

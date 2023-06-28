@@ -2,7 +2,7 @@ import Section from '../ResumeSectionWrapper';
 import Title from '../atomics/Title';
 import { SkillItem2 } from '../atomics/SkillItem';
 import { Stack } from '@mui/material';
-import { MAX_FRONTEND_SKILLS, MAX_BACKEND_SKILLS, MAX_GENERAL_SKILLS } from '../../constants';
+import { RESUME_TYPE, SKILL_NUM_BY_TYPE } from '../../constants';
 
 export function SkillType({ text, ...optionals }) {
   const { className, ...rest } = optionals;
@@ -42,10 +42,10 @@ export function SkillsSection({ skills, ...optionals }) {
       <Title text="Tech Skills" />
       {/* map the skill list to each component */}
       <div className="flex flex-col mt-4 justify-start w-full">
-        <SkillList list={backEnd?.slice(0, MAX_BACKEND_SKILLS)} type='Back-End' isFirst />
-        <SkillList list={frontEnd?.slice(0, MAX_FRONTEND_SKILLS)} type='Front-End' />
-        <SkillList list={tools?.slice(0, MAX_GENERAL_SKILLS)} type={'Tools'} />
-        <SkillList list={methodologies?.slice(0, MAX_GENERAL_SKILLS)} type={'Methodologies'} />
+        <SkillList list={backEnd?.slice(0, SKILL_NUM_BY_TYPE[RESUME_TYPE].backEndSkill)} type='Back-End' isFirst />
+        <SkillList list={frontEnd?.slice(0, SKILL_NUM_BY_TYPE[RESUME_TYPE].frontEndSkill)} type='Front-End' />
+        <SkillList list={tools?.slice(0, SKILL_NUM_BY_TYPE[RESUME_TYPE].generalSkill)} type={'Tools'} />
+        <SkillList list={methodologies?.slice(0, SKILL_NUM_BY_TYPE[RESUME_TYPE].generalSkill)} type={'Methodologies'} />
       </div>
     </Section>
   );

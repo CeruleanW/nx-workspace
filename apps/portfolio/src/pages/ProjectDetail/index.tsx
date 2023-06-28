@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FeatureList } from '../../components/molecules/MetaDataList';
 import { useProjectDataByID } from '../../hooks';
 import { Loading } from '../../components/atomics/Loading';
-import { H1 } from '../../components/atomics/Heading';
+import { H1 } from '../../../../../libs/shared/src/components/atomics/Heading';
 import Image from '@root/shared/components/atomics/Image';
 
 export function MetaData(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import Heading from '../atomics/Heading';
+import {Heading} from '../../../../../libs/shared/src/components/atomics/Heading';
 
 export default function MyStory() {
   return (
