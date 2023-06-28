@@ -1,42 +1,38 @@
 import isHotkey from 'is-hotkey';
-import { useCallback, useMemo, useRef } from 'react';
-import {
-  createEditor,
-  Descendant, Editor
-} from 'slate';
-import { Editable, Slate, withReact } from 'slate-react';
+import { useCallback } from 'react';
+import { Editor } from 'slate';
+import { Editable, Slate } from 'slate-react';
 import { Toolbar } from '../Toolbar';
 import { HOTKEYS } from './constants';
-import { DEFAULT_CONTENT_VALUE, CONTENT_KEY } from '../../constants';
-import { useLocalStorage } from '@root/shared/features/local-storage';
-import { Button } from '@root/shared/components/atomics/Button';
+// import { DEFAULT_CONTENT_VALUE, CONTENT_KEY } from '../../constants';
+// import { useLocalStorage } from '@root/shared/features/local-storage';
+// import { Button } from '@root/shared/components/atomics/Button';
 
 /**
  *
  */
-export const RichTextEditor = ({value,  editor, callbacks, ...optionals}) => {
+export const RichTextEditor = ({ value, editor, callbacks, ...optionals }) => {
   // Hooks
-  const renderElement = useCallback(props => <Element {...props} />, []);
-  const renderLeaf = useCallback(props => <Leaf {...props} />, []);
-
+  const renderElement = useCallback((props) => <Element {...props} />, []);
+  const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
 
   // Props
-  const {setValue, remove,} = callbacks || {};
+  const { setValue, remove } = callbacks || {};
 
-  const handleKeyDown = event => {
+  const handleKeyDown = (event) => {
     for (const hotkey in HOTKEYS) {
       if (isHotkey(hotkey, event as any)) {
-        event.preventDefault()
-        const mark = HOTKEYS[hotkey]
-        toggleMark(editor, mark)
+        event.preventDefault();
+        const mark = HOTKEYS[hotkey];
+        toggleMark(editor, mark);
       }
     }
   };
 
-  const handleChange = value => {
+  const handleChange = (value) => {
     const isAstChange = editor.operations.some(
-      op => 'set_selection' !== op.type
-    )
+      (op) => 'set_selection' !== op.type
+    );
     if (isAstChange) {
       // Save the changed value
       setValue(value);
@@ -44,7 +40,11 @@ export const RichTextEditor = ({value,  editor, callbacks, ...optionals}) => {
   };
 
   return (
-    <div className='relative'>
+    <div
+      className="relative"
+      style={{ userSelect: 'none' }}
+      contentEditable={false}
+    >
       <Slate editor={editor} value={value as any} onChange={handleChange}>
         <Toolbar />
         <Editable
@@ -58,88 +58,88 @@ export const RichTextEditor = ({value,  editor, callbacks, ...optionals}) => {
         />
       </Slate>
     </div>
-  )
-}
+  );
+};
 
 const toggleMark = (editor, format) => {
-  const isActive = isMarkActive(editor, format)
+  const isActive = isMarkActive(editor, format);
 
   if (isActive) {
-    Editor.removeMark(editor, format)
+    Editor.removeMark(editor, format);
   } else {
-    Editor.addMark(editor, format, true)
+    Editor.addMark(editor, format, true);
   }
-}
+};
 
 const isMarkActive = (editor, format) => {
-  const marks = Editor.marks(editor)
-  return marks ? marks[format] === true : false
-}
+  const marks = Editor.marks(editor);
+  return marks ? marks[format] === true : false;
+};
 
 const Element = ({ attributes, children, element }) => {
-  const style = { textAlign: element.align }
+  const style = { textAlign: element.align };
   switch (element.type) {
     case 'block-quote':
       return (
         <blockquote style={style} {...attributes}>
           {children}
         </blockquote>
-      )
+      );
     case 'bulleted-list':
       return (
         <ul style={style} {...attributes}>
           {children}
         </ul>
-      )
+      );
     case 'heading-one':
       return (
         <h1 style={style} {...attributes}>
           {children}
         </h1>
-      )
+      );
     case 'heading-two':
       return (
         <h2 style={style} {...attributes}>
           {children}
         </h2>
-      )
+      );
     case 'list-item':
       return (
         <li style={style} {...attributes}>
           {children}
         </li>
-      )
+      );
     case 'numbered-list':
       return (
         <ol style={style} {...attributes}>
           {children}
         </ol>
-      )
+      );
     default:
       return (
         <p style={style} {...attributes}>
           {children}
         </p>
-      )
+      );
   }
-}
+};
 
 const Leaf = ({ attributes, children, leaf }) => {
   if (leaf.bold) {
-    children = <strong>{children}</strong>
+    children = <strong>{children}</strong>;
   }
 
   if (leaf.code) {
-    children = <code>{children}</code>
+    children = <code>{children}</code>;
   }
 
   if (leaf.italic) {
-    children = <em>{children}</em>
+    children = <em>{children}</em>;
   }
 
   if (leaf.underline) {
-    children = <u>{children}</u>
+    children = <u>{children}</u>;
   }
 
-  return <span {...attributes}>{children}</span>
-}
+  return <span {...attributes}>{children}</span>;
+};

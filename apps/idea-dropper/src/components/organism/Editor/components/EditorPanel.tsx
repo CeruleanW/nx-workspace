@@ -37,14 +37,14 @@ export function EditorPanel({
   const { tags = [], title = '', ...rest } = optionals;
   // Hooks
   const [saveState, executeSave] = useAsyncFn((data) => insertCard(data));
-  const {editor, resetEditor} = useEditor();
+  const { editor, resetEditor } = useEditor();
   const { handleSubmit, setValue, reset } = useForm({
     defaultValues: {
       boxes: tags,
       title,
     },
   });
-  const {mutate} = useSWRConfig();
+  const { mutate } = useSWRConfig();
 
   // Local values
   const [contentValue, setContentValue, removeContent] =
@@ -107,11 +107,13 @@ export function EditorPanel({
         />
         <BoxSelector boxes={tags} onChange={handleSelectBoxChange} />
         <Paper className="w-full flex-grow">
-          {editor ? <RichTextEditor
-            value={contentValue}
-            editor={editor}
-            callbacks={{ setValue: setContentValue, remove: removeContent }}
-          /> : null}
+          <ErrorBoundary>
+            {editor ? <RichTextEditor
+              value={contentValue}
+              editor={editor}
+              callbacks={{ setValue: setContentValue, remove: removeContent }}
+            /> : null}
+          </ErrorBoundary>
         </Paper>
         <div className="flex gap-x-4 mt-4 justify-start">
           <Button type="submit" onClick={handleSubmit(handleSave)}>
