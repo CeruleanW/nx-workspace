@@ -13,13 +13,15 @@ const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify'];
 
 
 const StyledMenu = styled.div`
-        & > * {
-          display: inline-block;
-        }
-        & > * + * {
-          margin-left: 15px;
-        }
+  & > * {
+    display: inline-block;
+  }
+  & > * + * {
+    margin-left: 15px;
+  }
+  border-bottom: 2px solid #eee;
 `;
+
 export const Menu = React.forwardRef(
   (
     { className, ...props }: PropsWithChildren<BaseProps>,
@@ -34,23 +36,22 @@ export const Menu = React.forwardRef(
 )
 
 
-const StyledToolbar = styled(Menu)`
-  border-bottom: 2px solid #eee;
-`;
+// const StyledToolbar = styled(Menu)`
+//   border-bottom: 2px solid #eee;
+// `;
 
 export const ToolbarContainer = React.forwardRef(
   (
     { className, ...props }: PropsWithChildren<BaseProps>,
     ref: Ref<OrNull<HTMLDivElement>>
   ) => (
-    <StyledToolbar
+    <Menu
       {...props}
       ref={ref}
       className={`relative p-3 max-w-full ${className}`}
     />
   )
 )
-
 
 
 const toggleBlock = (editor, format) => {

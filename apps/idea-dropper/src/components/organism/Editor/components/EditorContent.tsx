@@ -26,6 +26,8 @@ type OptionalsProps = {
   [x: string]: any;
 };
 
+const DEFAULT_FORM_VALUE = { title: '', content: DEFAULT_CONTENT_VALUE, boxes: [] }
+
 /**
  * decouple editor state from local storage
  */
@@ -36,14 +38,14 @@ export function EditorContent({
 }: { userID: string } & Partial<OptionalsProps>) {
   // Props
   const {
-    defaultValues = { title: '', content: DEFAULT_CONTENT_VALUE, boxes: [] },
+    defaultValues = DEFAULT_FORM_VALUE,
     tags = [],
     containerClassName = "mx-auto w-10/12 flex flex-col",
     ...rest
   } = optionals;
   // Hooks
   const [saveState, executeSave] = useAsyncFn((data) => onSubmit(data));
-  const {editor, resetEditor} = useEditor();
+  const {editor, resetEditor, resetPoint} = useEditor();
   const { handleSubmit, setValue, reset, control } = useForm({
     defaultValues,
   });
@@ -57,6 +59,7 @@ export function EditorContent({
     const owner = userID;
     const boxes = data.boxes;
     const cardData = { content, title, owner, boxes };
+    resetPoint()
 
     executeSave({ cardData })
       .then(() => {
@@ -71,7 +74,7 @@ export function EditorContent({
   };
 
   const handleDiscard = () => {
-    reset();
+    reset({title: '', content: DEFAULT_CONTENT_VALUE, boxes: []});
     resetEditor();
   };
 

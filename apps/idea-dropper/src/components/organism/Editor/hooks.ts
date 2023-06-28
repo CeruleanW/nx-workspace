@@ -11,13 +11,18 @@ export const useEditor = () => {
   if (!editorRef.current) editorRef.current = withReact(createEditor());
   const editor = editorRef.current;
 
-  const resetEditorState = () => {
+  const resetPoint = () => {
     const point = { path: [0, 0], offset: 0 };
     editor.selection = { anchor: point, focus: point }; // clean up selection
+  }
+
+  const resetEditorState = () => {
+    resetPoint()
     editor.history = { redos: [], undos: [] }; // clean up history
     editor.children = DEFAULT_CONTENT_VALUE;
   }
-  return {editor, resetEditor: resetEditorState};
+
+  return {editor, resetEditor: resetEditorState, resetPoint};
 };
 
 /**
