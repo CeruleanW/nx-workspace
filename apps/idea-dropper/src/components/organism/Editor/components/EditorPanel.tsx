@@ -14,7 +14,6 @@ import { useContentInLocalStorage, useEditor } from '../hooks';
 import { isFilledArray } from '@root/shared/utils';
 import { useSWRConfig } from 'swr';
 
-
 type Box = {
   _id: string;
   name: string;
@@ -37,7 +36,7 @@ export function EditorPanel({
   const { tags = [], title = '', ...rest } = optionals;
   // Hooks
   const [saveState, executeSave] = useAsyncFn((data) => insertCard(data));
-  const { editor, resetEditor } = useEditor();
+  const { editor, resetEditor, resetPoint } = useEditor();
   const { handleSubmit, setValue, reset } = useForm({
     defaultValues: {
       boxes: tags,
@@ -57,12 +56,13 @@ export function EditorPanel({
   // });
 
   const handleSave = (data) => {
-    console.debug('submit data', data);
+    console.debug('Editor submit data', data);
+    resetPoint()
     // inputs
     const content = contentValue;
     const title = titleValue;
     const owner = userID;
-    const boxes = data.boxes;
+    const boxes = data?.boxes;
 
     const cardData = { content, title, owner, boxes };
 

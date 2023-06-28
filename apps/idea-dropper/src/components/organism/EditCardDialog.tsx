@@ -23,7 +23,6 @@ export function EditCardDialog({ onConfirm, onHide, data, ...optionals }) {
   const { userID, ...restData } = data || {};
 
   // Hooks
-  // const { handleSubmit, control } = useForm();
   const { mutate } = useSWRConfig();
   const setModalData = useModal(selectSetModalData);
   const closeDialog = useModal((state) => state.closeDialog);

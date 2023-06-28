@@ -15,7 +15,7 @@ export function AddBoxDialog({ onConfirm, onHide, data, ...optionals }) {
   const { mutate } = useSWRConfig();
 
   const handleAddBoxSubmit = (formValues) => {
-    console.debug('form data', formValues);
+    console.debug('add box form data', formValues);
     const { name } = formValues || {};
     const { _id } = data || {};
     const input: CreateBoxDTO = { name, owner: _id };

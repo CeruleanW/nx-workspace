@@ -54,10 +54,10 @@ export function EditorContent({
   const handleSave = (data) => {
     console.debug('submit data', data);
     // compose inputs
-    const content = data.content;
-    const title = data.title;
+    const content = data?.content;
+    const title = data?.title;
     const owner = userID;
-    const boxes = data.boxes;
+    const boxes = data?.boxes;
     const cardData = { content, title, owner, boxes };
     resetPoint()
 
